@@ -5,37 +5,37 @@ const IMAGE_CACHE = "luxury-images-v1.0.0";
 
 // Core files that should always be available offline
 const STATIC_ASSETS = [
-  "/",
-  "/index.html",
-  "/site.webmanifest",
+  "./",
+  "./index.html",
+  "./site.webmanifest",
 
   // Your actual manifest icons
-  "/web-app-manifest-192x192.png",
-  "/web-app-manifest-512x512.png",
-  "/favicon-96x96.png",
-  "/apple-touch-icon.png",
+  "./web-app-manifest-192x192.png",
+  "./web-app-manifest-512x512.png",
+  "./favicon-96x96.png",
+  "./apple-touch-icon.png",
 
   // CSS files
-  "/styles/main.css",
-  "/styles/header.css",
-  "/styles/index.css",
-  "/styles/bottom-nav.css",
+  "./styles/main.css",
+  "./styles/header.css",
+  "./styles/index.css",
+  "./styles/bottom-nav.css",
 
   // Core images
-  "/assets/images/logo.png",
-  "/assets/images/logo2.png",
+  "./assets/images/logo.png",
+  "./assets/images/logo2.png",
 
   // Navigation icons
-  "/assets/icons/home_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
-  "/assets/icons/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
-  "/assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
-  "/assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
+  "./assets/icons/home_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
+  "./assets/icons/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
+  "./assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
+  "./assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
 
   // Profile pictures
-  "/assets/images/pfp/pfp1.jpg",
-  "/assets/images/pfp/pfp2.jpg",
-  "/assets/images/pfp/pfp3.jpg",
-  "/assets/images/pfp/pfp4.jpg",
+  "./assets/images/pfp/pfp1.jpg",
+  "./assets/images/pfp/pfp2.jpg",
+  "./assets/images/pfp/pfp3.jpg",
+  "./assets/images/pfp/pfp4.jpg",
 ];
 
 // Google Fonts URLs to cache

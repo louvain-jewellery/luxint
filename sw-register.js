@@ -12,9 +12,7 @@ if ("serviceWorker" in navigator) {
 
 async function registerServiceWorker() {
   try {
-    const registration = await navigator.serviceWorker.register("/sw.js", {
-      scope: "/", // This service worker will control all pages under the root
-    });
+    const registration = await navigator.serviceWorker.register("./sw.js");
 
     console.log(
       "Luxury International SW: Registration successful",
