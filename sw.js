@@ -8,8 +8,10 @@ const STATIC_ASSETS = [
   "/",
   "/index.html",
   "/site.webmanifest",
-  "/favicon.ico",
-  "/favicon.svg",
+
+  // Your actual manifest icons
+  "/web-app-manifest-192x192.png",
+  "/web-app-manifest-512x512.png",
   "/favicon-96x96.png",
   "/apple-touch-icon.png",
 
@@ -29,7 +31,7 @@ const STATIC_ASSETS = [
   "/assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
   "/assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
 
-  // Profile pictures (commonly accessed)
+  // Profile pictures
   "/assets/images/pfp/pfp1.jpg",
   "/assets/images/pfp/pfp2.jpg",
   "/assets/images/pfp/pfp3.jpg",
@@ -48,28 +50,38 @@ self.addEventListener("install", (event) => {
 
   event.waitUntil(
     Promise.all([
-      // Cache static assets
-      caches.open(STATIC_CACHE).then((cache) => {
+      // Cache static assets (with error handling for missing files)
+      caches.open(STATIC_CACHE).then(async (cache) => {
         console.log("Luxury International SW: Caching static assets");
-        return cache.addAll(STATIC_ASSETS);
+        const cachePromises = STATIC_ASSETS.map(async (url) => {
+          try {
+            await cache.add(url);
+            console.log(`Cached: ${url}`);
+          } catch (error) {
+            console.warn(`Failed to cache ${url}:`, error.message);
+            // Don't fail the entire installation for missing files
+          }
+        });
+        await Promise.all(cachePromises);
       }),
       // Cache Google Fonts
-      caches.open("fonts-cache").then((cache) => {
+      caches.open("fonts-cache").then(async (cache) => {
         console.log("Luxury International SW: Caching fonts");
-        return cache.addAll(
-          FONT_URLS.filter((url) => url.includes("googleapis"))
-        );
+        try {
+          await cache.addAll(
+            FONT_URLS.filter((url) => url.includes("googleapis"))
+          );
+        } catch (error) {
+          console.warn("Failed to cache fonts:", error.message);
+        }
       }),
     ])
       .then(() => {
-        console.log("Luxury International SW: All assets cached successfully");
+        console.log("Luxury International SW: Installation completed");
         return self.skipWaiting(); // Activate immediately
       })
       .catch((error) => {
-        console.error(
-          "Luxury International SW: Failed to cache assets:",
-          error
-        );
+        console.error("Luxury International SW: Installation failed:", error);
       })
   );
 });
