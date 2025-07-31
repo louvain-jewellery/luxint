@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, nofollow" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Luxury" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/bottom-nav.css" />
+
+    <title>Luxury International</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <img class="header__logo" src="assets/images/logo.png" alt="main-logo" />
+    </header>
+    <main class="page-main">
+      <section class="employee">
+        <div class="employee-cards">
+          <div class="employee-card">
+            <div class="employee-card__top-section">
+              <img
+                class="employee-card__logo"
+                src="assets/images/logo2.png"
+                alt=""
+              />
+            </div>
+            <div class="employee-card__bottom-section">
+              <div class="employee-card__detail">
+                <div class="employee-card__detail-row">
+                  <p class="employee-card__detail-title">ID</p>
+                  <p class="employee-card__detail-content">: Luxint-001</p>
+                </div>
+                <div class="employee-card__detail-row">
+                  <p class="employee-card__detail-title">Nama</p>
+                  <p class="employee-card__detail-content">: John Doe</p>
+                </div>
+                <div class="employee-card__detail-row">
+                  <p class="employee-card__detail-title">Langganan</p>
+                  <p class="employee-card__detail-content">: 100 Orang</p>
+                </div>
+              </div>
+              <div class="employee-card__image-wrapper">
+                <img
+                  class="employee-card__image"
+                  src="assets/images/pfp/pfp1.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="employee-card--stack"></div>
+        </div>
+        <nav class="employee-card__selector">
+          <ul class="employee-card__selector-list">
+            <li class="employee-card__selector-item">
+              <div class="employee-card__selected-item"></div>
+              <img
+                class="employee-card__selector-image"
+                src="assets/images/pfp/pfp1.jpg"
+                alt=""
+              />
+              <p class="employee-card__selector-name">John Doe</p>
+            </li>
+            <li class="employee-card__selector-item">
+              <img
+                class="employee-card__selector-image"
+                src="assets/images/pfp/pfp2.jpg"
+                alt=""
+              />
+              <p class="employee-card__selector-name">Juno</p>
+            </li>
+            <li class="employee-card__selector-item">
+              <img
+                class="employee-card__selector-image"
+                src="assets/images/pfp/pfp3.jpg"
+                alt=""
+              />
+              <p class="employee-card__selector-name">Joshua</p>
+            </li>
+            <li class="employee-card__selector-item">
+              <img
+                class="employee-card__selector-image"
+                src="assets/images/pfp/pfp4.jpg"
+                alt=""
+              />
+              <p class="employee-card__selector-name">Jordan Dongo</p>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <ul class="bottom-nav__list">
+        <li class="bottom-nav__item selected">
+          <img
+            class="nav-icon"
+            src="assets/icons/home_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
+            alt=""
+          />
+          <p class="bottom-nav__item-name">Home</p>
+        </li>
+        <li class="bottom-nav__item">
+          <img
+            class="nav-icon"
+            src="assets/icons/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+            alt=""
+          />
+          <p class="bottom-nav__item-name">Search</p>
+        </li>
+        <li class="bottom-nav__item">
+          <img
+            class="nav-icon"
+            src="assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
+            alt=""
+          />
+          <p class="bottom-nav__item-name">More</p>
+        </li>
+      </ul>
+      <ul class="bottom-nav__list--right">
+        <li class="bottom-nav__item--right">
+          <img
+            class="nav-icon"
+            src="assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+            alt=""
+          />
+          <!-- <p class="bottom-nav__item-name">Add</p> -->
+        </li>
+      </ul>
+    </nav>
+  </body>
+  <script>
+    const CACHE_NAME = "luxury-international-v1.0.0";
+    const STATIC_CACHE = "luxury-static-v1.0.0";
+    const DYNAMIC_CACHE = "luxury-dynamic-v1.0.0";
+    const IMAGE_CACHE = "luxury-images-v1.0.0";
+
+    // Core files that should always be available offline
+    const STATIC_ASSETS = [
+      "/",
+      "/index.html",
+      "/site.webmanifest",
+      "/favicon.ico",
+      "/favicon.svg",
+      "/favicon-96x96.png",
+      "/apple-touch-icon.png",
+
+      // CSS files
+      "/styles/main.css",
+      "/styles/header.css",
+      "/styles/index.css",
+      "/styles/bottom-nav.css",
+
+      // Core images
+      "/assets/images/logo.png",
+      "/assets/images/logo2.png",
+
+      // Navigation icons
+      "/assets/icons/home_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
+      "/assets/icons/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
+      "/assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
+      "/assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
+
+      // Profile pictures (commonly accessed)
+      "/assets/images/pfp/pfp1.jpg",
+      "/assets/images/pfp/pfp2.jpg",
+      "/assets/images/pfp/pfp3.jpg",
+      "/assets/images/pfp/pfp4.jpg",
+    ];
+
+    // Google Fonts URLs to cache
+    const FONT_URLS = [
+      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+      "https://fonts.gstatic.com",
+    ];
+
+    // Install event - cache static assets
+    self.addEventListener("install", (event) => {
+      console.log("Luxury International SW: Installing...");
+
+      event.waitUntil(
+        Promise.all([
+          // Cache static assets
+          caches.open(STATIC_CACHE).then((cache) => {
+            console.log("Luxury International SW: Caching static assets");
+            return cache.addAll(STATIC_ASSETS);
+          }),
+          // Cache Google Fonts
+          caches.open("fonts-cache").then((cache) => {
+            console.log("Luxury International SW: Caching fonts");
+            return cache.addAll(
+              FONT_URLS.filter((url) => url.includes("googleapis"))
+            );
+          }),
+        ])
+          .then(() => {
+            console.log(
+              "Luxury International SW: All assets cached successfully"
+            );
+            return self.skipWaiting(); // Activate immediately
+          })
+          .catch((error) => {
+            console.error(
+              "Luxury International SW: Failed to cache assets:",
+              error
+            );
+          })
+      );
+    });
+
+    // Activate event - clean up old caches
+    self.addEventListener("activate", (event) => {
+      console.log("Luxury International SW: Activating...");
+
+      event.waitUntil(
+        caches
+          .keys()
+          .then((cacheNames) => {
+            return Promise.all(
+              cacheNames.map((cacheName) => {
+                // Delete old versions of our caches
+                if (
+                  cacheName.startsWith("luxury-") &&
+                  cacheName !== STATIC_CACHE &&
+                  cacheName !== DYNAMIC_CACHE &&
+                  cacheName !== IMAGE_CACHE
+                ) {
+                  console.log(
+                    "Luxury International SW: Deleting old cache:",
+                    cacheName
+                  );
+                  return caches.delete(cacheName);
+                }
+              })
+            );
+          })
+          .then(() => {
+            console.log("Luxury International SW: Activated successfully");
+            return self.clients.claim(); // Take control of all pages
+          })
+      );
+    });
+
+    // Fetch event - handle requests with different strategies
+    self.addEventListener("fetch", (event) => {
+      const { request } = event;
+      const url = new URL(request.url);
+
+      // Skip non-GET requests
+      if (request.method !== "GET") {
+        return;
+      }
+
+      // Handle different types of requests
+      if (url.origin === self.location.origin) {
+        // Same origin requests
+        event.respondWith(handleSameOriginRequest(request));
+      } else if (
+        url.hostname === "fonts.googleapis.com" ||
+        url.hostname === "fonts.gstatic.com"
+      ) {
+        // Google Fonts requests
+        event.respondWith(handleFontRequest(request));
+      } else {
+        // External requests
+        event.respondWith(handleExternalRequest(request));
+      }
+    });
+
+    // Handle same-origin requests (your app files)
+    async function handleSameOriginRequest(request) {
+      const url = new URL(request.url);
+
+      try {
+        // For HTML pages, try network first, fallback to cache
+        if (request.headers.get("accept")?.includes("text/html")) {
+          return await networkFirstStrategy(request, STATIC_CACHE);
+        }
+
+        // For CSS and JS files, try cache first, fallback to network
+        if (url.pathname.endsWith(".css") || url.pathname.endsWith(".js")) {
+          return await cacheFirstStrategy(request, STATIC_CACHE);
+        }
+
+        // For images, try cache first, fallback to network, then cache
+        if (
+          request.headers.get("accept")?.includes("image") ||
+          url.pathname.includes("/assets/images/") ||
+          url.pathname.includes("/assets/icons/")
+        ) {
+          return await cacheFirstStrategy(request, IMAGE_CACHE);
+        }
+
+        // For other assets, try cache first
+        return await cacheFirstStrategy(request, STATIC_CACHE);
+      } catch (error) {
+        console.error(
+          "Luxury International SW: Error handling same-origin request:",
+          error
+        );
+        return new Response("Offline - Content not available", {
+          status: 503,
+          statusText: "Service Unavailable",
+        });
+      }
+    }
+
+    // Handle Google Fonts requests
+    async function handleFontRequest(request) {
+      try {
+        return await cacheFirstStrategy(request, "fonts-cache");
+      } catch (error) {
+        console.error("Luxury International SW: Font request failed:", error);
+        return fetch(request);
+      }
+    }
+
+    // Handle external requests
+    async function handleExternalRequest(request) {
+      try {
+        // Try network first for external resources
+        const response = await fetch(request);
+        return response;
+      } catch (error) {
+        console.error(
+          "Luxury International SW: External request failed:",
+          error
+        );
+        return new Response("External resource unavailable offline", {
+          status: 503,
+        });
+      }
+    }
+
+    // Cache-first strategy: check cache first, fallback to network
+    async function cacheFirstStrategy(request, cacheName) {
+      const cache = await caches.open(cacheName);
+      const cachedResponse = await cache.match(request);
+
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+
+      try {
+        const networkResponse = await fetch(request);
+        // Cache successful responses
+        if (networkResponse.ok) {
+          cache.put(request, networkResponse.clone());
+        }
+        return networkResponse;
+      } catch (error) {
+        console.error(
+          "Luxury International SW: Network request failed:",
+          error
+        );
+        throw error;
+      }
+    }
+
+    // Network-first strategy: try network first, fallback to cache
+    async function networkFirstStrategy(request, cacheName) {
+      try {
+        const networkResponse = await fetch(request);
+        // Cache successful responses
+        if (networkResponse.ok) {
+          const cache = await caches.open(cacheName);
+          cache.put(request, networkResponse.clone());
+        }
+        return networkResponse;
+      } catch (error) {
+        console.log("Luxury International SW: Network failed, trying cache");
+        const cache = await caches.open(cacheName);
+        const cachedResponse = await cache.match(request);
+
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+
+        throw error;
+      }
+    }
+
+    // Handle background sync (if you want to add this feature later)
+    self.addEventListener("sync", (event) => {
+      if (event.tag === "employee-data-sync") {
+        event.waitUntil(syncEmployeeData());
+      }
+    });
+
+    // Placeholder for syncing employee data when back online
+    async function syncEmployeeData() {
+      console.log("Luxury International SW: Syncing employee data...");
+      // Add your sync logic here
+    }
+
+    // Handle push notifications (if you want to add this feature later)
+    self.addEventListener("push", (event) => {
+      const options = {
+        body: event.data
+          ? event.data.text()
+          : "New notification from Luxury International",
+        icon: "/favicon-96x96.png",
+        badge: "/favicon-96x96.png",
+        vibrate: [100, 50, 100],
+        data: {
+          dateOfArrival: Date.now(),
+          primaryKey: 1,
+        },
+      };
+
+      event.waitUntil(
+        self.registration.showNotification("Luxury International", options)
+      );
+    });
+
+    // Handle notification clicks
+    self.addEventListener("notificationclick", (event) => {
+      event.notification.close();
+      event.waitUntil(clients.openWindow("/"));
+    });
+  </script>
+</html>
