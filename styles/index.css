@@ -51,7 +51,6 @@
   /* opacity: 0.5; */
 
   color: black;
-  background-color: rgb(236, 221, 132);
   width: 100%;
   aspect-ratio: 3/2;
   border-radius: 15px;
@@ -91,6 +90,7 @@
 .employee-card__bottom-section {
   padding: 25px;
   display: flex;
+  background-color: rgb(236, 221, 132);
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
@@ -153,7 +153,8 @@
   justify-content: flex-start;
   gap: 15px;
   list-style: none;
-  border: 0.5px solid rgb(81, 81, 81);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.289);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.064);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 10px 15px;
