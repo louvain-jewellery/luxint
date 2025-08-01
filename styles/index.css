@@ -78,7 +78,6 @@
 }
 
 .employee-card--stack {
-  display: none;
   width: calc(100% - 20px);
   bottom: -7px;
   background-color: rgb(130, 121, 73);
