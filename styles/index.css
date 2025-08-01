@@ -58,7 +58,7 @@
   border-radius: 15px;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
   border-top: 2px solid rgba(255, 255, 255, 0.212);
-  border-left: 2px solid rgba(255, 255, 255, 0.308);
+  border-left: 2px solid rgba(255, 255, 255, 0.333);
   overflow: hidden;
   background-image: repeating-linear-gradient(
     to bottom,
@@ -181,7 +181,7 @@
   justify-content: flex-start;
   gap: 15px;
   list-style: none;
-  border: 2px solid rgba(255, 255, 255, 0.158);
+  border: 1px solid rgba(255, 255, 255, 0.158);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 10px 15px;
