@@ -51,13 +51,22 @@
   /* opacity: 0.5; */
 
   color: black;
+  background-color: rgb(18, 18, 18);
+
   width: 100%;
   aspect-ratio: 3/2;
   border-radius: 15px;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
-  border-top: 0.5px solid rgb(81, 81, 81);
-  border-bottom: 0.5px solid rgba(102, 86, 16, 0.5);
+  border-top: 2px solid rgba(255, 255, 255, 0.212);
+  border-left: 2px solid rgba(255, 255, 255, 0.308);
   overflow: hidden;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(128, 128, 128, 0.05) 0px,
+    rgba(128, 128, 128, 0.05) 1px,
+    transparent 1px,
+    transparent 5px
+  );
   z-index: 99;
 
   background-image: linear-gradient(
@@ -69,8 +78,10 @@
 }
 
 .employee-card--stack {
+  display: none;
   width: calc(100% - 20px);
   bottom: -7px;
+  background-color: rgb(130, 121, 73);
   z-index: 98;
 }
 
@@ -81,7 +92,13 @@
   padding: 15px;
   height: 30%;
   width: 100%;
-  background-color: rgb(18, 18, 18);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(128, 128, 128, 0.025) 0px,
+    rgba(128, 128, 128, 0.025) 1px,
+    transparent 1px,
+    transparent 5px
+  );
 }
 
 .employee-card__logo {
@@ -91,6 +108,13 @@
   padding: 25px;
   display: flex;
   background-color: rgb(236, 221, 132);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(128, 128, 128, 0.025) 0px,
+    rgba(128, 128, 128, 0.025) 1px,
+    transparent 1px,
+    transparent 5px
+  );
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
@@ -106,6 +130,9 @@
 
 .employee-card__detail-row {
   font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 500;
+  color: rgb(30, 30, 30);
   display: flex;
   flex-direction: row;
   padding: 5px;
@@ -122,7 +149,7 @@
 
 .employee-card__image-wrapper {
   display: flex;
-  height: 60%;
+  height: 65%;
   aspect-ratio: 4/5;
 }
 
@@ -130,6 +157,7 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.2);
 }
 
 .employee-card__selector {
@@ -153,8 +181,7 @@
   justify-content: flex-start;
   gap: 15px;
   list-style: none;
-  border-top: 1.5px solid rgba(255, 255, 255, 0.289);
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.064);
+  border: 2px solid rgba(255, 255, 255, 0.158);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 10px 15px;
@@ -163,19 +190,17 @@
 
 .employee-card__selected-item {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
+  height: 50%;
   width: 3px;
-  background-color: rgb(236, 221, 132);
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.286);
 }
 
 .employee-card__selector-image {
   width: 50px;
   aspect-ratio: 1/1;
   border-radius: 100px;
-}
-
-.add {
-  width: 2fr;
 }

@@ -9,10 +9,12 @@
   justify-content: center;
   height: 64px;
   padding: 15px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.536);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.114);
   z-index: 100;
 }
 
 .header__logo {
-  height: 100%;
+  height: 30px;
 }
