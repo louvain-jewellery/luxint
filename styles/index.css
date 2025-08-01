@@ -41,8 +41,8 @@
     ),
     repeating-linear-gradient(
       145deg,
-      rgba(128, 128, 128, 0.1) 0px,
-      rgba(128, 128, 128, 0.1) 1px,
+      rgba(128, 128, 128, 0.075) 0px,
+      rgba(128, 128, 128, 0.075) 1px,
       transparent 1px,
       transparent 5px
     );
@@ -65,7 +65,7 @@
   border-radius: 15px;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
   border-top: 2px solid rgba(255, 255, 255, 0.212);
-  border-left: 2px solid rgba(255, 255, 255, 0.333);
+  /* border-left: 2px solid rgba(255, 255, 255, 0.333); */
   overflow: hidden;
 
   z-index: 99;
@@ -90,6 +90,7 @@
   align-items: center;
   justify-content: center;
   padding: 15px;
+  border-left: 2px solid rgba(255, 255, 255, 0.563);
   height: 30%;
   width: 100%;
 }
@@ -101,6 +102,8 @@
   padding: 25px;
   display: flex;
   background-color: rgb(221, 205, 118);
+  border-left: 2px solid rgba(255, 255, 255, 0.563);
+
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
