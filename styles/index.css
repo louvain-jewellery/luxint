@@ -38,6 +38,13 @@
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.1) 40%,
       rgba(0, 0, 0, 0) 100%
+    ),
+    repeating-linear-gradient(
+      145deg,
+      rgba(128, 128, 128, 0.1) 0px,
+      rgba(128, 128, 128, 0.1) 1px,
+      transparent 1px,
+      transparent 5px
     );
   opacity: 0.8;
 }
@@ -60,13 +67,7 @@
   border-top: 2px solid rgba(255, 255, 255, 0.212);
   border-left: 2px solid rgba(255, 255, 255, 0.333);
   overflow: hidden;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(128, 128, 128, 0.05) 0px,
-    rgba(128, 128, 128, 0.05) 1px,
-    transparent 1px,
-    transparent 5px
-  );
+
   z-index: 99;
 
   background-image: linear-gradient(
@@ -91,13 +92,6 @@
   padding: 15px;
   height: 30%;
   width: 100%;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(128, 128, 128, 0.025) 0px,
-    rgba(128, 128, 128, 0.025) 1px,
-    transparent 1px,
-    transparent 5px
-  );
 }
 
 .employee-card__logo {
@@ -106,14 +100,7 @@
 .employee-card__bottom-section {
   padding: 25px;
   display: flex;
-  background-color: rgb(236, 221, 132);
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(128, 128, 128, 0.025) 0px,
-    rgba(128, 128, 128, 0.025) 1px,
-    transparent 1px,
-    transparent 5px
-  );
+  background-color: rgb(221, 205, 118);
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
