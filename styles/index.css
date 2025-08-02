@@ -90,7 +90,8 @@
   align-items: center;
   justify-content: center;
   padding: 15px;
-  border-left: 2px solid rgba(255, 255, 255, 0.563);
+  border-left: 2px solid rgba(255, 255, 255, 0.075);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.168);
   height: 30%;
   width: 100%;
 }
@@ -118,7 +119,7 @@
 }
 
 .employee-card__detail-row {
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Times New Roman", Times, serif;
   font-weight: 500;
   color: rgb(30, 30, 30);
@@ -146,11 +147,13 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
-  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.1);
+  border: 0.5px solid rgba(0, 0, 0, 0.681);
+  border-radius: 7.5px;
 }
 
 .employee-card__selector {
-  font-size: 14px;
+  font-size: 12px;
   width: 100%;
   height: fit-content;
 }
@@ -192,4 +195,8 @@
   width: 50px;
   aspect-ratio: 1/1;
   border-radius: 100px;
+}
+
+.employee-card__selector-name {
+  white-space: nowrap;
 }

@@ -24,12 +24,13 @@
   flex: 1;
   justify-content: space-between;
   padding: 5px 5px;
-  background: rgba(255, 255, 255, 0.114);
+  background: rgba(255, 255, 255, 0.09);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4),
-    inset 0 0 4px 2px rgba(255, 255, 255, 0.035);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3),
+    inset 0 0 4px 2px rgba(255, 255, 255, 0.045);
   border-radius: 100px;
+  z-index: 100;
 }
 
 .bottom-nav__list--right {
@@ -51,17 +52,12 @@
   list-style: none;
   border-radius: 100px;
   padding: 5px 5px;
+  cursor: pointer;
 }
 
 .bottom-nav__item.selected,
 .bottom-nav__item--right.selected {
   position: relative;
-  /* background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.19),
-    rgba(255, 255, 255, 0.168),
-    rgba(255, 255, 255, 0.19)
-  ); */
   background-color: rgba(255, 255, 255, 0.179);
   box-shadow: 0px 0px 5px 2px rgba(255, 255, 255, 0.05);
   border: 2px solid rgba(255, 255, 255, 0.037);
@@ -87,32 +83,48 @@
   position: absolute;
   opacity: 0;
   visibility: hidden;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
   height: 64px;
-  bottom: 100px;
-  left: 0;
-  right: 0;
+  bottom: 20px;
+  transform: translateY(0px);
   padding: 0 15px;
+  right: 0;
+  transition: all 0.2s ease;
+  width: 0;
+  z-index: 99;
+}
+
+.bottom-nav__search-bar.visible {
+  width: 100%;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-80px);
 }
 
 .bottom-nav__search-bar-input {
   position: relative;
   height: 100%;
   width: 100%;
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgb(72, 72, 72);
-  background-color: black;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4),
+    inset 0 0 4px 2px rgba(255, 255, 255, 0.045);
   border-radius: 100px;
   padding: 0 30px;
   font-size: 16px;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-weight: 600;
+  color: white;
 }
 
 .bottom-nav__search-bar-icon {
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   right: 45px;
   height: 45%;
 }

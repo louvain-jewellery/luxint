@@ -1,8 +1,8 @@
 .header {
-  position: fixed;
+  /* position: fixed;
   top: 0;
   right: 0;
-  left: 0;
+  left: 0; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,7 +11,7 @@
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.536);
   backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.114);
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.114); */
   z-index: 100;
 }
 
