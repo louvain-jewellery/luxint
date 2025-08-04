@@ -1,0 +1,113 @@
+.add-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -1000px;
+  opacity: 0;
+  visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 35px;
+  align-items: flex-start;
+  padding: 30px 30px 50px 30px;
+
+  border-radius: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px) saturate(180%);
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.4),
+    inset 0 0 4px 2px rgba(255, 255, 255, 0.045);
+  transition: all 0.3s ease;
+
+  z-index: 101;
+}
+
+.add-overlay.visible {
+  bottom: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  gap: 75px;
+}
+
+.add-overlay__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.add-overlay__title-text {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.add-overlay__close-button {
+  font-size: 15px;
+  aspect-ratio: 1/1;
+  padding-bottom: 2px;
+  width: 30px;
+  background-color: rgba(255, 255, 255, 0.179);
+  border: 2px solid rgba(255, 255, 255, 0.037);
+  border-radius: 100px;
+}
+
+.add-form__item-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.add-form__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.add-form__item-name {
+  font-weight: 400;
+}
+
+.add-form__item-input {
+  padding: 7.5px 15px;
+  width: 180px;
+  font-size: 16px;
+  color: white;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.179);
+  border: 2px solid rgba(255, 255, 255, 0.037);
+}
+
+.add-form__item-input::before {
+  content: ":";
+  font-size: 16px;
+  color: white;
+}
+
+.add-overlay__submit-button {
+  width: 100%;
+  padding: 7.5px 15px;
+
+  font-size: 16px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color: white;
+
+  background-color: rgba(255, 255, 255, 0.179);
+  border: 2px solid rgba(255, 255, 255, 0.037);
+  border-radius: 100px;
+}

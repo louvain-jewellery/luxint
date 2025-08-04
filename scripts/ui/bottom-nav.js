@@ -24,18 +24,18 @@ export function renderBottomNav() {
         </a>
       </li>
       <li class="bottom-nav__item">
-        <a class="bottom-nav__item-link" href="add.html">
+        <button class="bottom-nav__item-link js-add-button">
           <img
             class="icon nav-icon"
             src="assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
             alt=""
           />
           <p class="bottom-nav__item-name">Add</p>
-        </a>
+        </button>
       </li>
     </ul>
     <ul class="bottom-nav__list--right">
-      <li class="bottom-nav__item--right js-search-button">
+      <li role="button" class="bottom-nav__item--right js-search-button">
         <img
           class="icon nav-icon bottom-nav__search-icon js-search-icon"
           src="assets/icons/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
