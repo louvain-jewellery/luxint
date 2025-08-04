@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  max-width: 768px;
+  max-width: 1024px;
   display: flex;
   height: 64px;
   flex-direction: row;

@@ -86,7 +86,7 @@
   height: 100%;
 }
 .employee-card__bottom-section {
-  padding: 25px;
+  padding: 7%;
   display: flex;
   height: 70%;
   background-color: rgb(221, 205, 118);
@@ -106,14 +106,18 @@
 }
 
 .employee-card__detail-row {
-  font-size: 100%;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 500;
   color: rgb(30, 30, 30);
   display: flex;
   flex-direction: row;
   padding: 5px;
   flex-wrap: nowrap;
+}
+
+.employee-card__detail-title,
+.employee-card__detail-content {
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 500;
 }
 
 .employee-card__detail-title {
@@ -126,7 +130,7 @@
 
 .employee-card__image-wrapper {
   display: flex;
-  height: 65%;
+  height: 100%;
   aspect-ratio: 4/5;
 }
 
