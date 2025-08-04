@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 1024px;
   display: flex;
-  height: 64px;
+  height: 80px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -14,6 +14,7 @@
 
 .header--solo {
   max-width: none;
+  height: 64px;
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.2);
@@ -37,6 +38,7 @@
 
   aspect-ratio: 1/1;
   border-radius: 100px;
+  height: 100%;
   padding: 10px;
   background: rgba(255, 255, 255, 0.09);
   backdrop-filter: blur(20px) saturate(180%);
