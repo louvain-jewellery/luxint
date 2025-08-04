@@ -17,12 +17,10 @@ body {
   background-color: #000000;
   color: rgb(255, 255, 255);
   font-family: "Inter";
-  height: 3000px;
-  margin-top: 64px;
+  margin: 69px 0 100px 0;
 }
 
 .page-main {
-  padding: 15px;
   font-weight: 400;
   width: 100%;
   max-width: 1024px;
@@ -34,7 +32,8 @@ input:focus {
 
 a,
 div,
-li {
+li,
+button {
   outline: none;
   -webkit-tap-highlight-color: transparent;
   color: inherit;

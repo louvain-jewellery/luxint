@@ -2,33 +2,47 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+  padding-top: 30px;
+}
+
+.customer-data__header-name {
+  font-size: 28px;
+  padding-left: 15px;
 }
 
 .breadcrumb-nav__wrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
+  justify-content: baseline;
   font-size: 14px;
   font-weight: 400;
   gap: 5px;
+  padding-left: 15px;
 }
 
 .breadcrumb-nav__item {
   list-style: none;
+  /* background-color: lightblue; */
 }
 
 .breadcrumb-nav__item::after {
-  content: ">";
-  gap: 5px;
-  font-weight: 600;
+  content: "";
+  /* background-color: lightpink; */
+  display: inline-block;
+  height: 0.8em;
+  aspect-ratio: 1/1;
+  background-image: url("../assets/icons/arrow_back_ios_new_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg");
+  filter: invert(100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  rotate: 180deg;
+  vertical-align: -1px;
 }
 
 .breadcrumb-nav__item:last-child::after {
   content: "";
-}
-
-.customer-data__header-name {
-  font-size: 28px;
+  background-image: none;
 }
 
 .customer-data__wrapper {
@@ -52,8 +66,8 @@
   align-items: center;
   width: 100%;
   height: fit-content;
-  gap: 15px;
   border: none;
+  gap: 15px;
 }
 
 .customer-data__item-icon-wrapper {
@@ -65,6 +79,7 @@
   width: 50px;
   aspect-ratio: 1/1;
   border-radius: 100px;
+  margin-left: 15px;
 }
 
 .customer-data__item-icon {
@@ -77,8 +92,8 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  padding: 15px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 15px 15px 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   flex: 1;
 }
 
@@ -92,6 +107,7 @@
 
 .customer-data__item-name {
   font-size: 16px;
+  font-weight: 600;
 }
 
 .customer-data__item-count {
