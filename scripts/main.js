@@ -1,3 +1,3 @@
-import { showSearchBar } from "./components/search";
+import { showSearchBar } from "./components/search.js";
 
-showSearchBar()
+showSearchBar();
