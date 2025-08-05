@@ -18,12 +18,20 @@ export function renderAddOverlay() {
             <input class="add-form__item-input" type="text" name="weight" />
           </div>
           <div class="add-form__item">
+            <label class="add-form__item-name" for="date">Tanggal Beli :</label />
+            <input class="add-form__item-input" type="date" name="date" />
+          </div>
+          <div class="add-form__item">
             <label class="add-form__item-name" for="gold">Kadar Emas :</label>
             <input class="add-form__item-input" type="text" name="gold" />
           </div>
           <div class="add-form__item">
             <label class="add-form__item-name" for="price">Harga Jual :</label>
             <input class="add-form__item-input" type="text" name="price" />
+          </div>
+          <div class="add-form__item">
+            <label class="add-form__item-name" for="photo">Foto Produk :</label>
+            <input class="add-form__item-input" type="file" name="photo" />
           </div>
         </div>
 

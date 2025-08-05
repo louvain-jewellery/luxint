@@ -53,7 +53,7 @@
           alt="back button"
         />
       </button>
-      <!-- <p class="header__name">Pelanggan</p> -->
+      <p class="header__name">Pelanggan</p>
       <button class="header__button">
         <img
           class="header__button-icon"
@@ -67,18 +67,23 @@
       <section class="customer-data">
         <h1 class="customer-data__header-name">Pelanggan</h1>
 
-        <nav class="breadcrumb-nav">
-          <ul class="breadcrumb-nav__wrapper">
-            <li class="breadcrumb-nav__item">
-              <a class="breadcrumb-nav__item-name" href="data.html">John Doe</a>
-            </li>
-            <li class="breadcrumb-nav__item">
-              <a class="breadcrumb-nav__item-name" href="data.html"
-                >Pelanggan</a
-              >
-            </li>
-          </ul>
-        </nav>
+        <div class="bottom-nav__search-bar js-search-bar-wrapper">
+          <input
+            class="bottom-nav__search-bar-input js-search-bar"
+            type="text"
+            name="bro"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            placeholder="Search..."
+          />
+          <img
+            class="icon bottom-nav__search-bar-icon"
+            src="assets/icons/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+            alt=""
+          />
+        </div>
 
         <nav class="customer-data__wrapper">
           <ul class="customer-data__item-list">

@@ -13,7 +13,7 @@
   align-items: flex-start;
   padding: 30px 30px 50px 30px;
 
-  border-radius: 25px;
+  border-radius: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(30px) saturate(180%);
@@ -84,7 +84,7 @@
 
 .add-form__item-input {
   padding: 7.5px 15px;
-  width: 180px;
+  width: 210px;
   font-size: 16px;
   color: white;
   border-radius: 100px;
