@@ -1,7 +1,7 @@
 .add-overlay {
   position: fixed;
   left: 0;
-  right: 0;
+  width: 100%;
   bottom: -1000px;
   opacity: 0;
   visibility: hidden;
@@ -37,6 +37,7 @@
   justify-content: flex-start;
   height: 100%;
   width: 100%;
+  max-width: 100%;
   gap: 75px;
 }
 
@@ -68,6 +69,7 @@
   flex-direction: column;
   gap: 15px;
   width: 100%;
+  max-width: 100%;
 }
 
 .add-form__item {
@@ -75,27 +77,47 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
   width: 100%;
 }
 
 .add-form__item-name {
   font-weight: 400;
+  width: 100px;
+  min-width: 100px;
 }
 
 .add-form__item-input {
-  padding: 7.5px 15px;
-  width: 210px;
+  padding: 5px 15px;
+  font-size: 16px;
+  color: white;
+  width: 100%;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.179);
+  border: 2px solid rgba(255, 255, 255, 0.037);
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  appearance: none;
+}
+
+.add-form__item-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.add-form__item-input--file {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+.add-form__item-input--file::-webkit-file-upload-button {
+  padding: 5px 10px;
   font-size: 16px;
   color: white;
   border-radius: 100px;
   background-color: rgba(255, 255, 255, 0.179);
   border: 2px solid rgba(255, 255, 255, 0.037);
-}
-
-.add-form__item-input::before {
-  content: ":";
-  font-size: 16px;
-  color: white;
 }
 
 .add-overlay__submit-button {
