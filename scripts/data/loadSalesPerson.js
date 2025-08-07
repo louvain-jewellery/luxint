@@ -2,12 +2,17 @@ import { formatWithDots } from "../utils/number.js";
 
 export function loadSalesPerson() {
   const selected = document.createElement("div");
-  selected.classList.add("employee-selector__selected-item");
+  selected.classList.add(
+    "employee-selector__selected-item",
+    "js-selected-item"
+  );
 
   fetch("data/sales.json")
     .then((response) => response.json())
     .then((data) => {
       const selectorList = document.querySelector(".js-selector-list");
+
+      const savedId = loadSelectedSales();
 
       data.forEach((person) => {
         const selectorItem = document.createElement("li");
@@ -41,10 +46,27 @@ export function loadSalesPerson() {
         item.addEventListener("click", () => {
           const id = item.dataset.itemId;
 
+          saveSelectedSales(id);
           item.appendChild(selected);
           loadCardData(id);
         });
       });
+
+      if (savedId) {
+        const savedItem = selectorList.querySelector(
+          `[data-item-id="${savedId}"]`
+        );
+        if (savedItem) {
+          savedItem.appendChild(selected);
+
+          const savedCardData = loadsavedCardData();
+          if (savedCardData && Object.keys(savedCardData).length > 0) {
+            loadCardData(savedId);
+          } else {
+            loadCardData(id);
+          }
+        }
+      }
     });
 }
 
@@ -57,10 +79,33 @@ export function loadCardData(id) {
   fetch("data/sales.json")
     .then((response) => response.json())
     .then((data) => {
-      const item = data.find((items) => items.id === id);
+      const savedCardData = loadsavedCardData();
+      const item =
+        savedCardData && Object.keys(savedCardData).length > 0
+          ? savedCardData
+          : data.find((items) => items.id === id);
+
       cardId.textContent = `: ${item.id}`;
       cardName.textContent = `: ${item.name}`;
       cardCustCount.textContent = `: ${formatWithDots(item.custCount)} orang`;
       cardImage.src = item.image;
+
+      saveCardData(item);
     });
+}
+
+export function saveSelectedSales(personId) {
+  localStorage.setItem("selectedSalesPerson", personId);
+}
+
+export function loadSelectedSales() {
+  return localStorage.getItem("selectedSalesPerson");
+}
+
+export function saveCardData(cardData) {
+  localStorage.setItem("savedCardData", JSON.stringify(cardData));
+}
+
+export function loadsavedCardData() {
+  return JSON.parse(localStorage.getItem("savedCardData")) || {};
 }
