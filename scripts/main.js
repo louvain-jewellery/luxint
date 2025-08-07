@@ -1,4 +1,5 @@
 import { showAddOverlay } from "./components/add.js";
+import { loadSalesPerson } from "./data/loadSalesPerson.js";
 import { showHeaderName } from "./ui/header.js";
 
 const pageMain = document.querySelector(".js-page-main");
@@ -9,6 +10,15 @@ function loadPage(page) {
     .then((data) => {
       pageMain.innerHTML = data;
       updateNavItem();
+      showAddOverlay();
+
+      if (page === "home") {
+        loadSalesPerson();
+      }
+
+      if (page === "data") {
+        showHeaderName();
+      }
     });
 }
 
@@ -42,5 +52,3 @@ function updateNavItem() {
 }
 
 initRouter();
-showAddOverlay();
-showHeaderName();

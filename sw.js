@@ -18,7 +18,7 @@ const STATIC_ASSETS = [
   // CSS files
   "./styles/main.css",
   "./styles/header.css",
-  "./styles/index.css",
+  "./styles/home.css",
   "./styles/bottom-nav.css",
 
   // Core images

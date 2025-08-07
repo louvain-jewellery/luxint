@@ -32,7 +32,7 @@
   visibility: hidden;
   font-size: 16px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .header__button {
@@ -54,7 +54,6 @@
 .header__button-icon {
   height: 20px;
   filter: invert(100%);
-  /* background-color: lightblue; */
 }
 
 .bottom-nav__search-bar {

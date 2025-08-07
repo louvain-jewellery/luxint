@@ -143,20 +143,20 @@
   border-radius: 7.5px;
 }
 
-.employee-card__selector {
+.employee-selector {
   font-size: 12px;
   width: 100%;
   height: fit-content;
 }
 
-.employee-card__selector-list {
+.employee-selector__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
   gap: 10px;
 }
 
-.employee-card__selector-item {
+.employee-selector__item {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -172,7 +172,7 @@
   overflow: hidden;
 }
 
-.employee-card__selected-item {
+.employee-selector__selected-item {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -183,13 +183,13 @@
   background-color: rgba(255, 255, 255, 0.286);
 }
 
-.employee-card__selector-image {
+.employee-selector__item-image {
   width: 50px;
   aspect-ratio: 1/1;
   border-radius: 100px;
 }
 
-.employee-card__selector-name {
+.employee-selector__item-name {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
