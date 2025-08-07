@@ -79,11 +79,7 @@ export function loadCardData(id) {
   fetch("data/sales.json")
     .then((response) => response.json())
     .then((data) => {
-      const savedCardData = loadsavedCardData();
-      const item =
-        savedCardData && Object.keys(savedCardData).length > 0
-          ? savedCardData
-          : data.find((items) => items.id === id);
+      const item = data.find((items) => items.id === id);
 
       cardId.textContent = `: ${item.id}`;
       cardName.textContent = `: ${item.name}`;
