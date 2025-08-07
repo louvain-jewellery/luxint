@@ -1,3 +1,5 @@
+import { formatWithDots } from "../utils/number.js";
+
 export function loadSalesPerson() {
   const selected = document.createElement("div");
   selected.classList.add("employee-selector__selected-item");
@@ -58,7 +60,7 @@ export function loadCardData(id) {
       const item = data.find((items) => items.id === id);
       cardId.textContent = `: ${item.id}`;
       cardName.textContent = `: ${item.name}`;
-      cardCustCount.textContent = `: ${item.custCount}`;
+      cardCustCount.textContent = `: ${formatWithDots(item.custCount)} orang`;
       cardImage.src = item.image;
     });
 }
