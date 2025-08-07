@@ -3,13 +3,13 @@
   top: 0;
   width: 100%;
   max-width: 1024px;
+  height: 64px;
   display: flex;
   flex-direction: row;
   gap: 15px;
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(20px) saturate(180%);
-  padding: 10px 15px;
   z-index: 100;
 }
 
