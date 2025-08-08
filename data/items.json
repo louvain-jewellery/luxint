@@ -1,0 +1,492 @@
+[
+  {
+    "id": "Item-001",
+    "customerId": "Cust-001",
+    "itemName": "Gold Brooch",
+    "date": "2025-06-09",
+    "weight": 19.7,
+    "goldPurity": 80,
+    "sellingPrice": 1578,
+    "productImage": "https://example.com/images/gold-brooch.jpg"
+  },
+  {
+    "id": "Item-002",
+    "customerId": "Cust-001",
+    "itemName": "Gold Pendant",
+    "date": "2025-07-10",
+    "weight": 8.7,
+    "goldPurity": 90,
+    "sellingPrice": 986,
+    "productImage": "https://example.com/images/gold-pendant.jpg"
+  },
+  {
+    "id": "Item-003",
+    "customerId": "Cust-001",
+    "itemName": "Gold Anklet",
+    "date": "2025-07-26",
+    "weight": 16.2,
+    "goldPurity": 90,
+    "sellingPrice": 1068,
+    "productImage": "https://example.com/images/gold-anklet.jpg"
+  },
+  {
+    "id": "Item-004",
+    "customerId": "Cust-002",
+    "itemName": "Gold Necklace",
+    "date": "2025-08-08",
+    "weight": 19.7,
+    "goldPurity": 80,
+    "sellingPrice": 1325,
+    "productImage": "https://example.com/images/gold-necklace.jpg"
+  },
+  {
+    "id": "Item-005",
+    "customerId": "Cust-002",
+    "itemName": "Gold Necklace",
+    "date": "2025-06-17",
+    "weight": 11.3,
+    "goldPurity": 95,
+    "sellingPrice": 1748,
+    "productImage": "https://example.com/images/gold-necklace.jpg"
+  },
+  {
+    "id": "Item-006",
+    "customerId": "Cust-003",
+    "itemName": "Gold Earrings",
+    "date": "2025-06-07",
+    "weight": 14.5,
+    "goldPurity": 95,
+    "sellingPrice": 427,
+    "productImage": "https://example.com/images/gold-earrings.jpg"
+  },
+  {
+    "id": "Item-007",
+    "customerId": "Cust-004",
+    "itemName": "Diamond Ring",
+    "date": "2025-08-06",
+    "weight": 4.1,
+    "goldPurity": 75,
+    "sellingPrice": 959,
+    "productImage": "https://example.com/images/diamond-ring.jpg"
+  },
+  {
+    "id": "Item-008",
+    "customerId": "Cust-004",
+    "itemName": "Gold Brooch",
+    "date": "2025-07-25",
+    "weight": 19.5,
+    "goldPurity": 80,
+    "sellingPrice": 642,
+    "productImage": "https://example.com/images/gold-brooch.jpg"
+  },
+  {
+    "id": "Item-009",
+    "customerId": "Cust-005",
+    "itemName": "Gold Chain",
+    "date": "2025-06-01",
+    "weight": 12.4,
+    "goldPurity": 90,
+    "sellingPrice": 805,
+    "productImage": "https://example.com/images/gold-chain.jpg"
+  },
+  {
+    "id": "Item-010",
+    "customerId": "Cust-006",
+    "itemName": "Wedding Band",
+    "date": "2025-08-01",
+    "weight": 9.7,
+    "goldPurity": 85,
+    "sellingPrice": 937,
+    "productImage": "https://example.com/images/wedding-band.jpg"
+  },
+  {
+    "id": "Item-011",
+    "customerId": "Cust-006",
+    "itemName": "Engagement Ring",
+    "date": "2025-07-16",
+    "weight": 12.8,
+    "goldPurity": 75,
+    "sellingPrice": 1367,
+    "productImage": "https://example.com/images/engagement-ring.jpg"
+  },
+  {
+    "id": "Item-012",
+    "customerId": "Cust-007",
+    "itemName": "Gold Anklet",
+    "date": "2025-07-03",
+    "weight": 15.8,
+    "goldPurity": 80,
+    "sellingPrice": 858,
+    "productImage": "https://example.com/images/gold-anklet.jpg"
+  },
+  {
+    "id": "Item-013",
+    "customerId": "Cust-007",
+    "itemName": "Gold Earrings",
+    "date": "2025-08-02",
+    "weight": 15.1,
+    "goldPurity": 90,
+    "sellingPrice": 1754,
+    "productImage": "https://example.com/images/gold-earrings.jpg"
+  },
+  {
+    "id": "Item-014",
+    "customerId": "Cust-007",
+    "itemName": "Gold Anklet",
+    "date": "2025-07-26",
+    "weight": 15.5,
+    "goldPurity": 75,
+    "sellingPrice": 688,
+    "productImage": "https://example.com/images/gold-anklet.jpg"
+  },
+  {
+    "id": "Item-015",
+    "customerId": "Cust-008",
+    "itemName": "Gold Chain",
+    "date": "2025-07-24",
+    "weight": 18.1,
+    "goldPurity": 80,
+    "sellingPrice": 1741,
+    "productImage": "https://example.com/images/gold-chain.jpg"
+  },
+  {
+    "id": "Item-016",
+    "customerId": "Cust-008",
+    "itemName": "Gold Pendant",
+    "date": "2025-07-12",
+    "weight": 3.7,
+    "goldPurity": 90,
+    "sellingPrice": 631,
+    "productImage": "https://example.com/images/gold-pendant.jpg"
+  },
+  {
+    "id": "Item-017",
+    "customerId": "Cust-008",
+    "itemName": "Engagement Ring",
+    "date": "2025-08-07",
+    "weight": 16.9,
+    "goldPurity": 99,
+    "sellingPrice": 1499,
+    "productImage": "https://example.com/images/engagement-ring.jpg"
+  },
+  {
+    "id": "Item-018",
+    "customerId": "Cust-009",
+    "itemName": "Engagement Ring",
+    "date": "2025-08-01",
+    "weight": 7.9,
+    "goldPurity": 75,
+    "sellingPrice": 1530,
+    "productImage": "https://example.com/images/engagement-ring.jpg"
+  },
+  {
+    "id": "Item-019",
+    "customerId": "Cust-010",
+    "itemName": "Engagement Ring",
+    "date": "2025-08-08",
+    "weight": 7.7,
+    "goldPurity": 95,
+    "sellingPrice": 1321,
+    "productImage": "https://example.com/images/engagement-ring.jpg"
+  },
+  {
+    "id": "Item-020",
+    "customerId": "Cust-010",
+    "itemName": "Gold Necklace",
+    "date": "2025-07-27",
+    "weight": 7.6,
+    "goldPurity": 80,
+    "sellingPrice": 609,
+    "productImage": "https://example.com/images/gold-necklace.jpg"
+  },
+  {
+    "id": "Item-021",
+    "customerId": "Cust-010",
+    "itemName": "Gold Brooch",
+    "date": "2025-07-18",
+    "weight": 13.3,
+    "goldPurity": 95,
+    "sellingPrice": 542,
+    "productImage": "https://example.com/images/gold-brooch.jpg"
+  },
+  {
+    "id": "Item-022",
+    "customerId": "Cust-011",
+    "itemName": "Diamond Ring",
+    "date": "2025-07-05",
+    "weight": 17.3,
+    "goldPurity": 80,
+    "sellingPrice": 635,
+    "productImage": "https://example.com/images/diamond-ring.jpg"
+  },
+  {
+    "id": "Item-023",
+    "customerId": "Cust-012",
+    "itemName": "Diamond Ring",
+    "date": "2025-07-25",
+    "weight": 7.8,
+    "goldPurity": 75,
+    "sellingPrice": 1261,
+    "productImage": "https://example.com/images/diamond-ring.jpg"
+  },
+  {
+    "id": "Item-024",
+    "customerId": "Cust-012",
+    "itemName": "Gold Chain",
+    "date": "2025-07-11",
+    "weight": 5.7,
+    "goldPurity": 99,
+    "sellingPrice": 684,
+    "productImage": "https://example.com/images/gold-chain.jpg"
+  },
+  {
+    "id": "Item-025",
+    "customerId": "Cust-013",
+    "itemName": "Gold Chain",
+    "date": "2025-07-10",
+    "weight": 17.6,
+    "goldPurity": 75,
+    "sellingPrice": 1907,
+    "productImage": "https://example.com/images/gold-chain.jpg"
+  },
+  {
+    "id": "Item-026",
+    "customerId": "Cust-013",
+    "itemName": "Gold Earrings",
+    "date": "2025-06-20",
+    "weight": 6.9,
+    "goldPurity": 95,
+    "sellingPrice": 342,
+    "productImage": "https://example.com/images/gold-earrings.jpg"
+  },
+  {
+    "id": "Item-027",
+    "customerId": "Cust-013",
+    "itemName": "Engagement Ring",
+    "date": "2025-06-09",
+    "weight": 15.1,
+    "goldPurity": 85,
+    "sellingPrice": 1519,
+    "productImage": "https://example.com/images/engagement-ring.jpg"
+  },
+  {
+    "id": "Item-028",
+    "customerId": "Cust-014",
+    "itemName": "Diamond Ring",
+    "date": "2025-07-09",
+    "weight": 6.9,
+    "goldPurity": 80,
+    "sellingPrice": 1813,
+    "productImage": "https://example.com/images/diamond-ring.jpg"
+  },
+  {
+    "id": "Item-029",
+    "customerId": "Cust-015",
+    "itemName": "Gold Necklace",
+    "date": "2025-06-08",
+    "weight": 8.9,
+    "goldPurity": 99,
+    "sellingPrice": 1419,
+    "productImage": "https://example.com/images/gold-necklace.jpg"
+  },
+  {
+    "id": "Item-030",
+    "customerId": "Cust-015",
+    "itemName": "Gold Chain",
+    "date": "2025-08-02",
+    "weight": 11.1,
+    "goldPurity": 80,
+    "sellingPrice": 1002,
+    "productImage": "https://example.com/images/gold-chain.jpg"
+  },
+  {
+    "id": "Item-031",
+    "customerId": "Cust-016",
+    "itemName": "Gold Pendant",
+    "date": "2025-06-05",
+    "weight": 6.9,
+    "goldPurity": 90,
+    "sellingPrice": 1159,
+    "productImage": "https://example.com/images/gold-pendant.jpg"
+  },
+  {
+    "id": "Item-032",
+    "customerId": "Cust-017",
+    "itemName": "Diamond Ring",
+    "date": "2025-07-09",
+    "weight": 18.9,
+    "goldPurity": 75,
+    "sellingPrice": 1683,
+    "productImage": "https://example.com/images/diamond-ring.jpg"
+  },
+  {
+    "id": "Item-033",
+    "customerId": "Cust-017",
+    "itemName": "Wedding Band",
+    "date": "2025-06-09",
+    "weight": 1.3,
+    "goldPurity": 80,
+    "sellingPrice": 857,
+    "productImage": "https://example.com/images/wedding-band.jpg"
+  },
+  {
+    "id": "Item-034",
+    "customerId": "Cust-018",
+    "itemName": "Gold Earrings",
+    "date": "2025-06-26",
+    "weight": 2.1,
+    "goldPurity": 95,
+    "sellingPrice": 415,
+    "productImage": "https://example.com/images/gold-earrings.jpg"
+  },
+  {
+    "id": "Item-035",
+    "customerId": "Cust-018",
+    "itemName": "Gold Chain",
+    "date": "2025-07-14",
+    "weight": 12.3,
+    "goldPurity": 75,
+    "sellingPrice": 1846,
+    "productImage": "https://example.com/images/gold-chain.jpg"
+  },
+  {
+    "id": "Item-036",
+    "customerId": "Cust-019",
+    "itemName": "Gold Brooch",
+    "date": "2025-06-22",
+    "weight": 2.4,
+    "goldPurity": 95,
+    "sellingPrice": 838,
+    "productImage": "https://example.com/images/gold-brooch.jpg"
+  },
+  {
+    "id": "Item-037",
+    "customerId": "Cust-019",
+    "itemName": "Gold Pendant",
+    "date": "2025-06-22",
+    "weight": 18.8,
+    "goldPurity": 80,
+    "sellingPrice": 375,
+    "productImage": "https://example.com/images/gold-pendant.jpg"
+  },
+  {
+    "id": "Item-038",
+    "customerId": "Cust-020",
+    "itemName": "Gold Brooch",
+    "date": "2025-06-24",
+    "weight": 7.5,
+    "goldPurity": 75,
+    "sellingPrice": 1674,
+    "productImage": "https://example.com/images/gold-brooch.jpg"
+  },
+  {
+    "id": "Item-039",
+    "customerId": "Cust-021",
+    "itemName": "Gold Anklet",
+    "date": "2025-08-07",
+    "weight": 16.3,
+    "goldPurity": 85,
+    "sellingPrice": 1655,
+    "productImage": "https://example.com/images/gold-anklet.jpg"
+  },
+  {
+    "id": "Item-040",
+    "customerId": "Cust-021",
+    "itemName": "Wedding Band",
+    "date": "2025-07-27",
+    "weight": 6.7,
+    "goldPurity": 99,
+    "sellingPrice": 1932,
+    "productImage": "https://example.com/images/wedding-band.jpg"
+  },
+  {
+    "id": "Item-041",
+    "customerId": "Cust-022",
+    "itemName": "Gold Earrings",
+    "date": "2025-07-08",
+    "weight": 19.7,
+    "goldPurity": 75,
+    "sellingPrice": 1147,
+    "productImage": "https://example.com/images/gold-earrings.jpg"
+  },
+  {
+    "id": "Item-042",
+    "customerId": "Cust-022",
+    "itemName": "Gold Chain",
+    "date": "2025-07-07",
+    "weight": 15.7,
+    "goldPurity": 75,
+    "sellingPrice": 1171,
+    "productImage": "https://example.com/images/gold-chain.jpg"
+  },
+  {
+    "id": "Item-043",
+    "customerId": "Cust-022",
+    "itemName": "Gold Anklet",
+    "date": "2025-07-07",
+    "weight": 7.7,
+    "goldPurity": 75,
+    "sellingPrice": 1383,
+    "productImage": "https://example.com/images/gold-anklet.jpg"
+  },
+  {
+    "id": "Item-044",
+    "customerId": "Cust-023",
+    "itemName": "Gold Earrings",
+    "date": "2025-06-10",
+    "weight": 4.2,
+    "goldPurity": 75,
+    "sellingPrice": 1750,
+    "productImage": "https://example.com/images/gold-earrings.jpg"
+  },
+  {
+    "id": "Item-045",
+    "customerId": "Cust-023",
+    "itemName": "Gold Chain",
+    "date": "2025-06-24",
+    "weight": 10.3,
+    "goldPurity": 75,
+    "sellingPrice": 1758,
+    "productImage": "https://example.com/images/gold-chain.jpg"
+  },
+  {
+    "id": "Item-046",
+    "customerId": "Cust-024",
+    "itemName": "Gold Brooch",
+    "date": "2025-07-13",
+    "weight": 1.1,
+    "goldPurity": 95,
+    "sellingPrice": 1341,
+    "productImage": "https://example.com/images/gold-brooch.jpg"
+  },
+  {
+    "id": "Item-047",
+    "customerId": "Cust-024",
+    "itemName": "Gold Pendant",
+    "date": "2025-07-28",
+    "weight": 11.4,
+    "goldPurity": 85,
+    "sellingPrice": 1485,
+    "productImage": "https://example.com/images/gold-pendant.jpg"
+  },
+  {
+    "id": "Item-048",
+    "customerId": "Cust-024",
+    "itemName": "Gold Pendant",
+    "date": "2025-07-26",
+    "weight": 5.3,
+    "goldPurity": 80,
+    "sellingPrice": 952,
+    "productImage": "https://example.com/images/gold-pendant.jpg"
+  },
+  {
+    "id": "Item-049",
+    "customerId": "Cust-025",
+    "itemName": "Diamond Ring",
+    "date": "2025-06-04",
+    "weight": 11.0,
+    "goldPurity": 95,
+    "sellingPrice": 1145,
+    "productImage": "https://example.com/images/diamond-ring.jpg"
+  }
+]

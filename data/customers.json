@@ -1,0 +1,131 @@
+[
+  {
+    "id": "Cust-001",
+    "salesId": "Luxint-001",
+    "name": "Harry Potter"
+  },
+  {
+    "id": "Cust-002",
+    "salesId": "Luxint-001",
+    "name": "Hermione Granger"
+  },
+  {
+    "id": "Cust-003",
+    "salesId": "Luxint-001",
+    "name": "Ron Weasley"
+  },
+  {
+    "id": "Cust-004",
+    "salesId": "Luxint-001",
+    "name": "Draco Malfoy"
+  },
+  {
+    "id": "Cust-005",
+    "salesId": "Luxint-001",
+    "name": "Luna Lovegood"
+  },
+
+  {
+    "id": "Cust-006",
+    "salesId": "Luxint-002",
+    "name": "Jon Snow"
+  },
+  {
+    "id": "Cust-007",
+    "salesId": "Luxint-002",
+    "name": "Daenerys Targaryen"
+  },
+  {
+    "id": "Cust-008",
+    "salesId": "Luxint-002",
+    "name": "Arya Stark"
+  },
+  {
+    "id": "Cust-009",
+    "salesId": "Luxint-002",
+    "name": "Tyrion Lannister"
+  },
+  {
+    "id": "Cust-010",
+    "salesId": "Luxint-002",
+    "name": "Cersei Lannister"
+  },
+
+  {
+    "id": "Cust-011",
+    "salesId": "Luxint-003",
+    "name": "Rick Grimes"
+  },
+  {
+    "id": "Cust-012",
+    "salesId": "Luxint-003",
+    "name": "Daryl Dixon"
+  },
+  {
+    "id": "Cust-013",
+    "salesId": "Luxint-003",
+    "name": "Michonne"
+  },
+  {
+    "id": "Cust-014",
+    "salesId": "Luxint-003",
+    "name": "Negan"
+  },
+  {
+    "id": "Cust-015",
+    "salesId": "Luxint-003",
+    "name": "Glenn Rhee"
+  },
+
+  {
+    "id": "Cust-016",
+    "salesId": "Luxint-004",
+    "name": "Thomas"
+  },
+  {
+    "id": "Cust-017",
+    "salesId": "Luxint-004",
+    "name": "Newt"
+  },
+  {
+    "id": "Cust-018",
+    "salesId": "Luxint-004",
+    "name": "Minho"
+  },
+  {
+    "id": "Cust-019",
+    "salesId": "Luxint-004",
+    "name": "Teresa Agnes"
+  },
+  {
+    "id": "Cust-020",
+    "salesId": "Luxint-004",
+    "name": "Gally"
+  },
+
+  {
+    "id": "Cust-021",
+    "salesId": "Luxint-005",
+    "name": "Archie Andrews"
+  },
+  {
+    "id": "Cust-022",
+    "salesId": "Luxint-005",
+    "name": "Veronica Lodge"
+  },
+  {
+    "id": "Cust-023",
+    "salesId": "Luxint-005",
+    "name": "Betty Cooper"
+  },
+  {
+    "id": "Cust-024",
+    "salesId": "Luxint-005",
+    "name": "Jughead Jones"
+  },
+  {
+    "id": "Cust-025",
+    "salesId": "Luxint-005",
+    "name": "Cheryl Blossom"
+  }
+]

@@ -10,41 +10,6 @@
   padding-left: 15px;
 }
 
-.breadcrumb-nav__wrapper {
-  display: none;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: baseline;
-  font-size: 14px;
-  font-weight: 400;
-  gap: 5px;
-  padding-left: 15px;
-}
-
-.breadcrumb-nav__item {
-  list-style: none;
-  /* background-color: lightblue; */
-}
-
-.breadcrumb-nav__item::after {
-  content: "";
-  /* background-color: lightpink; */
-  display: inline-block;
-  height: 0.8em;
-  aspect-ratio: 1/1;
-  background-image: url("../assets/icons/arrow_back_ios_new_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg");
-  filter: invert(100%);
-  background-size: cover;
-  background-repeat: no-repeat;
-  rotate: 180deg;
-  vertical-align: -1px;
-}
-
-.breadcrumb-nav__item:last-child::after {
-  content: "";
-  background-image: none;
-}
-
 .customer-data__wrapper {
   display: flex;
   flex-direction: column;
@@ -61,10 +26,20 @@
 
 .customer-data__item {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.customer-data__item-link {
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  border-radius: 15px;
   height: fit-content;
   border: none;
   gap: 15px;
@@ -79,22 +54,10 @@
   width: 50px;
   aspect-ratio: 1/1;
   border-radius: 100px;
-  margin-left: 15px;
 }
 
 .customer-data__item-icon {
   font-size: 20px;
-}
-
-.customer-data__item-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  padding: 15px 15px 15px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  flex: 1;
 }
 
 .customer-data__item-text-wrapper {
@@ -102,7 +65,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  height: 100%;
   gap: 3px;
+  width: 100%;
 }
 
 .customer-data__item-name {
@@ -115,8 +80,19 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-.customer-data__item-arrow {
-  rotate: 180deg;
+.customer-data__item-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.customer-data__item-button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.customer-data__item-button-icon {
   opacity: 0.5;
-  height: 15px;
 }

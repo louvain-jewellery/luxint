@@ -1,5 +1,5 @@
 import { showAddOverlay } from "./components/add.js";
-import { loadSalesPerson } from "./data/loadSalesPerson.js";
+import { loadSales } from "./data/loadSalesPerson.js";
 import { showHeaderName } from "./ui/header.js";
 
 const pageMain = document.querySelector(".js-page-main");
@@ -13,7 +13,7 @@ function loadPage(page) {
       showAddOverlay();
 
       if (page === "home") {
-        loadSalesPerson();
+        loadSales();
       }
 
       if (page === "data") {

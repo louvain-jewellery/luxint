@@ -1,6 +1,6 @@
 import { formatWithDots } from "../utils/number.js";
 
-export function loadSalesPerson() {
+export function loadSales() {
   const selected = document.createElement("div");
   selected.classList.add(
     "employee-selector__selected-item",
@@ -12,23 +12,23 @@ export function loadSalesPerson() {
     .then((data) => {
       const selectorList = document.querySelector(".js-selector-list");
 
-      const savedId = loadSelectedSales();
+      const savedSalesId = loadSelectedSales();
 
-      data.forEach((person) => {
+      data.forEach((sales) => {
         const selectorItem = document.createElement("li");
         selectorItem.classList.add(
           "employee-selector__item",
           "js-selector-item"
         );
-        selectorItem.dataset.itemId = person.id;
+        selectorItem.dataset.salesId = sales.id;
 
         const itemImage = document.createElement("img");
         itemImage.classList.add(
           "employee-selector__item-image",
           "js-selector-item-image"
         );
-        itemImage.src = person.image;
-        itemImage.alt = person.name;
+        itemImage.src = sales.image;
+        itemImage.alt = sales.name;
         selectorItem.appendChild(itemImage);
 
         const itemName = document.createElement("p");
@@ -36,7 +36,7 @@ export function loadSalesPerson() {
           "employee-selector__item-name",
           "js-selector-item-name"
         );
-        itemName.textContent = person.name;
+        itemName.textContent = sales.name;
         selectorItem.appendChild(itemName);
 
         selectorList.appendChild(selectorItem);
@@ -44,33 +44,30 @@ export function loadSalesPerson() {
 
       selectorList.querySelectorAll(".js-selector-item").forEach((item) => {
         item.addEventListener("click", () => {
-          const id = item.dataset.itemId;
+          const salesId = item.dataset.salesId;
 
-          saveSelectedSales(id);
+          saveSelectedSales(salesId);
           item.appendChild(selected);
-          loadCardData(id);
+          loadCardData(salesId);
         });
       });
 
-      if (savedId) {
+      if (savedSalesId) {
         const savedItem = selectorList.querySelector(
-          `[data-item-id="${savedId}"]`
+          `[data-sales-id="${savedSalesId}"]`
         );
         if (savedItem) {
           savedItem.appendChild(selected);
 
           const savedCardData = loadsavedCardData();
-          if (savedCardData && Object.keys(savedCardData).length > 0) {
-            loadCardData(savedId);
-          } else {
-            loadCardData(id);
-          }
+
+          loadCardData(savedSalesId);
         }
       }
     });
 }
 
-export function loadCardData(id) {
+export function loadCardData(salesId) {
   const cardName = document.querySelector(".js-card-name");
   const cardId = document.querySelector(".js-card-id");
   const cardCustCount = document.querySelector(".js-card-customer-count");
@@ -79,23 +76,23 @@ export function loadCardData(id) {
   fetch("data/sales.json")
     .then((response) => response.json())
     .then((data) => {
-      const item = data.find((items) => items.id === id);
+      const sales = data.find((saleses) => saleses.id === salesId);
 
-      cardId.textContent = `: ${item.id}`;
-      cardName.textContent = `: ${item.name}`;
-      cardCustCount.textContent = `: ${formatWithDots(item.custCount)} orang`;
-      cardImage.src = item.image;
+      cardId.textContent = `: ${sales.id}`;
+      cardName.textContent = `: ${sales.name}`;
+      cardCustCount.textContent = `: ${formatWithDots(sales.custCount)} orang`;
+      cardImage.src = sales.image;
 
-      saveCardData(item);
+      saveCardData(sales);
     });
 }
 
-export function saveSelectedSales(personId) {
-  localStorage.setItem("selectedSalesPerson", personId);
+export function saveSelectedSales(salesId) {
+  localStorage.setItem("selectedSales", salesId);
 }
 
 export function loadSelectedSales() {
-  return localStorage.getItem("selectedSalesPerson");
+  return localStorage.getItem("selectedSales");
 }
 
 export function saveCardData(cardData) {

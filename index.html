@@ -58,6 +58,7 @@
     <link rel="stylesheet" href="styles/data.css">
     <link rel="stylesheet" href="styles/bottom-nav.css" />
     <link rel="stylesheet" href="styles/add-overlay.css" />
+    <link rel="stylesheet" href="styles/more-overlay.css">
 
     <title>Luxury International</title>
   </head>
@@ -100,7 +101,7 @@
       </ul>
     </nav>
 
-    <div class="add-overlay js-add-overlay">
+    <section class="add-overlay js-add-overlay">
       <div class="add-overlay__top">
         <h2 class="add-overlay__title-text">Tambahkan Item</h2>
         <button class="add-overlay__close-button js-close-button">
@@ -144,7 +145,29 @@
 
         <button class="add-overlay__submit-button">Submit</button>
       </form>
-    </div>
+    </section>
+
+    <section class="more-overlay js-more-overlay">
+      <div class="more-overlay__item-wrapper">
+        <div class="customer-data__item-icon-wrapper">
+            <p class="customer-data__item-icon">Pe</p>
+          </div>
+          <div class="customer-data__item-text-wrapper">
+            <p class="customer-data__item-name">Pelanggan</p>
+            <p class="customer-data__item-count">1 item</p>
+          </div>
+      </div>
+      <div class="more-overlay__options-wrapper">
+        <div class="more-overlay__option">
+          <img class="more-overlay__option-icon icon" src="/assets/icons/edit_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg">
+          <p class="more-overlay__option-name">Ganti nama</p>
+        </div>
+        <div class="more-overlay__option">
+          <img class="more-overlay__option-icon--red icon" src="/assets/icons/delete_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg">
+          <p class="more-overlay__option-name--red">Hapus</p>
+        </div>
+      </div>
+    </section>
   </body>
 
   <script src="sw-register.js"></script>
