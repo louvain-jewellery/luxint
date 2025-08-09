@@ -11,6 +11,7 @@ export function loadSales() {
     .then((response) => response.json())
     .then((data) => {
       const selectorList = document.querySelector(".js-selector-list");
+      selectorList.innerHTML = "";
 
       const savedSalesId = loadSelectedSales();
 
@@ -52,14 +53,24 @@ export function loadSales() {
         });
       });
 
-      if (savedSalesId) {
+      if (!savedSalesId) {
+        const cardDetail = document.querySelector(".js-card-detail");
+        cardDetail.innerHTML = "";
+
+        const p = document.createElement("p");
+        p.classList.add("employee-card__warning");
+        p.textContent = "Pilih sales terlebih dahulu";
+
+        cardDetail.appendChild(p);
+        return;
+      } else {
         const savedItem = selectorList.querySelector(
           `[data-sales-id="${savedSalesId}"]`
         );
         if (savedItem) {
           savedItem.appendChild(selected);
 
-          const savedCardData = loadsavedCardData();
+          const savedCardData = loadSavedCardData();
 
           loadCardData(savedSalesId);
         }
@@ -68,20 +79,41 @@ export function loadSales() {
 }
 
 export function loadCardData(salesId) {
-  const cardName = document.querySelector(".js-card-name");
-  const cardId = document.querySelector(".js-card-id");
-  const cardCustCount = document.querySelector(".js-card-customer-count");
-  const cardImage = document.querySelector(".js-card-image");
+  const cardDetail = document.querySelector(".js-card-detail");
+  cardDetail.innerHTML = "";
 
   fetch("data/sales.json")
     .then((response) => response.json())
     .then((data) => {
       const sales = data.find((saleses) => saleses.id === salesId);
 
-      cardId.textContent = `: ${sales.id}`;
-      cardName.textContent = `: ${sales.name}`;
-      cardCustCount.textContent = `: ${formatWithDots(sales.custCount)} orang`;
-      cardImage.src = sales.image;
+      cardDetail.innerHTML = `
+          <div class="employee-card__detail">
+            <div class="employee-card__detail-row">
+              <p class="employee-card__detail-title">ID</p>
+              <p class="employee-card__detail-content js-card-id">: ${
+                sales.id
+              }</p>
+            </div>
+            <div class="employee-card__detail-row">
+              <p class="employee-card__detail-title">Nama</p>
+              <p class="employee-card__detail-content js-card-name">: ${
+                sales.name
+              }</p>
+            </div>
+            <div class="employee-card__detail-row">
+              <p class="employee-card__detail-title">Langganan</p>
+              <p class="employee-card__detail-content js-card-customer-count">: ${formatWithDots(
+                sales.custCount
+              )} orang</p>
+            </div>
+          </div>
+          <div class="employee-card__image-wrapper">
+            <img class="employee-card__image js-card-image" src=${
+              sales.image
+            } alt="card pfp" />
+          </div>
+        `;
 
       saveCardData(sales);
     });
@@ -99,6 +131,6 @@ export function saveCardData(cardData) {
   localStorage.setItem("savedCardData", JSON.stringify(cardData));
 }
 
-export function loadsavedCardData() {
+export function loadSavedCardData() {
   return JSON.parse(localStorage.getItem("savedCardData")) || {};
 }

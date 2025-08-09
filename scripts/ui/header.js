@@ -1,6 +1,6 @@
 export function showHeaderName() {
   window.addEventListener("scroll", () => {
-    const headerName = document.querySelector(".js-header-name");
+    const headerName = document.querySelector(".js-header-title");
 
     if (window.scrollY > 64) {
       headerName.style.visibility = "visible";

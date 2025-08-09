@@ -1,5 +1,6 @@
 import { showAddOverlay } from "./components/add.js";
-import { loadSales } from "./data/loadSalesPerson.js";
+import { loadCustomers } from "./data/customers.js";
+import { loadSales } from "./data/sales-person.js";
 import { showHeaderName } from "./ui/header.js";
 
 const pageMain = document.querySelector(".js-page-main");
@@ -18,6 +19,7 @@ function loadPage(page) {
 
       if (page === "data") {
         showHeaderName();
+        loadCustomers();
       }
     });
 }
