@@ -1,4 +1,4 @@
-.more-overlay {
+.overlay--more {
   position: fixed;
   left: 0;
   bottom: -1000px;
@@ -12,16 +12,16 @@
   z-index: 101;
   gap: 15px;
   background: rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
-.more-overlay.active {
+.overlay--more.active {
   bottom: 0;
   visibility: visible;
   opacity: 1;
 }
 
-.more-overlay__item-wrapper {
+.overlay__selected-item {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -37,7 +37,7 @@
   margin-top: 79px;
 }
 
-.more-overlay__options-wrapper {
+.menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,7 +53,7 @@
     inset 0 0 4px 2px rgba(255, 255, 255, 0.045);
 }
 
-.more-overlay__option {
+.menu__item {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -64,15 +64,15 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.more-overlay__option:last-child {
+.menu__item:last-child {
   border-bottom: none;
 }
 
-.more-overlay__option-icon--red {
+.menu__icon--danger {
   filter: invert(19%) sepia(96%) saturate(10000%) hue-rotate(0deg)
     brightness(90%) contrast(119%);
 }
 
-.more-overlay__option-name--red {
+.menu__label--danger {
   color: rgb(255, 19, 19);
 }

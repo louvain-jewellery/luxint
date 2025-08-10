@@ -24,24 +24,20 @@ export function loadSales() {
         selectorItem.dataset.salesId = sales.id;
 
         const itemImage = document.createElement("img");
-        itemImage.classList.add(
-          "employee-selector__item-image",
-          "js-selector-item-image"
-        );
+        itemImage.classList.add("employee-selector__image");
         itemImage.src = sales.image;
         itemImage.alt = sales.name;
         selectorItem.appendChild(itemImage);
 
         const itemName = document.createElement("p");
-        itemName.classList.add(
-          "employee-selector__item-name",
-          "js-selector-item-name"
-        );
+        itemName.classList.add("employee-selector__name");
         itemName.textContent = sales.name;
         selectorItem.appendChild(itemName);
 
         selectorList.appendChild(selectorItem);
       });
+
+      // loadAddItem();
 
       selectorList.querySelectorAll(".js-selector-item").forEach((item) => {
         item.addEventListener("click", () => {
@@ -58,12 +54,14 @@ export function loadSales() {
         cardDetail.innerHTML = "";
 
         const p = document.createElement("p");
-        p.classList.add("employee-card__warning");
+        p.classList.add("employee-card__warning", "warning");
         p.textContent = "Pilih sales terlebih dahulu";
 
         cardDetail.appendChild(p);
         return;
-      } else {
+      }
+
+      if (savedSalesId) {
         const savedItem = selectorList.querySelector(
           `[data-sales-id="${savedSalesId}"]`
         );
@@ -89,21 +87,17 @@ export function loadCardData(salesId) {
 
       cardDetail.innerHTML = `
           <div class="employee-card__detail">
-            <div class="employee-card__detail-row">
-              <p class="employee-card__detail-title">ID</p>
-              <p class="employee-card__detail-content js-card-id">: ${
-                sales.id
-              }</p>
+            <div class="employee-card__row">
+              <p class="employee-card__title">ID</p>
+              <p class="employee-card__content js-card-id">: ${sales.id}</p>
             </div>
-            <div class="employee-card__detail-row">
-              <p class="employee-card__detail-title">Nama</p>
-              <p class="employee-card__detail-content js-card-name">: ${
-                sales.name
-              }</p>
+            <div class="employee-card__row">
+              <p class="employee-card__title">Nama</p>
+              <p class="employee-card__content js-card-name">: ${sales.name}</p>
             </div>
-            <div class="employee-card__detail-row">
-              <p class="employee-card__detail-title">Langganan</p>
-              <p class="employee-card__detail-content js-card-customer-count">: ${formatWithDots(
+            <div class="employee-card__row">
+              <p class="employee-card__title">Pelanggan</p>
+              <p class="employee-card__content js-card-customer-count">: ${formatWithDots(
                 sales.custCount
               )} orang</p>
             </div>
@@ -117,6 +111,26 @@ export function loadCardData(salesId) {
 
       saveCardData(sales);
     });
+}
+
+export function loadAddItem() {
+  const selectorList = document.querySelector(".js-selector-list");
+
+  const addItem = document.createElement("li");
+  addItem.classList.add("employee-selector__item--add", "js-selector-add");
+
+  const itemImage = document.createElement("img");
+  itemImage.classList.add("employee-selector__image--add", "icon");
+  itemImage.src =
+    "/assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
+  addItem.appendChild(itemImage);
+
+  const itemName = document.createElement("p");
+  itemName.classList.add("employee-selector__name");
+  itemName.textContent = "Tambah sales";
+  addItem.appendChild(itemName);
+
+  selectorList.appendChild(addItem);
 }
 
 export function saveSelectedSales(salesId) {

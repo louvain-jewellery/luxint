@@ -1,25 +1,38 @@
 import { showAddOverlay } from "./components/add.js";
-import { loadCustomers } from "./data/customers.js";
-import { loadSales } from "./data/sales-person.js";
+import { showMoreOverlay } from "./components/more.js";
+import { loadCustomers } from "./pages/customers.js";
+import { loadPurchasedItems } from "./pages/purchased-items.js";
+import { loadSales } from "./pages/sales-person.js";
 import { showHeaderName } from "./ui/header.js";
 
 const pageMain = document.querySelector(".js-page-main");
 
 function loadPage(page) {
-  fetch(`pages/${page}.html`)
+  const [pageName, parameter] = page.split("/");
+
+  fetch(`pages/${pageName}.html`)
     .then((response) => response.text())
     .then((data) => {
       pageMain.innerHTML = data;
       updateNavItem();
       showAddOverlay();
 
-      if (page === "home") {
+      if (pageName === "home") {
         loadSales();
       }
 
-      if (page === "data") {
+      if (pageName === "customers") {
         showHeaderName();
         loadCustomers();
+        goBack();
+      }
+
+      if (pageName === "purchased-items") {
+        if (parameter) {
+          loadPurchasedItems(parameter);
+          showHeaderName();
+          goBack();
+        }
       }
     });
 }
@@ -50,6 +63,13 @@ function updateNavItem() {
         item.classList.remove("selected");
       }
     }
+  });
+}
+
+function goBack() {
+  const backButton = document.querySelector(".js-back-button");
+  backButton.addEventListener("click", () => {
+    window.history.back();
   });
 }
 

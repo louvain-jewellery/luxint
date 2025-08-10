@@ -48,7 +48,13 @@
   background-color: transparent;
 }
 
-.bottom-nav__item-link {
+.bottom-nav__item.selected {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.179);
+  transform: scale(1.05);
+}
+
+.bottom-nav__link {
   display: flex;
   flex-direction: column;
   background: none;
@@ -61,18 +67,6 @@
   justify-content: center;
 }
 
-.bottom-nav__item.selected {
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.179);
-  transform: scale(1.05);
-}
-
-.bottom-nav__item--right {
-  width: auto;
-  aspect-ratio: 1/1;
-  /* padding: 5px 25px; */
-}
-
 .icon {
   filter: invert(100%);
 }
@@ -81,7 +75,7 @@
   height: 80%;
 }
 
-.bottom-nav__item-name {
+.bottom-nav__name {
   font-size: 10px;
   font-weight: 600;
 }

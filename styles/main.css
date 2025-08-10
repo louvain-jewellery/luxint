@@ -21,7 +21,7 @@ body {
   height: 3000px;
 }
 
-.page-main {
+.main {
   font-weight: 400;
   width: 100%;
   max-width: 1024px;
@@ -46,4 +46,16 @@ button {
 button,
 a {
   cursor: pointer;
+}
+
+.warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 600;
 }

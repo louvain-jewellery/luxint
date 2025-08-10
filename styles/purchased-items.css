@@ -1,22 +1,22 @@
-.customer-data {
+.purchased-items {
   display: flex;
   flex-direction: column;
   gap: 18px;
   padding-top: 15px;
 }
 
-.customer-data__title {
+.purchased-items__title {
   font-size: 28px;
   padding-left: 15px;
 }
 
-.customer-data__nav {
+.purchased-items__nav {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.customer-data__list {
+.purchased-items__list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -24,7 +24,11 @@
   width: 100%;
 }
 
-.customer-data__item {
+.purchased-items__warning {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.purchased-items__item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,12 +36,13 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.customer-data__link {
+.purchased-items__link {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   flex: 1;
+  background: none;
   padding: 15px;
   border-radius: 15px;
   height: fit-content;
@@ -45,22 +50,23 @@
   gap: 15px;
 }
 
-.customer-data__icon-wrapper {
+.purchased-items__icon-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(235, 205, 36);
   height: 50px;
   width: 50px;
   aspect-ratio: 1/1;
   border-radius: 100px;
 }
 
-.customer-data__icon {
-  font-size: 20px;
+.purchased-items__icon {
+  height: 30px;
+  /* filter: invert(1); */
 }
 
-.customer-data__text {
+.purchased-items__text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -70,17 +76,17 @@
   width: 100%;
 }
 
-.customer-data__name {
+.purchased-items__name {
   font-size: 16px;
   font-weight: 600;
 }
 
-.customer-data__count {
+.purchased-items__date {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
 }
 
-.customer-data__more-button {
+.purchased-items__more-button {
   background: none;
   border: none;
   padding: 0 15px;
@@ -88,6 +94,6 @@
   aspect-ratio: 1/1;
 }
 
-.customer-data__more-icon {
+.purchased-items__more-icon {
   opacity: 0.5;
 }
