@@ -57,7 +57,7 @@ export function loadCustomers() {
         }">
           <img
             class="customers__more-icon icon"
-            src="/assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
+            src="assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
           />
         </button>
       `;

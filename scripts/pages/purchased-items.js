@@ -25,7 +25,7 @@ export function loadPurchasedItems(customerId) {
             <div class="purchased-items__icon-wrapper">
               <img
                 class="purchased-items__icon"
-                src="/assets/icons/jewellery/${item.type}.png"
+                src="assets/icons/jewellery/${item.type}.png"
               />
             </div>
             <div class="purchased-items__text">
@@ -39,7 +39,7 @@ export function loadPurchasedItems(customerId) {
           >
             <img
               class="purchased-items__more-icon icon"
-              src="/assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
+              src="assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
             />
           </button>
         `;
