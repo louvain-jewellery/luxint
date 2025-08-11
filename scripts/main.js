@@ -6,15 +6,9 @@ import { loadSales } from "./pages/sales-person.js";
 import { showHeaderName } from "./ui/header.js";
 
 const pageMain = document.querySelector(".js-page-main");
-let navigationHistory = [];
 
 function loadPage(page) {
   const [pageName, parameter] = page.split("/");
-
-  const currentPage = getCurrentPage();
-  if (currentPage && currentPage !== page) {
-    navigationHistory.push(currentPage);
-  }
 
   document.body.className = `page-${pageName}`;
 
@@ -32,14 +26,14 @@ function loadPage(page) {
       if (pageName === "customers") {
         showHeaderName();
         loadCustomers();
-        setupBackButton();
+        goBack();
       }
 
       if (pageName === "purchased-items") {
         if (parameter) {
           loadPurchasedItems(parameter);
           showHeaderName();
-          setupBackButton();
+          goBack();
         }
       }
     });
@@ -74,26 +68,11 @@ function updateNavItem() {
   });
 }
 
-function setupBackButton() {
-  const backButton = document.querySelector(".js-back-button");
-  if (backButton) {
-    backButton.onclick = goBack;
-  }
-}
-
 function goBack() {
-  if (navigationHistory.length > 0) {
-    const previousPage = navigationHistory.pop();
-    loadPage(previousPage);
-  } else {
-    loadPage("home");
-  }
-}
-
-function getCurrentPage() {
-  const bodyClass = document.body.className;
-  const match = bodyClass.match(/page-(\w+)/);
-  return match ? match[1] : "home";
+  const backButton = document.querySelector(".js-back-button");
+  backButton.addEventListener("click", () => {
+    window.history.back();
+  });
 }
 
 initRouter();
