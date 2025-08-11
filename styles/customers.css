@@ -6,8 +6,11 @@
 }
 
 .customers__title {
+  min-height: 28px;
   font-size: 28px;
-  padding-left: 15px;
+  line-height: 1;
+  padding: 0 15px;
+  width: fit-content;
 }
 
 .customers__nav {

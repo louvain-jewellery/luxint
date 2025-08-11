@@ -1,17 +1,23 @@
+import { loadTitle } from "../ui/header.js";
+
 export function loadPurchasedItems(customerId) {
   const itemList = document.querySelector(".js-purchased-items-list");
 
-  fetch("data/purchased-items.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const items = data.filter((items) => items.customerId === customerId);
-      itemList.innerHTML = "";
+  Promise.all([
+    fetch("data/purchased-items.json").then((response) => response.json()),
+    fetch("data/customers.json").then((response) => response.json()),
+  ]).then(([itemsData, customersData]) => {
+    const items = itemsData.filter((items) => items.customerId === customerId);
+    itemList.innerHTML = "";
+    const customer = customersData.find(
+      (customer) => customer.id === customerId
+    );
 
-      items.forEach((item) => {
-        const li = document.createElement("li");
-        li.classList.add("purchased-items__item");
+    items.forEach((item) => {
+      const li = document.createElement("li");
+      li.classList.add("purchased-items__item");
 
-        li.innerHTML = `
+      li.innerHTML = `
           <button
             class="purchased-items__link js-purchased-items-link"
             data-purchased-id="${item.id}"
@@ -38,24 +44,9 @@ export function loadPurchasedItems(customerId) {
           </button>
         `;
 
-        itemList.appendChild(li);
-      });
-      loadPurchasedTitle(customerId);
+      itemList.appendChild(li);
     });
-}
 
-export function loadPurchasedTitle(customerId) {
-  const headerTitle = document.querySelector(".js-purchased-header-title");
-  headerTitle.innerHTML = "";
-
-  const pageTitle = document.querySelector(".js-purchased-page-title");
-  pageTitle.innerHTML = "";
-
-  fetch("data/customers.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const customer = data.find((customer) => customer.id === customerId);
-      headerTitle.textContent = customer.name;
-      pageTitle.textContent = customer.name;
-    });
+    loadTitle(customer);
+  });
 }

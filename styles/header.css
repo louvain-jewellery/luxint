@@ -13,13 +13,14 @@
   z-index: 100;
 }
 
-.header--solo {
-  height: 64px;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(20px) saturate(180%);
+.header--home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
+  height: 64px;
+  padding: 0 15px;
+  margin-bottom: 10px;
 }
 
 .header__logo {

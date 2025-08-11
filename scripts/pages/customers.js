@@ -1,4 +1,5 @@
 import { showMoreOverlay } from "../components/more.js";
+import { loadTitle } from "../ui/header.js";
 import { generateInitials } from "../utils/initials-generator.js";
 import { mapItemCount } from "../utils/item-count.js";
 import { loadSelectedSales } from "./sales-person.js";
@@ -20,12 +21,14 @@ export function loadCustomers() {
   Promise.all([
     fetch("data/customers.json").then((response) => response.json()),
     fetch("data/purchased-items.json").then((response) => response.json()),
-  ]).then(([customersData, itemsData]) => {
+    fetch("data/sales.json").then((response) => response.json()),
+  ]).then(([customersData, itemsData, salesData]) => {
     customerList.innerHTML = "";
 
     const customers = customersData.filter(
       (customer) => customer.salesId === salesId
     );
+    const sales = salesData.find((sales) => sales.id === salesId);
 
     const itemCountMap = mapItemCount(itemsData);
 
@@ -62,7 +65,7 @@ export function loadCustomers() {
       customerList.appendChild(li);
     });
     showMoreOverlay();
-    loadCustomersTitle(salesId);
+    loadTitle(sales);
 
     document.querySelectorAll(".js-customer-link").forEach((button) => {
       button.addEventListener("click", () => {
@@ -71,22 +74,4 @@ export function loadCustomers() {
       });
     });
   });
-}
-
-export function loadCustomersTitle(salesId) {
-  const headerTitle = document.querySelector(".js-customer-header-title");
-  headerTitle.innerHTML = "";
-
-  const pageTitle = document.querySelector(".js-customer-page-title");
-  pageTitle.innerHTML = "";
-
-  fetch("data/sales.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const sales = data.find((sales) => sales.id === salesId);
-      if (sales) {
-        headerTitle.textContent = sales.name;
-        pageTitle.textContent = sales.name;
-      }
-    });
 }
