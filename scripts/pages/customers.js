@@ -1,5 +1,6 @@
 import { showMoreOverlay } from "../components/more.js";
 import { generateInitials } from "../utils/initials-generator.js";
+import { mapItemCount } from "../utils/item-count.js";
 import { loadSelectedSales } from "./sales-person.js";
 
 export function loadCustomers() {
@@ -26,14 +27,7 @@ export function loadCustomers() {
       (customer) => customer.salesId === salesId
     );
 
-    const itemCountMap = {};
-    itemsData.forEach((item) => {
-      if (itemCountMap[item.customerId]) {
-        itemCountMap[item.customerId]++;
-      } else {
-        itemCountMap[item.customerId] = 1;
-      }
-    });
+    const itemCountMap = mapItemCount(itemsData);
 
     customers.forEach((customer) => {
       const li = document.createElement("li");
@@ -69,7 +63,7 @@ export function loadCustomers() {
     });
     showMoreOverlay();
     loadCustomersTitle(salesId);
-    
+
     document.querySelectorAll(".js-customer-link").forEach((button) => {
       button.addEventListener("click", () => {
         const customerId = button.dataset.customerId;

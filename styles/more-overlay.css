@@ -1,9 +1,9 @@
 .overlay--more {
-  position: fixed;
-  left: 0;
-  bottom: -1000px;
   opacity: 0;
   visibility: hidden;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   height: 100%;
   width: 100%;
   display: flex;
@@ -12,11 +12,13 @@
   z-index: 101;
   gap: 15px;
   background: rgba(0, 0, 0, 0.5);
+
+  transform: translateY(20%);
   transition: all 0.2s ease;
 }
 
 .overlay--more.active {
-  bottom: 0;
+  transform: translateY(0);
   visibility: visible;
   opacity: 1;
 }
@@ -35,6 +37,34 @@
   background-color: black;
   padding: 15px;
   margin-top: 79px;
+}
+
+.overlay__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 50px;
+  width: 50px;
+  aspect-ratio: 1/1;
+  border-radius: 100px;
+}
+
+.overlay__icon {
+  font-size: 20px;
+}
+
+.overlay__text {
+}
+
+.overlay__name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.overlay__count {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .menu {

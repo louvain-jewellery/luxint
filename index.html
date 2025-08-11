@@ -104,74 +104,105 @@
     </nav>
 
     <section class="overlay overlay--add js-add-overlay">
-      <div class="overlay__header">
-        <h2 class="overlay__title">Tambahkan Item</h2>
-        <button class="overlay__close-button js-close-button">&#10005;</button>
-      </div>
-
-      <form
-        class="form form--add"
-        autocomplete="off"
-        action="/submit"
-        method="POST"
-      >
-        <div class="form__body">
-          <div class="field">
-            <label class="field__label" for="type">Jenis</label>
-            <p class="field__seperator">:</p>
-            <select class="field__input field__input--select" name="type">
-              <option value="" selected disabled>Pilih</option>
-              <option value="ring">Cincin</option>
-              <option value="bracelet">Gelang</option>
-              <option value="necklace">Kalung</option>
-              <option value="earrings">Anting</option>
-              <option value="diamond">Diamond</option>
-              <option value="gold">Emas</option>
-              <option value="others">Lainnya</option>
-            </select>
-          </div>
-          <div class="field">
-            <label class="field__label" for="name">Nama</label>
-            <p class="colon">:</p>
-            <input class="field__input" type="text" name="name" />
-          </div>
-          <div class="field">
-            <label class="field__label" for="weight">Berat</label>
-            <p class="colon">:</p>
-            <input class="field__input" type="text" name="weight" />
-          </div>
-          <div class="field">
-            <label class="field__label" for="date">Tanggal Beli</label>
-            <p class="colon">:</p>
-            <input class="field__input" type="date" name="date" />
-          </div>
-          <div class="field">
-            <label class="field__label" for="gold">Kadar Emas</label>
-            <p class="colon">:</p>
-            <input class="field__input" type="text" name="gold" />
-          </div>
-          <div class="field">
-            <label class="field__label" for="price">Harga Jual</label>
-            <p class="colon">:</p>
-            <input class="field__input" type="text" name="price" />
-          </div>
-          <div class="field">
-            <label class="field__label" for="photo">Foto Produk</label>
-            <p class="colon">:</p>
-            <input
-              class="field__input--file"
-              type="file"
-              name="photo"
-              accept="image/*"
-            />
-          </div>
+      <div class="overlay__wrapper js-add-overlay-wrapper">
+        <div class="overlay__header">
+          <h2 class="overlay__title">Tambahkan Item</h2>
+          <button class="overlay__close-button js-close-button">
+            &#10005;
+          </button>
         </div>
 
-        <button class="overlay__submit-button">Submit</button>
-      </form>
+        <form
+          class="form form--add"
+          autocomplete="off"
+          action="/submit"
+          method="POST"
+        >
+          <div class="form__body">
+            <div class="field">
+              <label class="field__label" for="type">Jenis</label>
+              <p class="field__seperator">:</p>
+              <select class="field__input field__input--select" name="type">
+                <option value="" selected disabled>Pilih</option>
+                <option value="ring">Cincin</option>
+                <option value="bracelet">Gelang</option>
+                <option value="necklace">Kalung</option>
+                <option value="earrings">Anting</option>
+                <option value="diamond">Diamond</option>
+                <option value="gold">Emas</option>
+                <option value="others">Lainnya</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field__label" for="name">Nama</label>
+              <p class="colon">:</p>
+              <input class="field__input" type="text" name="name" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="weight">Berat</label>
+              <p class="colon">:</p>
+              <input class="field__input" type="text" name="weight" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="date">Tanggal Beli</label>
+              <p class="colon">:</p>
+              <input class="field__input" type="date" name="date" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="gold">Kadar Emas</label>
+              <p class="colon">:</p>
+              <input class="field__input" type="text" name="gold" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="price">Harga Jual</label>
+              <p class="colon">:</p>
+              <input class="field__input" type="text" name="price" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="photo">Foto Produk</label>
+              <p class="colon">:</p>
+              <input
+                class="field__input--file"
+                type="file"
+                name="photo"
+                accept="image/*"
+              />
+            </div>
+          </div>
+
+          <button class="overlay__submit-button">Submit</button>
+        </form>
+      </div>
     </section>
 
-    <section class="overlay overlay--more js-more-overlay"></section>
+    <section class="overlay overlay--more js-more-overlay">
+      <div class="overlay__selected-item js-selected-item">
+        <div class="overlay__icon-wrapper">
+          <p class="overlay__icon js-overlay-icon"></p>
+        </div>
+        <div class="overlay__text">
+          <p class="overlay__name js-overlay-name"></p>
+          <p class="overlay__count js-overlay-count"></p>
+        </div>
+      </div>
+
+      <div class="menu">
+        <div class="menu__item">
+          <img
+            class="menu-icon icon"
+            src="/assets/icons/edit_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
+          />
+          <p class="menu__label">Ganti nama</p>
+        </div>
+        <div class="menu__item">
+          <img
+            class="menu__icon menu__icon--danger icon"
+            src="/assets/icons/delete_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
+          />
+          <p class="menu__label menu__label--danger">Hapus</p>
+        </div>
+      </div>
+    </section>
 
     <script src="sw-register.js"></script>
     <script type="module" src="scripts/main.js"></script>
