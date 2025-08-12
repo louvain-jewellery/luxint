@@ -78,3 +78,19 @@
   border: none;
   padding-bottom: 0;
 }
+
+.overlay__row-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.overlay__row-icon {
+  height: 20px;
+}
+
+.overlay__row-content {
+  color: rgba(255, 255, 255, 0.5);
+}

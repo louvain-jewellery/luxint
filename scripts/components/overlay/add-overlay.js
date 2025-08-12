@@ -1,7 +1,7 @@
 export function showAddOverlay() {
   const addButton = document.querySelector(".js-add-button");
   const addOverlay = document.querySelector(".js-add-overlay");
-  const closeButton = document.querySelector(".js-close-button");
+  const closeButton = addOverlay.querySelector(".js-close-button");
 
   function openOverlay() {
     addOverlay.classList.add("visible");

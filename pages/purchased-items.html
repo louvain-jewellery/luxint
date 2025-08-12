@@ -19,36 +19,7 @@
   </div>
 
   <nav class="purchased-items__nav">
-    <ul class="purchased-items__list js-purchased-items-list">
-      <li class="purchased-items__item">
-        <button
-          class="purchased-items__link js-purchased-items-link"
-          data-purchased-id="${item.id}"
-        >
-          <div class="purchased-items__icon-wrapper">
-            <img
-              class="purchased-items__icon"
-              src="/assets/icons/jewellery/bracelet.png"
-            />
-          </div>
-          <div class="purchased-items__text">
-            <p class="purchased-items__name">Gelang Pandora</p>
-            <p class="purchased-items__date">22 Agustus 2025</p>
-          </div>
-        </button>
-        <button
-          class="purchased-items__more-button"
-          data-purchased-id="${
-          item.id
-        }"
-        >
-          <img
-            class="purchased-items__more-icon icon"
-            src="/assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
-          />
-        </button>
-      </li>
-    </ul>
+    <ul class="purchased-items__list js-purchased-items-list"></ul>
   </nav>
 </section>
 
@@ -73,23 +44,54 @@
       </div>
       <div class="overlay__details">
         <div class="overlay__row">
-          <p class="overlay__row-name">Tanggal beli</p>
+          <div class="overlay__row-left">
+            <img
+              class="overlay__row-icon icon"
+              src="/assets/icons/input/calendar_today_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <p class="overlay__row-name">Tanggal beli</p>
+          </div>
           <p class="overlay__row-content js-item-date"></p>
         </div>
         <div class="overlay__row">
-          <p class="overlay__row-name">Jenis</p>
+          <div class="overlay__row-left">
+            <img
+              class="overlay__row-icon icon"
+              src="assets/icons/input/diamond_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <p class="overlay__row-name">Jenis</p>
+          </div>
           <p class="overlay__row-content js-item-type"></p>
         </div>
         <div class="overlay__row">
-          <p class="overlay__row-name">Berat</p>
+          <div class="overlay__row-left">
+            <img
+              class="overlay__row-icon icon"
+              src="assets/icons/input/weight_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <p class="overlay__row-name">Berat</p>
+          </div>
           <p class="overlay__row-content js-item-weight"></p>
         </div>
         <div class="overlay__row">
-          <p class="overlay__row-name">Kadar Emas</p>
+          <div class="overlay__row-left">
+            <img
+              class="overlay__row-icon icon"
+              src="/assets/icons/input/percent_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <p class="overlay__row-name">Kadar Emas</p>
+          </div>
           <p class="overlay__row-content js-item-gold"></p>
         </div>
         <div class="overlay__row">
-          <p class="overlay__row-name">Harga Jual</p>
+          <div class="overlay__row-left">
+            <img
+              class="overlay__row-icon icon"
+              src="/assets/icons/input/credit_card_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+              alt=""
+            />
+            <p class="overlay__row-name">Harga Jual</p>
+          </div>
           <p class="overlay__row-content js-item-price"></p>
         </div>
       </div>
