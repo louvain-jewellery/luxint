@@ -53,28 +53,34 @@
     />
 
     <link rel="stylesheet" href="styles/main.css" />
-    <link rel="stylesheet" href="styles/header.css" />
-    <link rel="stylesheet" href="styles/home.css" />
-    <link rel="stylesheet" href="styles/customers.css" />
-    <link rel="stylesheet" href="styles/purchased-items.css" />
+    <link rel="stylesheet" href="styles/pages/home.css" />
+    <link rel="stylesheet" href="styles/pages/customers.css" />
+    <link rel="stylesheet" href="styles/pages/purchased-items.css" />
 
-    <link rel="stylesheet" href="styles/bottom-nav.css" />
-    <link rel="stylesheet" href="styles/add-overlay.css" />
-    <link rel="stylesheet" href="styles/more-overlay.css" />
+    <link rel="stylesheet" href="styles/components/header.css" />
+    <link rel="stylesheet" href="styles/components/bottom-nav.css" />
+    <link rel="stylesheet" href="styles/components/menu.css" />
+    <link rel="stylesheet" href="styles/components/overlay/overlay.css" />
+    <link rel="stylesheet" href="styles/components/overlay/add-overlay.css" />
+    <link rel="stylesheet" href="styles/components/overlay/more-overlay.css" />
+    <link
+      rel="stylesheet"
+      href="styles/components/overlay/purchased-overlay.css"
+    />
 
     <title>Luxury International</title>
   </head>
 
   <body>
     <header class="header">
-      <button class="header__button js-back-button">
+      <button class="btn header__button js-back-button">
         <img
           class="header__icon"
           src="assets/icons/arrow_back_ios_new_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
         />
       </button>
       <p class="header__title js-header-title"></p>
-      <button class="header__button">
+      <button class="btn header__button">
         <img
           class="header__icon"
           src="assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
@@ -120,10 +126,14 @@
     </nav>
 
     <section class="overlay overlay--add js-add-overlay">
-      <div class="overlay__wrapper js-add-overlay-wrapper">
-        <div class="overlay__header">
+      <div
+        class="overlay__wrapper overlay__wrapper--add js-add-overlay-wrapper"
+      >
+        <div class="overlay__header overlay__header--add">
           <h2 class="overlay__title">Tambahkan Item</h2>
-          <button class="overlay__close-button js-close-button">
+          <button
+            class="btn overlay__button overlay__close-button js-close-button"
+          >
             &#10005;
           </button>
         </div>

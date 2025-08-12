@@ -57,17 +57,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(201, 175, 25);
-  height: 50px;
-  width: 50px;
-  padding: 5px;
+  width: 60px;
   aspect-ratio: 1/1;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .purchased-items__icon {
   height: 100%;
-  /* filter: invert(1); */
+  width: 100%;
+  object-fit: cover;
 }
 
 .purchased-items__text {

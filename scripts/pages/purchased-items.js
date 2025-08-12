@@ -1,3 +1,7 @@
+import {
+  hidePurchasedOverlay,
+  showPurchasedOverlay,
+} from "../components/overlay/purchased-overlay.js";
 import { loadTitle } from "../ui/header.js";
 
 export function loadPurchasedItems(customerId) {
@@ -19,13 +23,13 @@ export function loadPurchasedItems(customerId) {
 
       li.innerHTML = `
           <button
-            class="purchased-items__link js-purchased-items-link"
-            data-purchased-id="${item.id}"
+            class="purchased-items__link js-purchased-items"
+            data-item-id="${item.id}"
           >
             <div class="purchased-items__icon-wrapper">
               <img
                 class="purchased-items__icon"
-                src="assets/icons/jewellery/${item.type}.png"
+                src="${item.productImage}"
               />
             </div>
             <div class="purchased-items__text">
@@ -33,20 +37,13 @@ export function loadPurchasedItems(customerId) {
               <p class="purchased-items__date">${item.date}</p>
             </div>
           </button>
-          <button
-            class="purchased-items__more-button"
-            data-purchased-id="${item.id}"
-          >
-            <img
-              class="purchased-items__more-icon icon"
-              src="assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
-            />
-          </button>
         `;
 
       itemList.appendChild(li);
     });
 
     loadTitle(customer);
+    showPurchasedOverlay();
+    hidePurchasedOverlay();
   });
 }

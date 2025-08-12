@@ -1,4 +1,7 @@
-import { showMoreOverlay } from "../components/more.js";
+import {
+  hideMoreOverlay,
+  showMoreOverlay,
+} from "../components/overlay/more-overlay.js";
 import { loadTitle } from "../ui/header.js";
 import { generateInitials } from "../utils/initials-generator.js";
 import { mapItemCount } from "../utils/item-count.js";
@@ -64,8 +67,10 @@ export function loadCustomers() {
 
       customerList.appendChild(li);
     });
-    showMoreOverlay();
+
     loadTitle(sales);
+    showMoreOverlay();
+    hideMoreOverlay();
 
     document.querySelectorAll(".js-customer-link").forEach((button) => {
       button.addEventListener("click", () => {

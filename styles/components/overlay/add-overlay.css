@@ -1,16 +1,7 @@
 .overlay--add {
   opacity: 0;
   visibility: hidden;
-
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  max-width: 768px;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-
   transition: opacity 0.2s ease, visibility 0.2s ease;
-  z-index: 101;
 }
 
 .overlay--add.visible {
@@ -18,25 +9,15 @@
   visibility: visible;
 }
 
-.overlay__wrapper {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
+.overlay__wrapper--add {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 35px;
+  width: 100%;
+  max-width: 768px;
   align-items: flex-start;
-  padding: 30px 30px 50px 30px;
-
-  border-radius: 30px 30px 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2),
-    inset 0 0 4px 2px rgba(255, 255, 255, 0.045);
+  padding-bottom: 50px;
 
   transform: translateY(100%);
   will-change: transform;
@@ -45,29 +26,6 @@
 
 .overlay--add.visible .overlay__wrapper {
   transform: translateY(0);
-}
-
-.overlay__header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.overlay__title {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.overlay__close-button {
-  font-size: 15px;
-  aspect-ratio: 1/1;
-  padding-bottom: 2px;
-  width: 30px;
-  background-color: rgba(255, 255, 255, 0.179);
-  border: 2px solid rgba(255, 255, 255, 0.037);
-  border-radius: 100px;
 }
 
 .form--add {

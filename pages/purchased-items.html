@@ -51,3 +51,48 @@
     </ul>
   </nav>
 </section>
+
+<section class="overlay overlay--purchased js-purchased-overlay">
+  <div class="overlay__wrapper overlay__wrapper--purchased">
+    <div class="overlay__header overlay__header--purchased">
+      <h1 class="overlay__title js-item-name"></h1>
+
+      <div class="overlay__header-right">
+        <button class="btn overlay__button">Edit</button>
+        <button
+          class="btn overlay__button overlay__close-button js-close-button"
+        >
+          &#10005;
+        </button>
+      </div>
+    </div>
+
+    <div class="overlay__body">
+      <div class="overlay__image-wrapper">
+        <img class="overlay__image js-item-image" />
+      </div>
+      <div class="overlay__details">
+        <div class="overlay__row">
+          <p class="overlay__row-name">Tanggal beli</p>
+          <p class="overlay__row-content js-item-date"></p>
+        </div>
+        <div class="overlay__row">
+          <p class="overlay__row-name">Jenis</p>
+          <p class="overlay__row-content js-item-type"></p>
+        </div>
+        <div class="overlay__row">
+          <p class="overlay__row-name">Berat</p>
+          <p class="overlay__row-content js-item-weight"></p>
+        </div>
+        <div class="overlay__row">
+          <p class="overlay__row-name">Kadar Emas</p>
+          <p class="overlay__row-content js-item-gold"></p>
+        </div>
+        <div class="overlay__row">
+          <p class="overlay__row-name">Harga Jual</p>
+          <p class="overlay__row-content js-item-price"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

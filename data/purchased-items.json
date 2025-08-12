@@ -7,8 +7,8 @@
     "date": "2025-07-05",
     "weight": 3.7,
     "goldPurity": 90,
-    "sellingPrice": 1740,
-    "productImage": "https://example.com/images/cartier-drop-earrings.jpg"
+    "sellingPrice": 17400000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-002",
@@ -18,8 +18,8 @@
     "date": "2025-06-30",
     "weight": 8.2,
     "goldPurity": 80,
-    "sellingPrice": 626,
-    "productImage": "https://example.com/images/van-cleef-&-arpels-stud-earrings.jpg"
+    "sellingPrice": 62600000000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-003",
@@ -29,8 +29,8 @@
     "date": "2025-07-17",
     "weight": 7.2,
     "goldPurity": 99,
-    "sellingPrice": 1394,
-    "productImage": "https://example.com/images/cartier-charm-bracelet.jpg"
+    "sellingPrice": 13940000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-004",
@@ -40,8 +40,8 @@
     "date": "2025-06-04",
     "weight": 17.1,
     "goldPurity": 75,
-    "sellingPrice": 1886,
-    "productImage": "https://example.com/images/bvlgari-cuff-bracelet.jpg"
+    "sellingPrice": 18860000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-005",
@@ -51,8 +51,8 @@
     "date": "2025-07-13",
     "weight": 19.8,
     "goldPurity": 90,
-    "sellingPrice": 733,
-    "productImage": "https://example.com/images/tiffany-&-co.-stud-earrings.jpg"
+    "sellingPrice": 7330000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-006",
@@ -62,8 +62,8 @@
     "date": "2025-08-07",
     "weight": 5.8,
     "goldPurity": 85,
-    "sellingPrice": 524,
-    "productImage": "https://example.com/images/swarovski-hoop-earrings.jpg"
+    "sellingPrice": 52400000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-007",
@@ -73,8 +73,8 @@
     "date": "2025-06-03",
     "weight": 10.8,
     "goldPurity": 80,
-    "sellingPrice": 1504,
-    "productImage": "https://example.com/images/pandora-choker-necklace.jpg"
+    "sellingPrice": 15040000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
     "id": "Item-008",
@@ -84,8 +84,8 @@
     "date": "2025-07-25",
     "weight": 4.4,
     "goldPurity": 99,
-    "sellingPrice": 1461,
-    "productImage": "https://example.com/images/tiffany-&-co.-choker-necklace.jpg"
+    "sellingPrice": 14610000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
     "id": "Item-009",
@@ -95,8 +95,8 @@
     "date": "2025-07-30",
     "weight": 14.8,
     "goldPurity": 75,
-    "sellingPrice": 1262,
-    "productImage": "https://example.com/images/rolex-love-bracelet.jpg"
+    "sellingPrice": 1262000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-010",
@@ -106,8 +106,8 @@
     "date": "2025-08-03",
     "weight": 16.6,
     "goldPurity": 99,
-    "sellingPrice": 1394,
-    "productImage": "https://example.com/images/bvlgari-eternity-ring.jpg"
+    "sellingPrice": 1394000000,
+    "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
     "id": "Item-011",
@@ -117,8 +117,8 @@
     "date": "2025-07-05",
     "weight": 6.5,
     "goldPurity": 90,
-    "sellingPrice": 1059,
-    "productImage": "https://example.com/images/chopard-drop-earrings.jpg"
+    "sellingPrice": 10590000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-012",
@@ -128,8 +128,8 @@
     "date": "2025-07-24",
     "weight": 16.8,
     "goldPurity": 90,
-    "sellingPrice": 1555,
-    "productImage": "https://example.com/images/cartier-drop-earrings.jpg"
+    "sellingPrice": 15550000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-013",
@@ -139,8 +139,8 @@
     "date": "2025-06-21",
     "weight": 3.1,
     "goldPurity": 80,
-    "sellingPrice": 611,
-    "productImage": "https://example.com/images/harry-winston-love-bracelet.jpg"
+    "sellingPrice": 6110000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-014",
@@ -150,8 +150,8 @@
     "date": "2025-07-13",
     "weight": 1.4,
     "goldPurity": 80,
-    "sellingPrice": 1520,
-    "productImage": "https://example.com/images/graff-cuff-bracelet.jpg"
+    "sellingPrice": 15200000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-015",
@@ -161,8 +161,8 @@
     "date": "2025-07-11",
     "weight": 10.3,
     "goldPurity": 99,
-    "sellingPrice": 1234,
-    "productImage": "https://example.com/images/swarovski-love-bracelet.jpg"
+    "sellingPrice": 12340000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-016",
@@ -172,8 +172,8 @@
     "date": "2025-06-21",
     "weight": 18.5,
     "goldPurity": 99,
-    "sellingPrice": 1852,
-    "productImage": "https://example.com/images/bvlgari-drop-earrings.jpg"
+    "sellingPrice": 18520000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-017",
@@ -183,8 +183,8 @@
     "date": "2025-07-23",
     "weight": 16.1,
     "goldPurity": 99,
-    "sellingPrice": 1847,
-    "productImage": "https://example.com/images/graff-halo-ring.jpg"
+    "sellingPrice": 18470000,
+    "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
     "id": "Item-018",
@@ -194,8 +194,8 @@
     "date": "2025-06-14",
     "weight": 18.7,
     "goldPurity": 99,
-    "sellingPrice": 861,
-    "productImage": "https://example.com/images/swarovski-drop-earrings.jpg"
+    "sellingPrice": 8610000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-019",
@@ -205,8 +205,8 @@
     "date": "2025-06-05",
     "weight": 15.5,
     "goldPurity": 75,
-    "sellingPrice": 1823,
-    "productImage": "https://example.com/images/tiffany-&-co.-halo-ring.jpg"
+    "sellingPrice": 18230000,
+    "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
     "id": "Item-020",
@@ -216,8 +216,8 @@
     "date": "2025-07-09",
     "weight": 6.2,
     "goldPurity": 75,
-    "sellingPrice": 1658,
-    "productImage": "https://example.com/images/chopard-drop-earrings.jpg"
+    "sellingPrice": 16580000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-021",
@@ -227,8 +227,8 @@
     "date": "2025-07-20",
     "weight": 17.9,
     "goldPurity": 85,
-    "sellingPrice": 1810,
-    "productImage": "https://example.com/images/chopard-cuff-bracelet.jpg"
+    "sellingPrice": 18100000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-022",
@@ -238,8 +238,8 @@
     "date": "2025-07-29",
     "weight": 11.4,
     "goldPurity": 90,
-    "sellingPrice": 1021,
-    "productImage": "https://example.com/images/van-cleef-&-arpels-chain-necklace.jpg"
+    "sellingPrice": 10210000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
     "id": "Item-023",
@@ -249,8 +249,8 @@
     "date": "2025-06-01",
     "weight": 7.4,
     "goldPurity": 80,
-    "sellingPrice": 1076,
-    "productImage": "https://example.com/images/cartier-choker-necklace.jpg"
+    "sellingPrice": 10760000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
     "id": "Item-024",
@@ -260,8 +260,8 @@
     "date": "2025-06-05",
     "weight": 3.8,
     "goldPurity": 85,
-    "sellingPrice": 1911,
-    "productImage": "https://example.com/images/rolex-solitaire-ring.jpg"
+    "sellingPrice": 19110000,
+    "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
     "id": "Item-025",
@@ -271,8 +271,8 @@
     "date": "2025-07-15",
     "weight": 9.0,
     "goldPurity": 90,
-    "sellingPrice": 571,
-    "productImage": "https://example.com/images/bvlgari-solitaire-ring.jpg"
+    "sellingPrice": 5710000,
+    "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
     "id": "Item-026",
@@ -282,8 +282,8 @@
     "date": "2025-07-22",
     "weight": 16.2,
     "goldPurity": 75,
-    "sellingPrice": 1854,
-    "productImage": "https://example.com/images/cartier-cuff-bracelet.jpg"
+    "sellingPrice": 18540000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-027",
@@ -293,8 +293,8 @@
     "date": "2025-06-30",
     "weight": 13.1,
     "goldPurity": 85,
-    "sellingPrice": 1020,
-    "productImage": "https://example.com/images/cartier-love-bracelet.jpg"
+    "sellingPrice": 10200000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-028",
@@ -304,8 +304,8 @@
     "date": "2025-06-18",
     "weight": 14.4,
     "goldPurity": 99,
-    "sellingPrice": 312,
-    "productImage": "https://example.com/images/pandora-charm-bracelet.jpg"
+    "sellingPrice": 3120000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-029",
@@ -315,8 +315,8 @@
     "date": "2025-06-04",
     "weight": 4.7,
     "goldPurity": 95,
-    "sellingPrice": 1910,
-    "productImage": "https://example.com/images/bvlgari-eternity-ring.jpg"
+    "sellingPrice": 19100000,
+    "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
     "id": "Item-030",
@@ -326,8 +326,8 @@
     "date": "2025-06-26",
     "weight": 5.2,
     "goldPurity": 95,
-    "sellingPrice": 1231,
-    "productImage": "https://example.com/images/tiffany-&-co.-cuff-bracelet.jpg"
+    "sellingPrice": 12310000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-031",
@@ -337,8 +337,8 @@
     "date": "2025-06-12",
     "weight": 9.9,
     "goldPurity": 75,
-    "sellingPrice": 354,
-    "productImage": "https://example.com/images/pandora-cuff-bracelet.jpg"
+    "sellingPrice": 3540000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-032",
@@ -348,8 +348,8 @@
     "date": "2025-08-01",
     "weight": 13.9,
     "goldPurity": 95,
-    "sellingPrice": 935,
-    "productImage": "https://example.com/images/chopard-pendant-necklace.jpg"
+    "sellingPrice": 9350000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
     "id": "Item-033",
@@ -359,8 +359,8 @@
     "date": "2025-06-07",
     "weight": 13.0,
     "goldPurity": 90,
-    "sellingPrice": 474,
-    "productImage": "https://example.com/images/tiffany-&-co.-drop-earrings.jpg"
+    "sellingPrice": 4740000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-034",
@@ -370,8 +370,8 @@
     "date": "2025-07-05",
     "weight": 6.8,
     "goldPurity": 75,
-    "sellingPrice": 667,
-    "productImage": "https://example.com/images/harry-winston-cuff-bracelet.jpg"
+    "sellingPrice": 6670000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-035",
@@ -381,8 +381,8 @@
     "date": "2025-07-06",
     "weight": 3.1,
     "goldPurity": 95,
-    "sellingPrice": 1159,
-    "productImage": "https://example.com/images/rolex-cuff-bracelet.jpg"
+    "sellingPrice": 11590000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-036",
@@ -392,8 +392,8 @@
     "date": "2025-06-02",
     "weight": 19.1,
     "goldPurity": 80,
-    "sellingPrice": 1693,
-    "productImage": "https://example.com/images/pandora-hoop-earrings.jpg"
+    "sellingPrice": 16930000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-037",
@@ -403,8 +403,8 @@
     "date": "2025-08-04",
     "weight": 16.2,
     "goldPurity": 75,
-    "sellingPrice": 436,
-    "productImage": "https://example.com/images/pandora-stud-earrings.jpg"
+    "sellingPrice": 4360000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-038",
@@ -414,8 +414,8 @@
     "date": "2025-08-06",
     "weight": 15.5,
     "goldPurity": 90,
-    "sellingPrice": 553,
-    "productImage": "https://example.com/images/harry-winston-chain-necklace.jpg"
+    "sellingPrice": 5530000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
     "id": "Item-039",
@@ -425,8 +425,8 @@
     "date": "2025-07-21",
     "weight": 11.6,
     "goldPurity": 85,
-    "sellingPrice": 320,
-    "productImage": "https://example.com/images/graff-chain-necklace.jpg"
+    "sellingPrice": 3200000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
     "id": "Item-040",
@@ -436,8 +436,8 @@
     "date": "2025-07-18",
     "weight": 15.9,
     "goldPurity": 95,
-    "sellingPrice": 1076,
-    "productImage": "https://example.com/images/chopard-eternity-ring.jpg"
+    "sellingPrice": 10760000,
+    "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
     "id": "Item-041",
@@ -447,8 +447,8 @@
     "date": "2025-07-27",
     "weight": 6.3,
     "goldPurity": 95,
-    "sellingPrice": 1715,
-    "productImage": "https://example.com/images/rolex-cuff-bracelet.jpg"
+    "sellingPrice": 17150000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-042",
@@ -458,8 +458,8 @@
     "date": "2025-07-12",
     "weight": 11.2,
     "goldPurity": 75,
-    "sellingPrice": 1919,
-    "productImage": "https://example.com/images/harry-winston-love-bracelet.jpg"
+    "sellingPrice": 19190000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-043",
@@ -469,8 +469,8 @@
     "date": "2025-07-17",
     "weight": 11.6,
     "goldPurity": 75,
-    "sellingPrice": 1780,
-    "productImage": "https://example.com/images/pandora-drop-earrings.jpg"
+    "sellingPrice": 17800000,
+    "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
     "id": "Item-044",
@@ -480,8 +480,8 @@
     "date": "2025-07-31",
     "weight": 2.1,
     "goldPurity": 85,
-    "sellingPrice": 1078,
-    "productImage": "https://example.com/images/tiffany-&-co.-cuff-bracelet.jpg"
+    "sellingPrice": 10780000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-045",
@@ -491,8 +491,8 @@
     "date": "2025-06-03",
     "weight": 16.3,
     "goldPurity": 85,
-    "sellingPrice": 986,
-    "productImage": "https://example.com/images/tiffany-&-co.-charm-bracelet.jpg"
+    "sellingPrice": 9860000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-046",
@@ -502,8 +502,8 @@
     "date": "2025-06-28",
     "weight": 4.7,
     "goldPurity": 95,
-    "sellingPrice": 1163,
-    "productImage": "https://example.com/images/pandora-halo-ring.jpg"
+    "sellingPrice": 11630000,
+    "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
     "id": "Item-047",
@@ -513,8 +513,8 @@
     "date": "2025-07-02",
     "weight": 19.0,
     "goldPurity": 85,
-    "sellingPrice": 1317,
-    "productImage": "https://example.com/images/swarovski-chain-necklace.jpg"
+    "sellingPrice": 13170000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
     "id": "Item-048",
@@ -524,8 +524,8 @@
     "date": "2025-07-25",
     "weight": 15.0,
     "goldPurity": 80,
-    "sellingPrice": 1701,
-    "productImage": "https://example.com/images/harry-winston-solitaire-ring.jpg"
+    "sellingPrice": 17010000,
+    "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
     "id": "Item-049",
@@ -535,8 +535,8 @@
     "date": "2025-07-04",
     "weight": 3.9,
     "goldPurity": 85,
-    "sellingPrice": 539,
-    "productImage": "https://example.com/images/graff-choker-necklace.jpg"
+    "sellingPrice": 5390000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
     "id": "Item-050",
@@ -546,8 +546,8 @@
     "date": "2025-07-08",
     "weight": 19.0,
     "goldPurity": 75,
-    "sellingPrice": 339,
-    "productImage": "https://example.com/images/van-cleef-&-arpels-eternity-ring.jpg"
+    "sellingPrice": 3390000,
+    "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
     "id": "Item-051",
@@ -557,8 +557,8 @@
     "date": "2025-06-11",
     "weight": 8.6,
     "goldPurity": 90,
-    "sellingPrice": 1099,
-    "productImage": "https://example.com/images/tiffany-&-co.-cuff-bracelet.jpg"
+    "sellingPrice": 10990000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-052",
@@ -568,8 +568,8 @@
     "date": "2025-06-22",
     "weight": 16.6,
     "goldPurity": 99,
-    "sellingPrice": 1717,
-    "productImage": "https://example.com/images/harry-winston-choker-necklace.jpg"
+    "sellingPrice": 17170000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
     "id": "Item-053",
@@ -579,8 +579,8 @@
     "date": "2025-08-08",
     "weight": 4.4,
     "goldPurity": 75,
-    "sellingPrice": 1791,
-    "productImage": "https://example.com/images/chopard-charm-bracelet.jpg"
+    "sellingPrice": 17910000,
+    "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
     "id": "Item-054",
@@ -590,7 +590,7 @@
     "date": "2025-07-01",
     "weight": 15.9,
     "goldPurity": 80,
-    "sellingPrice": 470,
-    "productImage": "https://example.com/images/cartier-choker-necklace.jpg"
+    "sellingPrice": 4700000,
+    "productImage": "assets/images/jewellery/necklace.jpg"
   }
 ]

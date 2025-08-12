@@ -1,5 +1,4 @@
-import { showAddOverlay } from "./components/add.js";
-import { showMoreOverlay } from "./components/more.js";
+import { showAddOverlay } from "./components/overlay/add-overlay.js";
 import { loadCustomers } from "./pages/customers.js";
 import { loadPurchasedItems } from "./pages/purchased-items.js";
 import { loadSales } from "./pages/sales-person.js";
