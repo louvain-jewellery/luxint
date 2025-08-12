@@ -9,6 +9,7 @@ const pageMain = document.querySelector(".js-page-main");
 function loadPage(page) {
   const [pageName, parameter] = page.split("/");
 
+  pageMain.classList.add("page-transitioning");
   document.body.className = `page-${pageName}`;
 
   fetch(`pages/${pageName}.html`)
@@ -69,9 +70,14 @@ function updateNavItem() {
 
 function goBack() {
   const backButton = document.querySelector(".js-back-button");
-  backButton.addEventListener("click", () => {
-    window.history.back();
-  });
+  if (backButton) {
+    const newBackButton = backButton.cloneNode(true);
+    backButton.parentNode.replaceChild(newBackButton, backButton);
+
+    newBackButton.addEventListener("click", () => {
+      window.history.back();
+    });
+  }
 }
 
 initRouter();

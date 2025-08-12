@@ -13,16 +13,6 @@
   z-index: 100;
 }
 
-.header--home {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 64px;
-  padding: 0 15px;
-  margin-bottom: 10px;
-}
-
 .header__logo {
   height: 30px;
 }
