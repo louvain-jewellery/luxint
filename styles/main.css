@@ -61,7 +61,8 @@ a {
 .btn {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   background-color: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: none;
   border-radius: 100px;
 }
 
