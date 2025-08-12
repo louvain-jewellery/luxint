@@ -48,7 +48,6 @@
 .overlay__title {
   font-size: 24px;
   font-weight: 600;
-  text-wrap: wrap;
 }
 
 .overlay__button {
