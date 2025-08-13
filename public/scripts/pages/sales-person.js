@@ -10,6 +10,8 @@ export function loadSales() {
   fetch("/api/sales")
     .then((response) => response.json())
     .then((data) => {
+      console.log("API Response:", data);
+      console.log("First item:", data[0]);
       const selectorList = document.querySelector(".js-selector-list");
       selectorList.innerHTML = "";
 
