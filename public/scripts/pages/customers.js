@@ -22,9 +22,9 @@ export function loadCustomers() {
   }
 
   Promise.all([
-    fetch("data/customers.json").then((response) => response.json()),
-    fetch("data/purchased-items.json").then((response) => response.json()),
-    fetch("data/sales.json").then((response) => response.json()),
+    fetch("/api/customers").then((response) => response.json()),
+    fetch("/api/items").then((response) => response.json()),
+    fetch("/api/sales").then((response) => response.json()),
   ]).then(([customersData, itemsData, salesData]) => {
     customerList.innerHTML = "";
 
