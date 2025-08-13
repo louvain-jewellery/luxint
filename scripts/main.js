@@ -54,12 +54,18 @@ function updateNavItem() {
   const navItems = document.querySelectorAll(".js-bottom-nav-item");
   const currentHash = location.hash || "#home";
 
+  const currentPageName = currentHash.split("/")[0];
+
   navItems.forEach((item) => {
     const link = item.querySelector("a");
     if (link) {
       const href = link.getAttribute("href");
 
-      if (href === currentHash) {
+      if (
+        href === currentHash ||
+        href === currentPageName ||
+        (currentPageName === "#purchased-items" && href === "#customers")
+      ) {
         item.classList.add("selected");
       } else {
         item.classList.remove("selected");
