@@ -84,7 +84,7 @@ export function loadCardData(salesId) {
   fetch("/api/sales")
     .then((response) => response.json())
     .then((data) => {
-      const sales = data.find((saleses) => saleses.id === parseInt(salesId));
+      const sales = data.find((saleses) => saleses.id === salesId);
 
       cardDetail.innerHTML = `
           <div class="employee-card__detail">
@@ -141,7 +141,8 @@ export function saveSelectedSales(salesId) {
 }
 
 export function loadSelectedSales() {
-  return localStorage.getItem("selectedSales");
+  const saved = localStorage.getItem("selectedSales");
+  return parseInt(saved);
 }
 
 export function saveCardData(cardData) {

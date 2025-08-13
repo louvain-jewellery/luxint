@@ -31,7 +31,7 @@ export function loadCustomers() {
     const customers = customersData.filter(
       (customer) => customer.salesId === salesId
     );
-    const sales = salesData.find((sales) => sales.id === parseInt(salesId));
+    const sales = salesData.find((sales) => sales.id === salesId);
 
     const itemCountMap = mapItemCount(itemsData);
 
