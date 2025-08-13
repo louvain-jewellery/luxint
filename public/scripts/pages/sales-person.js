@@ -1,3 +1,4 @@
+import { formatSalesId } from "../utils/format-id.js";
 import { formatWithDots } from "../utils/number.js";
 
 export function loadSales() {
@@ -10,8 +11,6 @@ export function loadSales() {
   fetch("/api/sales")
     .then((response) => response.json())
     .then((data) => {
-      console.log("API Response:", data);
-      console.log("First item:", data[0]);
       const selectorList = document.querySelector(".js-selector-list");
       selectorList.innerHTML = "";
 
@@ -85,13 +84,15 @@ export function loadCardData(salesId) {
   fetch("/api/sales")
     .then((response) => response.json())
     .then((data) => {
-      const sales = data.find((saleses) => saleses.id === salesId);
+      const sales = data.find((saleses) => saleses.id === parseInt(salesId));
 
       cardDetail.innerHTML = `
           <div class="employee-card__detail">
             <div class="employee-card__row">
               <p class="employee-card__title">ID</p>
-              <p class="employee-card__content js-card-id">: ${sales.id}</p>
+              <p class="employee-card__content js-card-id">: ${formatSalesId(
+                sales.id
+              )}</p>
             </div>
             <div class="employee-card__row">
               <p class="employee-card__title">Nama</p>
