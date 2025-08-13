@@ -42,7 +42,7 @@ export function loadSales() {
 
       selectorList.querySelectorAll(".js-selector-item").forEach((item) => {
         item.addEventListener("click", () => {
-          const salesId = item.dataset.salesId;
+          const salesId = parseInt(item.dataset.salesId);
 
           saveSelectedSales(salesId);
           item.appendChild(selected);
@@ -84,7 +84,7 @@ export function loadCardData(salesId) {
   fetch("/api/sales")
     .then((response) => response.json())
     .then((data) => {
-      const sales = data.find((saleses) => saleses.id === salesId);
+      const sales = data.find((sales) => sales.id === salesId);
 
       cardDetail.innerHTML = `
           <div class="employee-card__detail">
@@ -100,9 +100,8 @@ export function loadCardData(salesId) {
             </div>
             <div class="employee-card__row">
               <p class="employee-card__title">Pelanggan</p>
-              <p class="employee-card__content js-card-customer-count">: ${formatWithDots(
-                sales.custCount
-              )} orang</p>
+              <p class="employee-card__content js-card-customer-count">: ??
+              orang</p>
             </div>
           </div>
           <div class="employee-card__image-wrapper">
@@ -141,8 +140,7 @@ export function saveSelectedSales(salesId) {
 }
 
 export function loadSelectedSales() {
-  const saved = localStorage.getItem("selectedSales");
-  return parseInt(saved);
+  return localStorage.getItem("selectedSales");
 }
 
 export function saveCardData(cardData) {
