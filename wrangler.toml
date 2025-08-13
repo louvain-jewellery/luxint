@@ -1,0 +1,8 @@
+name = "luxury-international"
+pages_build_output_dir = "public"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "luxury-international-db"
+database_id = "3c6ccfc3-054f-427b-811b-eef68e857444"
