@@ -25,7 +25,7 @@ function renderPurchasedOverlay(itemId) {
   const goldPurity = overlay.querySelector(".js-item-gold");
   const price = overlay.querySelector(".js-item-price");
 
-  fetch("data/purchased-items.json")
+  fetch("/api/items")
     .then((response) => response.json())
     .then((data) => {
       const item = data.find((item) => item.id === itemId);

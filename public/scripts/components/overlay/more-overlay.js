@@ -8,8 +8,8 @@ function renderMoreOverlayData(customerId) {
   const moreOverlayCount = moreOverlay.querySelector(".js-overlay-count");
 
   Promise.all([
-    fetch("data/customers.json").then((response) => response.json()),
-    fetch("data/purchased-items.json").then((response) => response.json()),
+    fetch("/api/customers").then((response) => response.json()),
+    fetch("/api/items").then((response) => response.json()),
   ]).then(([customersData, itemsData]) => {
     const customer = customersData.find(
       (customer) => customer.id === customerId

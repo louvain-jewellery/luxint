@@ -7,7 +7,7 @@ export function loadSales() {
     "js-selected-item"
   );
 
-  fetch("data/sales.json")
+  fetch("/api/sales")
     .then((response) => response.json())
     .then((data) => {
       const selectorList = document.querySelector(".js-selector-list");
@@ -80,7 +80,7 @@ export function loadCardData(salesId) {
   const cardDetail = document.querySelector(".js-card-detail");
   cardDetail.innerHTML = "";
 
-  fetch("data/sales.json")
+  fetch("/api/sales")
     .then((response) => response.json())
     .then((data) => {
       const sales = data.find((saleses) => saleses.id === salesId);

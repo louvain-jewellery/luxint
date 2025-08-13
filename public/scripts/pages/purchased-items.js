@@ -8,8 +8,8 @@ export function loadPurchasedItems(customerId) {
   const itemList = document.querySelector(".js-purchased-items-list");
 
   Promise.all([
-    fetch("data/purchased-items.json").then((response) => response.json()),
-    fetch("data/customers.json").then((response) => response.json()),
+    fetch("/api/items").then((response) => response.json()),
+    fetch("/api/customers").then((response) => response.json()),
   ]).then(([itemsData, customersData]) => {
     const items = itemsData.filter((items) => items.customerId === customerId);
     itemList.innerHTML = "";
