@@ -3,7 +3,7 @@ export async function onRequest(context) {
 
   try {
     const sales = await DB.prepare("SELECT * FROM sales").all();
-    return Response.json(sales.result);
+    return Response.json(sales.results);
   } catch (error) {
     return Response.json({ error: "Database error" }, { status: 500 });
   }
