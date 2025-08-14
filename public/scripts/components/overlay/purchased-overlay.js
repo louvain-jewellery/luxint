@@ -7,7 +7,7 @@ export function showPurchasedOverlay() {
       if (document.querySelector(".js-overlay")) return;
       const overlay = showOverlay("purchased-item");
       const itemId = parseInt(item.dataset.itemId);
-      renderPurchasedOverlay(itemId);
+      renderPurchasedOverlay(itemId, overlay);
 
       overlay
         .querySelector(".js-close-button")
@@ -18,8 +18,7 @@ export function showPurchasedOverlay() {
   });
 }
 
-async function renderPurchasedOverlay(itemId) {
-  const overlay = document.querySelector(".js-overlay");
+async function renderPurchasedOverlay(itemId, overlay) {
   const name = overlay.querySelector(".js-item-name");
   const image = overlay.querySelector(".js-item-image");
   const date = overlay.querySelector(".js-item-date");
