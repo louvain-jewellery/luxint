@@ -4,7 +4,7 @@
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.overlay--add.visible {
+.overlay--add.show {
   opacity: 1;
   visibility: visible;
 }
@@ -24,7 +24,7 @@
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.overlay--add.visible .overlay__wrapper {
+.overlay--add.show .overlay__wrapper {
   transform: translateY(0);
 }
 

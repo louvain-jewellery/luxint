@@ -1,7 +1,4 @@
-import {
-  hidePurchasedOverlay,
-  showPurchasedOverlay,
-} from "../components/overlay/purchased-overlay.js";
+import { showPurchasedOverlay } from "../components/overlay/purchased-overlay.js";
 import { loadTitle } from "../ui/header.js";
 
 export function loadPurchasedItems(customerId) {
@@ -11,7 +8,11 @@ export function loadPurchasedItems(customerId) {
     fetch("/api/items").then((response) => response.json()),
     fetch("/api/customers").then((response) => response.json()),
   ]).then(([itemsData, customersData]) => {
-    const items = itemsData.filter((items) => items.customerId === customerId);
+    const items = itemsData.filter(
+      (items) => items.customerId === parseInt(customerId)
+    );
+    console.log(customerId);
+    console.log(itemsData.customerId);
     itemList.innerHTML = "";
     const customer = customersData.find(
       (customer) => customer.id === customerId
@@ -44,6 +45,5 @@ export function loadPurchasedItems(customerId) {
 
     loadTitle(customer);
     showPurchasedOverlay();
-    hidePurchasedOverlay();
   });
 }

@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-.overlay--purchased.visible {
+.overlay--purchased.show {
   opacity: 1;
   visibility: visible;
 }
@@ -27,7 +27,7 @@
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.overlay--purchased.visible .overlay__wrapper--purchased {
+.overlay--purchased.show .overlay__wrapper--purchased {
   transform: translateY(0);
 }
 

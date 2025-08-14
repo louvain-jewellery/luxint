@@ -1,22 +1,25 @@
 import { formatWithDots } from "../../utils/number.js";
+import { closeOverlay, showOverlay } from "./overlay-manager.js";
 
 export function showPurchasedOverlay() {
-  const overlay = document.querySelector(".js-purchased-overlay");
-
   document.querySelectorAll(".js-purchased-items").forEach((item) => {
-    item.addEventListener("click", () => {
+    item.addEventListener("click", async () => {
+      if (document.querySelector(".js-overlay")) return;
+      const overlay = showOverlay("purchased-item");
       const { itemId } = item.dataset;
-
-      overlay.classList.add("visible");
-      document.body.style.overflow = "hidden";
-
       renderPurchasedOverlay(itemId);
+
+      overlay
+        .querySelector(".js-close-button")
+        .addEventListener("click", () => {
+          closeOverlay();
+        });
     });
   });
 }
 
-function renderPurchasedOverlay(itemId) {
-  const overlay = document.querySelector(".js-purchased-overlay");
+async function renderPurchasedOverlay(itemId) {
+  const overlay = document.querySelector(".js-overlay");
   const name = overlay.querySelector(".js-item-name");
   const image = overlay.querySelector(".js-item-image");
   const date = overlay.querySelector(".js-item-date");
@@ -25,26 +28,19 @@ function renderPurchasedOverlay(itemId) {
   const goldPurity = overlay.querySelector(".js-item-gold");
   const price = overlay.querySelector(".js-item-price");
 
-  fetch("/api/items")
-    .then((response) => response.json())
-    .then((data) => {
-      const item = data.find((item) => item.id === itemId);
-      name.textContent = item.itemName;
-      image.src = item.productImage;
-      image.alt = item.itemName;
-      date.textContent = item.date;
-      type.textContent = item.type;
-      weight.textContent = `${item.weight} gr`;
-      goldPurity.textContent = `${item.goldPurity}%`;
-      price.textContent = `Rp.${formatWithDots(item.sellingPrice)}`;
-    });
-}
-
-export function hidePurchasedOverlay() {
-  const overlay = document.querySelector(".js-purchased-overlay");
-
-  overlay.querySelector(".js-close-button").addEventListener("click", (e) => {
-    overlay.classList.remove("visible");
-    document.body.style.overflow = "auto";
-  });
+  try {
+    const response = await fetch("/api/items");
+    const items = await response.json();
+    const item = items.find((item) => item.id === itemId);
+    name.textContent = item.itemName;
+    image.src = item.productImage;
+    image.alt = item.itemName;
+    date.textContent = item.date;
+    type.textContent = item.type;
+    weight.textContent = `${item.weight} gr`;
+    goldPurity.textContent = `${item.goldPurity}%`;
+    price.textContent = `Rp.${formatWithDots(item.sellingPrice)}`;
+  } catch (err) {
+    console.error("failed to fetch overlay: ", err);
+  }
 }

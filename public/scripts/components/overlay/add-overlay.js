@@ -1,23 +1,18 @@
+import { closeOverlay, showOverlay } from "./overlay-manager.js";
+
 export function showAddOverlay() {
-  const addButton = document.querySelector(".js-add-button");
-  const addOverlay = document.querySelector(".js-add-overlay");
-  const closeButton = addOverlay.querySelector(".js-close-button");
+  document
+    .querySelector(".js-add-button")
+    .addEventListener("click", async () => {
+      if (document.querySelector(".js-overlay")) return;
+      const overlay = await showOverlay("add-item");
 
-  function openOverlay() {
-    addOverlay.classList.add("visible");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeOverlay() {
-    addOverlay.classList.remove("visible");
-    document.body.style.overflow = "auto";
-  }
-
-  addButton.addEventListener("click", openOverlay);
-  closeButton.addEventListener("click", closeOverlay);
-  addOverlay.addEventListener("click", (e) => {
-    if (!e.target.closest(".js-add-overlay-wrapper")) {
-      closeOverlay();
-    }
-  });
+      const closeButton = overlay.querySelector(".js-close-button");
+      closeButton.addEventListener("click", closeOverlay);
+      overlay.addEventListener("click", (e) => {
+        if (!e.target.closest(".js-add-overlay-wrapper")) {
+          closeOverlay();
+        }
+      });
+    });
 }

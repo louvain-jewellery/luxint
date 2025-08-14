@@ -1,10 +1,6 @@
-import {
-  hideMoreOverlay,
-  showMoreOverlay,
-} from "../components/overlay/more-overlay.js";
+import { showMoreOverlay } from "../components/overlay/more-overlay.js";
 import { loadTitle } from "../ui/header.js";
 import { generateInitials } from "../utils/initials-generator.js";
-import { mapItemCount } from "../utils/item-count.js";
 import { loadSelectedSales } from "./sales-person.js";
 
 export function loadCustomers() {
@@ -23,9 +19,8 @@ export function loadCustomers() {
 
   Promise.all([
     fetch("/api/customers").then((response) => response.json()),
-    fetch("/api/items").then((response) => response.json()),
     fetch("/api/sales").then((response) => response.json()),
-  ]).then(([customersData, itemsData, salesData]) => {
+  ]).then(([customersData, salesData]) => {
     customerList.innerHTML = "";
 
     const customers = customersData.filter(
@@ -33,14 +28,9 @@ export function loadCustomers() {
     );
     const sales = salesData.find((sales) => sales.id === salesId);
 
-    const itemCountMap = mapItemCount(itemsData);
-
     customers.forEach((customer) => {
       const li = document.createElement("li");
       li.classList.add("customers__item");
-
-      const itemCount = itemCountMap[customer.id] || 0;
-      const itemText = itemCount <= 1 ? "item" : "items";
 
       li.innerHTML = `
         <button
@@ -52,7 +42,7 @@ export function loadCustomers() {
           </div>
           <div class="customers__text">
             <p class="customers__name">${customer.name}</p>
-            <p class="customers__count">${itemCount} ${itemText}</p>
+            <p class="customers__count">??? items</p>
           </div>
         </button>
         <button class="customers__more-button js-more-button" data-customer-id="${
@@ -70,7 +60,6 @@ export function loadCustomers() {
 
     loadTitle(sales);
     showMoreOverlay();
-    hideMoreOverlay();
 
     document.querySelectorAll(".js-customer-link").forEach((button) => {
       button.addEventListener("click", () => {

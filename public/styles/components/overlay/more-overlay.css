@@ -11,7 +11,7 @@
   transition: all 0.2s ease;
 }
 
-.overlay--more.active {
+.overlay--more.show {
   transform: translateY(0);
   visibility: visible;
   opacity: 1;
