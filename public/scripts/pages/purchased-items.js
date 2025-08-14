@@ -15,7 +15,7 @@ export function loadPurchasedItems(customerId) {
     console.log(itemsData.customerId);
     itemList.innerHTML = "";
     const customer = customersData.find(
-      (customer) => customer.id === customerId
+      (customer) => customer.id === parseInt(customerId)
     );
 
     items.forEach((item) => {
