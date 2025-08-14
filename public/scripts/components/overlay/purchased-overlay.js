@@ -31,7 +31,7 @@ async function renderPurchasedOverlay(itemId) {
   try {
     const response = await fetch("/api/items");
     const items = await response.json();
-    const item = items.find((item) => item.id === itemId);
+    const item = items.find((item) => item.id === parseInt(itemId));
     name.textContent = item.itemName;
     image.src = item.productImage;
     image.alt = item.itemName;
