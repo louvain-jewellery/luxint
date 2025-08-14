@@ -1,5 +1,6 @@
 export async function showOverlay(overlayName) {
   try {
+    console.log("clicked");
     const response = await fetch(`overlays/${overlayName}.html`);
     const html = await response.text();
     document.body.insertAdjacentHTML("beforeend", html);
