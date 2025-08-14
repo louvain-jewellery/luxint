@@ -38,7 +38,7 @@ export function loadSales() {
         selectorList.appendChild(selectorItem);
       });
 
-      // loadAddItem();
+      loadAddItem();
 
       selectorList.querySelectorAll(".js-selector-item").forEach((item) => {
         item.addEventListener("click", () => {
