@@ -9,7 +9,7 @@ async function renderOverlayData(customerId) {
   try {
     const response = await fetch("/api/customers");
     const customers = await response.json();
-    const customer = customers.find((c) => c.id === customerId);
+    const customer = customers.find((c) => c.id === parseInt(customerId));
 
     overlayIcon.textContent = generateInitials(customer.name);
     overlayName.textContent = customer.name;
