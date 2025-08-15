@@ -31,7 +31,7 @@ function loadPage(page) {
 
       if (pageName === "purchased-items") {
         if (parameter) {
-          loadPurchasedItems(parameter);
+          loadPurchasedItems(parseInt(parameter));
           showHeaderName();
           goBack();
         }

@@ -5,8 +5,8 @@ export function showPurchasedOverlay() {
   document.querySelectorAll(".js-purchased-items").forEach((item) => {
     item.addEventListener("click", async () => {
       if (document.querySelector(".js-overlay")) return;
-      console.log(overlay);
       const overlay = showOverlay("purchased-item");
+      console.log(overlay);
       const itemId = parseInt(item.dataset.itemId);
       renderPurchasedOverlay(itemId, overlay);
 

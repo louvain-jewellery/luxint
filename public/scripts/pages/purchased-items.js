@@ -8,15 +8,12 @@ export function loadPurchasedItems(customerId) {
     fetch("/api/items").then((response) => response.json()),
     fetch("/api/customers").then((response) => response.json()),
   ]).then(([itemsData, customersData]) => {
-    const items = itemsData.filter(
-      (items) => items.customerId === parseInt(customerId)
-    );
+    const items = itemsData.filter((items) => items.customerId === customerId);
 
-    console.log(items.customerId);
     console.log(customerId);
     itemList.innerHTML = "";
     const customer = customersData.find(
-      (customer) => customer.id === parseInt(customerId)
+      (customer) => customer.id === customerId
     );
 
     items.forEach((item) => {
@@ -44,7 +41,7 @@ export function loadPurchasedItems(customerId) {
       itemList.appendChild(li);
     });
 
-    loadTitle(customer);
     showPurchasedOverlay();
+    loadTitle(customer);
   });
 }
