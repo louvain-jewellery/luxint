@@ -5,9 +5,7 @@ export async function showOverlay(overlayName) {
     document.body.insertAdjacentHTML("beforeend", html);
 
     const overlay = document.querySelector(".js-overlay");
-    requestAnimationFrame(() => {
-      overlay.classList.add("show");
-    });
+    setTimeout(() => overlay.classList.add("show"), 10);
     document.body.style.overflow = "hidden";
     return overlay;
   } catch (error) {
