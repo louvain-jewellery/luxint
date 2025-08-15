@@ -8,16 +8,17 @@ export async function showOverlay(overlayName) {
     setTimeout(() => overlay.classList.add("show"), 10);
     document.body.style.overflow = "hidden";
 
-    history.pushState({ overlayOpen: true }, "", location.href);
+    history.pushState({ overlay: overlayName }, "", window.location.href);
 
-    function handleBackButton(event) {
-      if (event.state && event.state.overlayOpen) {
-        closeOverlay();
-        window.removeEventListener("popstate", handleBackButton);
-      }
+    if (!window.overlayBackHandler) {
+      window.overlayBackHandler = true;
+      window.addEventListener("popstate", (event) => {
+        const currentOverlay = document.querySelector(".js-overlay");
+        if (currentOverlay && !event.state?.overlay) {
+          closeOverlay();
+        }
+      });
     }
-
-    window.addEventListener("popstate", handleBackButton);
 
     return overlay;
   } catch (error) {
@@ -32,8 +33,4 @@ export function closeOverlay() {
   overlay.classList.remove("show");
   document.body.style.overflow = "auto";
   setTimeout(() => overlay.remove(), 300);
-
-  if (history.state && history.state.overlayOpen) {
-    history.back();
-  }
 }
