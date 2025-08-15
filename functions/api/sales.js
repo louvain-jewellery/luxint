@@ -1,39 +1,28 @@
 export async function onRequest(context) {
-  const { DB } = context.env;
-  const { request } = context;
+  console.log("Sales API called");
 
-  // GET - Read all sales
-  if (request.method === "GET") {
-    try {
-      const sales = await DB.prepare("SELECT * FROM sales").all();
-      return Response.json(sales.results);
-    } catch (error) {
-      return Response.json({ error: "Database error" }, { status: 500 });
+  try {
+    const { DB } = context.env;
+    console.log("DB object:", !!DB);
+
+    if (!DB) {
+      console.log("No DB found in context.env");
+      return Response.json({ error: "Database not found" }, { status: 500 });
     }
+
+    console.log("Attempting database query...");
+    const sales = await DB.prepare("SELECT * FROM sales").all();
+    console.log("Query successful, results:", sales);
+
+    return Response.json(sales.results);
+  } catch (error) {
+    console.log("Database error:", error.message);
+    return Response.json(
+      {
+        error: "Database error",
+        message: error.message,
+      },
+      { status: 500 }
+    );
   }
-
-  // POST - Create new sales person
-  if (request.method === "POST") {
-    try {
-      const { name, custCount, image } = await request.json();
-
-      const result = await DB.prepare(
-        "INSERT INTO sales (name, custCount, image) VALUES (?, ?, ?)"
-      )
-        .bind(name, custCount, image)
-        .run();
-
-      return Response.json({
-        success: true,
-        id: result.meta.last_row_id,
-      });
-    } catch (error) {
-      return Response.json(
-        { error: "Failed to create sales person" },
-        { status: 500 }
-      );
-    }
-  }
-
-  return Response.json({ error: "Method not allowed" }, { status: 405 });
 }

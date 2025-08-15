@@ -11,8 +11,9 @@ export function loadPurchasedItems(customerId) {
     const items = itemsData.filter(
       (items) => items.customerId === parseInt(customerId)
     );
+
+    console.log(items.customerId);
     console.log(customerId);
-    console.log(itemsData.customerId);
     itemList.innerHTML = "";
     const customer = customersData.find(
       (customer) => customer.id === parseInt(customerId)
