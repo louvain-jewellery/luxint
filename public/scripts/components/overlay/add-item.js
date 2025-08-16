@@ -4,15 +4,18 @@ export function showAddOverlay() {
   document
     .querySelector(".js-add-button")
     .addEventListener("click", async () => {
-      if (document.querySelector(".js-overlay")) return;
       const overlay = await showOverlay("add-item");
 
-      const closeButton = overlay.querySelector(".js-close-button");
-      closeButton.addEventListener("click", closeOverlay);
+      overlay
+        .querySelector(".js-close-button")
+        .addEventListener("click", closeOverlay);
+
       overlay.addEventListener("click", (e) => {
-        if (!e.target.closest(".js-add-overlay-wrapper")) {
+        if (!e.target.closest(".js-overlay-wrapper")) {
           closeOverlay();
         }
       });
     });
 }
+
+function renderAddOverlay() {}

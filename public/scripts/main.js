@@ -1,7 +1,7 @@
-import { showAddOverlay } from "./components/overlay/add-overlay.js";
+import { showAddOverlay } from "./components/overlay/add-item.js";
 import { loadCustomers } from "./pages/customers.js";
 import { loadPurchasedItems } from "./pages/purchased-items.js";
-import { loadSales } from "./pages/sales-person.js";
+import { loadSales, loadSelectedSales } from "./pages/sales-person.js";
 import { showHeaderName } from "./ui/header.js";
 
 const pageMain = document.querySelector(".js-page-main");
@@ -9,23 +9,25 @@ const pageMain = document.querySelector(".js-page-main");
 function loadPage(page) {
   const [pageName, parameter] = page.split("/");
 
-  pageMain.classList.add("page-transitioning");
   document.body.className = `page-${pageName}`;
 
   fetch(`pages/${pageName}.html`)
     .then((response) => response.text())
     .then((data) => {
+      window.scrollTo(0, 0);
       pageMain.innerHTML = data;
       updateNavItem();
+      updateCustomersNavigation();
       showAddOverlay();
 
       if (pageName === "home") {
-        loadSales();
+        loadSales(parseInt(parameter));
       }
 
       if (pageName === "customers") {
         showHeaderName();
-        loadCustomers();
+        loadCustomers(parseInt(parameter));
+
         goBack();
       }
 
@@ -82,6 +84,19 @@ function goBack() {
 
     newBackButton.addEventListener("click", () => {
       window.history.back();
+    });
+  }
+}
+
+function updateCustomersNavigation() {
+  const customersNavLink = document.querySelector('a[href="#customers"]');
+
+  if (customersNavLink) {
+    customersNavLink.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const selectedSales = loadSelectedSales();
+      window.location.hash = `customers/${selectedSales}`;
     });
   }
 }

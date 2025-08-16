@@ -1,5 +1,5 @@
+import { showAddSalesOverlay } from "../components/overlay/add-sales.js";
 import { formatSalesId } from "../utils/format-id.js";
-import { formatWithDots } from "../utils/number.js";
 
 export function loadSales() {
   const selected = document.createElement("div");
@@ -9,6 +9,7 @@ export function loadSales() {
   );
 
   fetch("/api/sales")
+  // fetch("archives/data/sales.json")
     .then((response) => response.json())
     .then((data) => {
       const selectorList = document.querySelector(".js-selector-list");
@@ -36,6 +37,9 @@ export function loadSales() {
         selectorItem.appendChild(itemName);
 
         selectorList.appendChild(selectorItem);
+        selectorItem.addEventListener('click', () => {
+          
+        })
       });
 
       loadAddItem();
@@ -69,8 +73,6 @@ export function loadSales() {
         if (savedItem) {
           savedItem.appendChild(selected);
 
-          const savedCardData = loadSavedCardData();
-
           loadCardData(savedSalesId);
         }
       }
@@ -82,6 +84,7 @@ export function loadCardData(salesId) {
   cardDetail.innerHTML = "";
 
   fetch("/api/sales")
+  // fetch("archives/data/sales.json")
     .then((response) => response.json())
     .then((data) => {
       const sales = data.find((sales) => sales.id === salesId);
@@ -110,8 +113,6 @@ export function loadCardData(salesId) {
             } alt="card pfp" />
           </div>
         `;
-
-      saveCardData(sales);
     });
 }
 
@@ -124,7 +125,7 @@ export function loadAddItem() {
   const itemImage = document.createElement("img");
   itemImage.classList.add("employee-selector__image--add", "icon");
   itemImage.src =
-    "/assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
+    "assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
   addItem.appendChild(itemImage);
 
   const itemName = document.createElement("p");
@@ -133,6 +134,8 @@ export function loadAddItem() {
   addItem.appendChild(itemName);
 
   selectorList.appendChild(addItem);
+
+  showAddSalesOverlay();
 }
 
 export function saveSelectedSales(salesId) {
@@ -142,12 +145,4 @@ export function saveSelectedSales(salesId) {
 export function loadSelectedSales() {
   const saved = localStorage.getItem("selectedSales");
   return parseInt(saved);
-}
-
-export function saveCardData(cardData) {
-  localStorage.setItem("savedCardData", JSON.stringify(cardData));
-}
-
-export function loadSavedCardData() {
-  return JSON.parse(localStorage.getItem("savedCardData")) || {};
 }

@@ -8,17 +8,18 @@ export async function showOverlay(overlayName) {
     setTimeout(() => overlay.classList.add("show"), 10);
     document.body.style.overflow = "hidden";
 
+    overlay.dataset.originalState = JSON.stringify(history.state);
     history.pushState({ overlay: overlayName }, "", window.location.href);
 
-    if (!window.overlayBackHandler) {
-      window.overlayBackHandler = true;
-      window.addEventListener("popstate", (event) => {
-        const currentOverlay = document.querySelector(".js-overlay");
-        if (currentOverlay && !event.state?.overlay) {
-          closeOverlay();
-        }
-      });
-    }
+    const handlePopState = (event) => {
+      if (!event.state?.overlay && document.querySelector(".js-overlay")) {
+        closeOverlay();
+        window.removeEventListener("popstate", handlePopState);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    overlay.dataset.popstateHandler = "attached";
 
     return overlay;
   } catch (error) {
@@ -32,5 +33,6 @@ export function closeOverlay() {
 
   overlay.classList.remove("show");
   document.body.style.overflow = "auto";
+
   setTimeout(() => overlay.remove(), 300);
 }

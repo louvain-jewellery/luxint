@@ -1,4 +1,4 @@
-import { showPurchasedOverlay } from "../components/overlay/purchased-overlay.js";
+import { showPurchasedOverlay } from "../components/overlay/items.js";
 import { loadTitle } from "../ui/header.js";
 
 export function loadPurchasedItems(customerId) {
@@ -7,6 +7,10 @@ export function loadPurchasedItems(customerId) {
   Promise.all([
     fetch("/api/items").then((response) => response.json()),
     fetch("/api/customers").then((response) => response.json()),
+    // fetch("archives/data/purchased-items.json").then((response) =>
+    //   response.json()
+    // ),
+    // fetch("archives/data/customers.json").then((response) => response.json()),
   ]).then(([itemsData, customersData]) => {
     const items = itemsData.filter((items) => items.customerId === customerId);
 

@@ -1,10 +1,9 @@
-import { showMoreOverlay } from "../components/overlay/more-overlay.js";
+import { showAddCustomerOverlay } from "../components/overlay/add-customer.js";
+import { showMoreOverlay } from "../components/overlay/more.js";
 import { loadTitle } from "../ui/header.js";
 import { generateInitials } from "../utils/initials-generator.js";
-import { loadSelectedSales } from "./sales-person.js";
 
-export function loadCustomers() {
-  const salesId = loadSelectedSales();
+export function loadCustomers(salesId) {
   const customerList = document.querySelector(".js-customers-list");
 
   if (!salesId) {
@@ -20,6 +19,8 @@ export function loadCustomers() {
   Promise.all([
     fetch("/api/customers").then((response) => response.json()),
     fetch("/api/sales").then((response) => response.json()),
+    // fetch("archives/data/customers.json").then((response) => response.json()),
+    // fetch("archives/data/sales.json").then((response) => response.json()),
   ]).then(([customersData, salesData]) => {
     customerList.innerHTML = "";
 
@@ -60,6 +61,7 @@ export function loadCustomers() {
 
     loadTitle(sales);
     showMoreOverlay();
+    showAddCustomerOverlay();
 
     document.querySelectorAll(".js-customer-link").forEach((button) => {
       button.addEventListener("click", () => {

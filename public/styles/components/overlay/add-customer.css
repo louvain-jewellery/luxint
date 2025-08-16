@@ -1,14 +1,14 @@
-.overlay--add-item {
+.overlay--add-customer {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.overlay--add-item.show {
+.overlay--add-customer.show {
   opacity: 1;
   visibility: visible;
 }
 
-.overlay--add-item.show .overlay__wrapper {
+.overlay--add-customer.show .overlay__wrapper {
   transform: translateY(0);
 }

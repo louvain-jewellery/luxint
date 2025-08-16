@@ -1,30 +1,30 @@
 [
   {
-    "id": "Luxint-001",
+    "id": 1,
     "name": "Heski",
     "custCount": "100",
     "image": "assets/images/pfp/pfp1.jpg"
   },
   {
-    "id": "Luxint-002",
+    "id": 2,
     "name": "Zaki",
     "custCount": "50000",
     "image": "assets/images/pfp/pfp2.jpg"
   },
   {
-    "id": "Luxint-003",
+    "id": 3,
     "name": "Jibran",
     "custCount": "100",
     "image": "assets/images/pfp/pfp3.jpg"
   },
   {
-    "id": "Luxint-004",
+    "id": 4,
     "name": "Syadul",
     "custCount": "60",
     "image": "assets/images/pfp/pfp4.jpg"
   },
   {
-    "id": "Luxint-005",
+    "id": 5,
     "name": "Fatur",
     "custCount": "7000",
     "image": "assets/images/pfp/pfp5.jpg"

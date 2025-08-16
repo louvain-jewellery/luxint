@@ -1,7 +1,7 @@
 [
   {
-    "id": "Item-001",
-    "customerId": "Cust-001",
+    "id": 1,
+    "customerId": 1,
     "itemName": "Cartier Drop Earrings",
     "type": "earrings",
     "date": "2025-07-05",
@@ -11,8 +11,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-002",
-    "customerId": "Cust-001",
+    "id": 2,
+    "customerId": 1,
     "itemName": "Van Cleef & Arpels Stud Earrings",
     "type": "earrings",
     "date": "2025-06-30",
@@ -22,8 +22,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-003",
-    "customerId": "Cust-002",
+    "id": 3,
+    "customerId": 2,
     "itemName": "Cartier Charm Bracelet",
     "type": "bracelet",
     "date": "2025-07-17",
@@ -33,8 +33,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-004",
-    "customerId": "Cust-003",
+    "id": 4,
+    "customerId": 3,
     "itemName": "Bvlgari Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-06-04",
@@ -44,8 +44,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-005",
-    "customerId": "Cust-003",
+    "id": 5,
+    "customerId": 3,
     "itemName": "Tiffany & Co. Stud Earrings",
     "type": "earrings",
     "date": "2025-07-13",
@@ -55,8 +55,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-006",
-    "customerId": "Cust-003",
+    "id": 6,
+    "customerId": 3,
     "itemName": "Swarovski Hoop Earrings",
     "type": "earrings",
     "date": "2025-08-07",
@@ -66,8 +66,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-007",
-    "customerId": "Cust-004",
+    "id": 7,
+    "customerId": 4,
     "itemName": "Pandora Choker Necklace",
     "type": "necklace",
     "date": "2025-06-03",
@@ -77,8 +77,8 @@
     "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
-    "id": "Item-008",
-    "customerId": "Cust-004",
+    "id": 8,
+    "customerId": 4,
     "itemName": "Tiffany & Co. Choker Necklace",
     "type": "necklace",
     "date": "2025-07-25",
@@ -88,8 +88,8 @@
     "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
-    "id": "Item-009",
-    "customerId": "Cust-004",
+    "id": 9,
+    "customerId": 4,
     "itemName": "Rolex Love Bracelet",
     "type": "bracelet",
     "date": "2025-07-30",
@@ -99,8 +99,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-010",
-    "customerId": "Cust-005",
+    "id": 10,
+    "customerId": 5,
     "itemName": "Bvlgari Eternity Ring",
     "type": "ring",
     "date": "2025-08-03",
@@ -110,8 +110,8 @@
     "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
-    "id": "Item-011",
-    "customerId": "Cust-005",
+    "id": 11,
+    "customerId": 5,
     "itemName": "Chopard Drop Earrings",
     "type": "earrings",
     "date": "2025-07-05",
@@ -121,8 +121,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-012",
-    "customerId": "Cust-006",
+    "id": 12,
+    "customerId": 6,
     "itemName": "Cartier Drop Earrings",
     "type": "earrings",
     "date": "2025-07-24",
@@ -132,8 +132,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-013",
-    "customerId": "Cust-006",
+    "id": 13,
+    "customerId": 6,
     "itemName": "Harry Winston Love Bracelet",
     "type": "bracelet",
     "date": "2025-06-21",
@@ -143,8 +143,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-014",
-    "customerId": "Cust-006",
+    "id": 14,
+    "customerId": 6,
     "itemName": "Graff Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-07-13",
@@ -154,8 +154,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-015",
-    "customerId": "Cust-007",
+    "id": 15,
+    "customerId": 7,
     "itemName": "Swarovski Love Bracelet",
     "type": "bracelet",
     "date": "2025-07-11",
@@ -165,8 +165,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-016",
-    "customerId": "Cust-007",
+    "id": 16,
+    "customerId": 7,
     "itemName": "Bvlgari Drop Earrings",
     "type": "earrings",
     "date": "2025-06-21",
@@ -176,8 +176,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-017",
-    "customerId": "Cust-008",
+    "id": 17,
+    "customerId": 8,
     "itemName": "Graff Halo Ring",
     "type": "ring",
     "date": "2025-07-23",
@@ -187,8 +187,8 @@
     "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
-    "id": "Item-018",
-    "customerId": "Cust-009",
+    "id": 18,
+    "customerId": 9,
     "itemName": "Swarovski Drop Earrings",
     "type": "earrings",
     "date": "2025-06-14",
@@ -198,8 +198,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-019",
-    "customerId": "Cust-009",
+    "id": 19,
+    "customerId": 9,
     "itemName": "Tiffany & Co. Halo Ring",
     "type": "ring",
     "date": "2025-06-05",
@@ -209,8 +209,8 @@
     "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
-    "id": "Item-020",
-    "customerId": "Cust-010",
+    "id": 20,
+    "customerId": 10,
     "itemName": "Chopard Drop Earrings",
     "type": "earrings",
     "date": "2025-07-09",
@@ -220,8 +220,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-021",
-    "customerId": "Cust-010",
+    "id": 21,
+    "customerId": 10,
     "itemName": "Chopard Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-07-20",
@@ -231,8 +231,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-022",
-    "customerId": "Cust-010",
+    "id": 22,
+    "customerId": 10,
     "itemName": "Van Cleef & Arpels Chain Necklace",
     "type": "necklace",
     "date": "2025-07-29",
@@ -242,8 +242,8 @@
     "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
-    "id": "Item-023",
-    "customerId": "Cust-011",
+    "id": 23,
+    "customerId": 11,
     "itemName": "Cartier Choker Necklace",
     "type": "necklace",
     "date": "2025-06-01",
@@ -253,8 +253,8 @@
     "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
-    "id": "Item-024",
-    "customerId": "Cust-011",
+    "id": 24,
+    "customerId": 11,
     "itemName": "Rolex Solitaire Ring",
     "type": "ring",
     "date": "2025-06-05",
@@ -264,8 +264,8 @@
     "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
-    "id": "Item-025",
-    "customerId": "Cust-011",
+    "id": 25,
+    "customerId": 11,
     "itemName": "Bvlgari Solitaire Ring",
     "type": "ring",
     "date": "2025-07-15",
@@ -275,8 +275,8 @@
     "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
-    "id": "Item-026",
-    "customerId": "Cust-012",
+    "id": 26,
+    "customerId": 12,
     "itemName": "Cartier Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-07-22",
@@ -286,8 +286,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-027",
-    "customerId": "Cust-013",
+    "id": 27,
+    "customerId": 13,
     "itemName": "Cartier Love Bracelet",
     "type": "bracelet",
     "date": "2025-06-30",
@@ -297,8 +297,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-028",
-    "customerId": "Cust-013",
+    "id": 28,
+    "customerId": 13,
     "itemName": "Pandora Charm Bracelet",
     "type": "bracelet",
     "date": "2025-06-18",
@@ -308,8 +308,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-029",
-    "customerId": "Cust-014",
+    "id": 29,
+    "customerId": 14,
     "itemName": "Bvlgari Eternity Ring",
     "type": "ring",
     "date": "2025-06-04",
@@ -319,8 +319,8 @@
     "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
-    "id": "Item-030",
-    "customerId": "Cust-014",
+    "id": 30,
+    "customerId": 14,
     "itemName": "Tiffany & Co. Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-06-26",
@@ -330,8 +330,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-031",
-    "customerId": "Cust-015",
+    "id": 31,
+    "customerId": 15,
     "itemName": "Pandora Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-06-12",
@@ -341,8 +341,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-032",
-    "customerId": "Cust-015",
+    "id": 32,
+    "customerId": 15,
     "itemName": "Chopard Pendant Necklace",
     "type": "necklace",
     "date": "2025-08-01",
@@ -352,8 +352,8 @@
     "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
-    "id": "Item-033",
-    "customerId": "Cust-016",
+    "id": 33,
+    "customerId": 16,
     "itemName": "Tiffany & Co. Drop Earrings",
     "type": "earrings",
     "date": "2025-06-07",
@@ -363,8 +363,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-034",
-    "customerId": "Cust-017",
+    "id": 34,
+    "customerId": 17,
     "itemName": "Harry Winston Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-07-05",
@@ -374,8 +374,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-035",
-    "customerId": "Cust-017",
+    "id": 35,
+    "customerId": 17,
     "itemName": "Rolex Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-07-06",
@@ -385,8 +385,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-036",
-    "customerId": "Cust-017",
+    "id": 36,
+    "customerId": 17,
     "itemName": "Pandora Hoop Earrings",
     "type": "earrings",
     "date": "2025-06-02",
@@ -396,8 +396,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-037",
-    "customerId": "Cust-018",
+    "id": 37,
+    "customerId": 18,
     "itemName": "Pandora Stud Earrings",
     "type": "earrings",
     "date": "2025-08-04",
@@ -407,8 +407,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-038",
-    "customerId": "Cust-018",
+    "id": 38,
+    "customerId": 18,
     "itemName": "Harry Winston Chain Necklace",
     "type": "necklace",
     "date": "2025-08-06",
@@ -418,8 +418,8 @@
     "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
-    "id": "Item-039",
-    "customerId": "Cust-018",
+    "id": 39,
+    "customerId": 18,
     "itemName": "Graff Chain Necklace",
     "type": "necklace",
     "date": "2025-07-21",
@@ -429,8 +429,8 @@
     "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
-    "id": "Item-040",
-    "customerId": "Cust-019",
+    "id": 40,
+    "customerId": 19,
     "itemName": "Chopard Eternity Ring",
     "type": "ring",
     "date": "2025-07-18",
@@ -440,8 +440,8 @@
     "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
-    "id": "Item-041",
-    "customerId": "Cust-020",
+    "id": 41,
+    "customerId": 20,
     "itemName": "Rolex Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-07-27",
@@ -451,8 +451,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-042",
-    "customerId": "Cust-020",
+    "id": 42,
+    "customerId": 20,
     "itemName": "Harry Winston Love Bracelet",
     "type": "bracelet",
     "date": "2025-07-12",
@@ -462,8 +462,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-043",
-    "customerId": "Cust-020",
+    "id": 43,
+    "customerId": 20,
     "itemName": "Pandora Drop Earrings",
     "type": "earrings",
     "date": "2025-07-17",
@@ -473,8 +473,8 @@
     "productImage": "assets/images/jewellery/earrings.jpg"
   },
   {
-    "id": "Item-044",
-    "customerId": "Cust-021",
+    "id": 44,
+    "customerId": 21,
     "itemName": "Tiffany & Co. Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-07-31",
@@ -484,8 +484,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-045",
-    "customerId": "Cust-022",
+    "id": 45,
+    "customerId": 22,
     "itemName": "Tiffany & Co. Charm Bracelet",
     "type": "bracelet",
     "date": "2025-06-03",
@@ -495,8 +495,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-046",
-    "customerId": "Cust-022",
+    "id": 46,
+    "customerId": 22,
     "itemName": "Pandora Halo Ring",
     "type": "ring",
     "date": "2025-06-28",
@@ -506,8 +506,8 @@
     "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
-    "id": "Item-047",
-    "customerId": "Cust-022",
+    "id": 47,
+    "customerId": 22,
     "itemName": "Swarovski Chain Necklace",
     "type": "necklace",
     "date": "2025-07-02",
@@ -517,8 +517,8 @@
     "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
-    "id": "Item-048",
-    "customerId": "Cust-023",
+    "id": 48,
+    "customerId": 23,
     "itemName": "Harry Winston Solitaire Ring",
     "type": "ring",
     "date": "2025-07-25",
@@ -528,8 +528,8 @@
     "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
-    "id": "Item-049",
-    "customerId": "Cust-024",
+    "id": 49,
+    "customerId": 24,
     "itemName": "Graff Choker Necklace",
     "type": "necklace",
     "date": "2025-07-04",
@@ -539,8 +539,8 @@
     "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
-    "id": "Item-050",
-    "customerId": "Cust-024",
+    "id": 50,
+    "customerId": 24,
     "itemName": "Van Cleef & Arpels Eternity Ring",
     "type": "ring",
     "date": "2025-07-08",
@@ -550,8 +550,8 @@
     "productImage": "assets/images/jewellery/ring.jpg"
   },
   {
-    "id": "Item-051",
-    "customerId": "Cust-024",
+    "id": 51,
+    "customerId": 24,
     "itemName": "Tiffany & Co. Cuff Bracelet",
     "type": "bracelet",
     "date": "2025-06-11",
@@ -561,8 +561,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-052",
-    "customerId": "Cust-025",
+    "id": 52,
+    "customerId": 25,
     "itemName": "Harry Winston Choker Necklace",
     "type": "necklace",
     "date": "2025-06-22",
@@ -572,8 +572,8 @@
     "productImage": "assets/images/jewellery/necklace.jpg"
   },
   {
-    "id": "Item-053",
-    "customerId": "Cust-025",
+    "id": 53,
+    "customerId": 25,
     "itemName": "Chopard Charm Bracelet",
     "type": "bracelet",
     "date": "2025-08-08",
@@ -583,8 +583,8 @@
     "productImage": "assets/images/jewellery/bracelet.jpg"
   },
   {
-    "id": "Item-054",
-    "customerId": "Cust-025",
+    "id": 54,
+    "customerId": 25,
     "itemName": "Cartier Choker Necklace",
     "type": "necklace",
     "date": "2025-07-01",

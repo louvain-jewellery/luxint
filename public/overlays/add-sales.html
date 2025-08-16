@@ -1,8 +1,8 @@
 <section class="overlay overlay--add-sales js-overlay">
-  <div class="overlay__wrapper overlay__wrapper--add-sales">
+  <div class="overlay__wrapper overlay__wrapper--add-sales js-overlay-wrapper">
     <h2 class="overlay__title">Tambah Sales</h2>
     <img
-      class="overlay__profile"
+      class="overlay__profile js-overlay-profile"
       src="assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
     />
     <input
@@ -10,15 +10,19 @@
       accept="image/*"
       id="salesProfileInput"
       class="overlay__profile-input"
+      name="name"
     />
     <input
       type="text"
       id="salesNameInput"
       class="overlay__input"
       placeholder="Masukkan Nama"
+      name="image"
     />
     <div class="overlay__button-wrapper">
-      <button class="btn overlay__button overlay__button--add-sales">
+      <button
+        class="btn overlay__button overlay__button--add-sales js-cancel-button"
+      >
         Batal
       </button>
       <button class="btn overlay__button overlay__button--add-sales">

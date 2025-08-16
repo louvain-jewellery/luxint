@@ -1,6 +1,12 @@
 .overlay--add-sales {
   opacity: 0;
   visibility: hidden;
+  transition: opacity 0.1s ease, visibility 0.2s ease;
+}
+
+.overlay--add-sales.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .overlay__wrapper--add-sales {
@@ -10,14 +16,21 @@
   justify-content: flex-start;
   bottom: 50%;
   gap: 20px;
-  transform: translateY(50%);
   width: 80%;
+
+  transform: translateY(50%) scale(0);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.overlay--add-sales.show .overlay__wrapper--add-sales {
+  transform: translateY(50%) scale(1);
 }
 
 .overlay__profile {
   aspect-ratio: 1/1;
   padding: 15px;
   border-radius: 100px;
+  object-fit: cover;
   filter: invert(1);
   height: 75px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -52,7 +65,7 @@
   padding-top: 25px;
   justify-content: space-between;
   width: 100%;
-  gap: 25px;
+  gap: 20px;
 }
 
 .overlay__button--add-sales {

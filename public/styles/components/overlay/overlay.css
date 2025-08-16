@@ -19,7 +19,7 @@
 
   border-radius: 35px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 30px;
+  padding: 25px;
   overflow: auto;
 
   backdrop-filter: blur(20px) saturate(180%);
@@ -32,7 +32,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   gap: 15px;
 }
@@ -46,7 +46,7 @@
 }
 
 .overlay__title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -67,4 +67,109 @@
 
 .overlay__button--danger {
   color: rgb(255, 19, 19);
+}
+
+.overlay__wrapper--form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 35px;
+  width: 100%;
+  max-width: 768px;
+  align-items: flex-start;
+  padding-bottom: 50px;
+  transform: translateY(100%);
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.overlay__form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  gap: 75px;
+}
+
+.overlay__form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.field__left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.field__icon {
+  height: 20px;
+}
+
+.field__label {
+  font-weight: 400;
+  width: 100px;
+  min-width: 100px;
+}
+
+.field__input {
+  padding: 7.5px 15px;
+  font-size: 16px;
+  color: rgba(255, 255, 255);
+  width: 100%;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.179);
+  border: 2px solid rgba(255, 255, 255, 0.037);
+  border: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  appearance: none;
+}
+
+.field__input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.field__input--file {
+  display: none;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+.field__input--select option {
+  color: black;
+}
+
+.overlay__submit-button {
+  width: 100%;
+  padding: 7.5px 15px;
+
+  font-size: 16px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color: white;
+
+  background-color: rgba(255, 255, 255, 0.179);
+  /* border: 2px solid rgba(255, 255, 255, 0.037); */
+  border: none;
+  border-radius: 100px;
 }

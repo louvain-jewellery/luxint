@@ -1,0 +1,153 @@
+<section class="overlay overlay--form overlay--add-customer js-overlay">
+  <div
+    class="overlay__wrapper overlay__wrapper--form overlay__wrapper--add-customer js-overlay-wrapper"
+  >
+    <div class="overlay__header">
+      <p class="overlay__title">Tambahkan Pelanggan</p>
+      <button class="btn overlay__button overlay__close-button js-close-button">
+        &#10005;
+      </button>
+    </div>
+    <form
+      class="overlay__form"
+      autocomplete="off"
+      action="/submit"
+      method="POST"
+    >
+      <div class="overlay__form-body">
+        <div class="field">
+          <div class="field__left">
+            <img
+              class="field__icon icon"
+              src="assets/icons/input/person_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <label for="customerNameInput" class="field__label">Nama</label>
+            <p class="field__seperator">:</p>
+          </div>
+          <input
+            type="text"
+            id="customerNameInput"
+            class="field__input"
+            name="name"
+          />
+        </div>
+
+        <div class="field">
+          <div class="field__left">
+            <img
+              class="field-icon icon"
+              src="assets/icons/input/call_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <label for="customerPhoneInput" class="field__label">
+              Nomor HP
+            </label>
+            <p class="field__seperator">:</p>
+          </div>
+          <input
+            type="number"
+            id="customerPhoneInput"
+            class="field__input"
+            name="phone"
+          />
+        </div>
+
+        <div class="field">
+          <div class="field__left">
+            <img
+              class="field-icon icon"
+              src="assets/icons/input/circle_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <label for="customerRingInput" class="field__label"
+              >Ukuran Cincin</label
+            >
+            <p class="field__seperator">:</p>
+          </div>
+          <input
+            type="number"
+            id="customerRingInput"
+            class="field__input"
+            name="ringSize"
+          />
+        </div>
+
+        <div class="field">
+          <div class="field__left">
+            <img
+              class="field-icon icon"
+              src="assets/icons/input/circle_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <label for="customerBraceletInput" class="field__label"
+              >Ukuran Gelang</label
+            >
+            <p class="field__seperator">:</p>
+          </div>
+          <input
+            type="number"
+            id="customerBraceletInput"
+            class="field__input"
+            name="braceletSize"
+          />
+        </div>
+
+        <div class="field">
+          <div class="field__left">
+            <img
+              class="field-icon icon"
+              src="assets/icons/input/location_on_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <label for="customerAddressInput" class="field__label"
+              >Alamat</label
+            >
+            <p class="field__seperator">:</p>
+          </div>
+          <input
+            type="text"
+            id="customerAddressInput"
+            class="field__input"
+            name="address"
+          />
+        </div>
+
+        <div class="field">
+          <div class="field__left">
+            <img
+              class="field-icon icon"
+              src="assets/icons/input/work_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <label for="customerJobInput" class="field__label">
+              Pekerjaan
+            </label>
+            <p class="field__seperator">:</p>
+          </div>
+          <input
+            type="text"
+            id="customerJobInput"
+            class="field__input"
+            name="job"
+          />
+        </div>
+
+        <div class="field">
+          <div class="field__left">
+            <img
+              class="field-icon icon"
+              src="assets/icons/input/favorite_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <label for="customerFavoriteInput" class="field__label">
+              Selera Perhiasan
+            </label>
+            <p class="field__seperator">:</p>
+          </div>
+          <input
+            type="text"
+            id="customerFavoriteInput"
+            class="field__input"
+            name="favorite"
+          />
+        </div>
+      </div>
+
+      <button class="overlay__submit-button" type="submit">Submit</button>
+    </form>
+  </div>
+</section>

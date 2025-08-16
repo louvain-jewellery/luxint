@@ -1,131 +1,31 @@
 [
-  {
-    "id": "Cust-001",
-    "salesId": "Luxint-001",
-    "name": "Harry Potter"
-  },
-  {
-    "id": "Cust-002",
-    "salesId": "Luxint-001",
-    "name": "Hermione Granger"
-  },
-  {
-    "id": "Cust-003",
-    "salesId": "Luxint-001",
-    "name": "Ron Weasley"
-  },
-  {
-    "id": "Cust-004",
-    "salesId": "Luxint-001",
-    "name": "Draco Malfoy"
-  },
-  {
-    "id": "Cust-005",
-    "salesId": "Luxint-001",
-    "name": "Luna Lovegood"
-  },
+  { "id": 1, "salesId": 1, "name": "Harry Potter" },
+  { "id": 2, "salesId": 1, "name": "Hermione Granger" },
+  { "id": 3, "salesId": 1, "name": "Ron Weasley" },
+  { "id": 4, "salesId": 1, "name": "Draco Malfoy" },
+  { "id": 5, "salesId": 1, "name": "Luna Lovegood" },
 
-  {
-    "id": "Cust-006",
-    "salesId": "Luxint-002",
-    "name": "Jon Snow"
-  },
-  {
-    "id": "Cust-007",
-    "salesId": "Luxint-002",
-    "name": "Daenerys Targaryen"
-  },
-  {
-    "id": "Cust-008",
-    "salesId": "Luxint-002",
-    "name": "Arya Stark"
-  },
-  {
-    "id": "Cust-009",
-    "salesId": "Luxint-002",
-    "name": "Tyrion Lannister"
-  },
-  {
-    "id": "Cust-010",
-    "salesId": "Luxint-002",
-    "name": "Cersei Lannister"
-  },
+  { "id": 6, "salesId": 2, "name": "Jon Snow" },
+  { "id": 7, "salesId": 2, "name": "Daenerys Targaryen" },
+  { "id": 8, "salesId": 2, "name": "Arya Stark" },
+  { "id": 9, "salesId": 2, "name": "Tyrion Lannister" },
+  { "id": 10, "salesId": 2, "name": "Cersei Lannister" },
 
-  {
-    "id": "Cust-011",
-    "salesId": "Luxint-003",
-    "name": "Rick Grimes"
-  },
-  {
-    "id": "Cust-012",
-    "salesId": "Luxint-003",
-    "name": "Daryl Dixon"
-  },
-  {
-    "id": "Cust-013",
-    "salesId": "Luxint-003",
-    "name": "Michonne"
-  },
-  {
-    "id": "Cust-014",
-    "salesId": "Luxint-003",
-    "name": "Negan"
-  },
-  {
-    "id": "Cust-015",
-    "salesId": "Luxint-003",
-    "name": "Glenn Rhee"
-  },
+  { "id": 11, "salesId": 3, "name": "Rick Grimes" },
+  { "id": 12, "salesId": 3, "name": "Daryl Dixon" },
+  { "id": 13, "salesId": 3, "name": "Michonne" },
+  { "id": 14, "salesId": 3, "name": "Negan" },
+  { "id": 15, "salesId": 3, "name": "Glenn Rhee" },
 
-  {
-    "id": "Cust-016",
-    "salesId": "Luxint-004",
-    "name": "Thomas"
-  },
-  {
-    "id": "Cust-017",
-    "salesId": "Luxint-004",
-    "name": "Newt"
-  },
-  {
-    "id": "Cust-018",
-    "salesId": "Luxint-004",
-    "name": "Minho"
-  },
-  {
-    "id": "Cust-019",
-    "salesId": "Luxint-004",
-    "name": "Teresa Agnes"
-  },
-  {
-    "id": "Cust-020",
-    "salesId": "Luxint-004",
-    "name": "Gally"
-  },
+  { "id": 16, "salesId": 4, "name": "Thomas" },
+  { "id": 17, "salesId": 4, "name": "Newt" },
+  { "id": 18, "salesId": 4, "name": "Minho" },
+  { "id": 19, "salesId": 4, "name": "Teresa Agnes" },
+  { "id": 20, "salesId": 4, "name": "Gally" },
 
-  {
-    "id": "Cust-021",
-    "salesId": "Luxint-005",
-    "name": "Archie Andrews"
-  },
-  {
-    "id": "Cust-022",
-    "salesId": "Luxint-005",
-    "name": "Veronica Lodge"
-  },
-  {
-    "id": "Cust-023",
-    "salesId": "Luxint-005",
-    "name": "Betty Cooper"
-  },
-  {
-    "id": "Cust-024",
-    "salesId": "Luxint-005",
-    "name": "Jughead Jones"
-  },
-  {
-    "id": "Cust-025",
-    "salesId": "Luxint-005",
-    "name": "Cheryl Blossom"
-  }
+  { "id": 21, "salesId": 5, "name": "Archie Andrews" },
+  { "id": 22, "salesId": 5, "name": "Veronica Lodge" },
+  { "id": 23, "salesId": 5, "name": "Betty Cooper" },
+  { "id": 24, "salesId": 5, "name": "Jughead Jones" },
+  { "id": 25, "salesId": 5, "name": "Cheryl Blossom" }
 ]

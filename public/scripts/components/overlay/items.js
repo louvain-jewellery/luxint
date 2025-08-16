@@ -4,7 +4,6 @@ import { closeOverlay, showOverlay } from "./overlay-manager.js";
 export function showPurchasedOverlay() {
   document.querySelectorAll(".js-purchased-items").forEach((item) => {
     item.addEventListener("click", async () => {
-      if (document.querySelector(".js-overlay")) return;
       const overlay = await showOverlay("purchased-item");
       const itemId = parseInt(item.dataset.itemId);
       renderPurchasedOverlay(itemId, overlay);
@@ -29,6 +28,7 @@ async function renderPurchasedOverlay(itemId, overlay) {
 
   try {
     const response = await fetch("/api/items");
+    // const response = await fetch("archives/data/purchased-items.json");
     const items = await response.json();
     const item = items.find((item) => item.id === parseInt(itemId));
     name.textContent = item.itemName;
