@@ -108,7 +108,7 @@
 }
 
 .card__detail--customer {
-  gap: 7.5px;
+  gap: 5px;
 }
 
 .card__row {
@@ -121,7 +121,7 @@
 .card__title,
 .card__content {
   font-size: 14px;
-  font-family: "Cormorant Garamond", "Times New Roman", Times, serif;
+  font-family:  "Times New Roman", Times, serif;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -131,7 +131,7 @@
 }
 
 .card__title--customer {
-  width: 100px;
+  width: 130px;
 }
 
 .card__image-wrapper {
