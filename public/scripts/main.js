@@ -17,29 +17,32 @@ function loadPage(page) {
       window.scrollTo(0, 0);
       pageMain.innerHTML = data;
       updateNavItem();
-      updateNavigation(pageName);
+      updateNavigationWithParameter(pageName);
       showAddOverlay();
 
       if (pageName === "home") {
-        loadSales(parseInt(parameter));
+        loadSales(parseInt(parameter) || null);
       }
 
       if (pageName === "customers") {
         showHeaderName();
         loadCustomers(parseInt(parameter));
+
         goBack();
       }
 
       if (pageName === "purchased-items") {
-        showHeaderName();
-        loadPurchasedItems(parseInt(parameter));
-        goBack();
+        if (parameter) {
+          loadPurchasedItems(parseInt(parameter));
+          showHeaderName();
+          goBack();
+        }
       }
     });
 }
 
 function initRouter() {
-  const defaultPage = `home/${loadSelectedSales()}`;
+  const defaultPage = "home/";
   let currentPage = location.hash.slice(1) || defaultPage;
   loadPage(currentPage);
 
@@ -51,7 +54,7 @@ function initRouter() {
 
 function updateNavItem() {
   const navItems = document.querySelectorAll(".js-bottom-nav-item");
-  const currentHash = location.hash || `#home/${loadSelectedSales()}`;
+  const currentHash = location.hash || "#home";
 
   const currentPageName = currentHash.split("/")[0];
 
@@ -85,7 +88,7 @@ function goBack() {
   }
 }
 
-function updateNavigation(pageName) {
+function updateNavigationWithParameter(pageName) {
   const navLink = document.querySelector(`a[href="#${pageName}"]`);
 
   if (navLink) {

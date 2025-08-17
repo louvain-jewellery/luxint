@@ -7,10 +7,6 @@ export function loadPurchasedItems(customerId) {
   Promise.all([
     fetch("/api/items").then((response) => response.json()),
     fetch("/api/customers").then((response) => response.json()),
-    // fetch("archives/data/purchased-items.json").then((response) =>
-    //   response.json()
-    // ),
-    // fetch("archives/data/customers.json").then((response) => response.json()),
   ]).then(([itemsData, customersData]) => {
     const items = itemsData.filter((items) => items.customerId === customerId);
 

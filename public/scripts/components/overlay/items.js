@@ -28,7 +28,6 @@ async function renderPurchasedOverlay(itemId, overlay) {
 
   try {
     const response = await fetch("/api/items");
-    // const response = await fetch("archives/data/purchased-items.json");
     const items = await response.json();
     const item = items.find((item) => item.id === parseInt(itemId));
     name.textContent = item.itemName;

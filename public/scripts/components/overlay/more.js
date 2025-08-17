@@ -28,7 +28,6 @@ async function renderOverlayData(customerId, overlay) {
   const overlayCount = overlay.querySelector(".js-overlay-count");
   try {
     const response = await fetch("/api/customers");
-    // const response = await fetch("archives/data/customers.json");
     const customers = await response.json();
     const customer = customers.find((c) => c.id === parseInt(customerId));
 

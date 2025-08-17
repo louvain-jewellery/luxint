@@ -19,8 +19,6 @@ export function loadCustomers(salesId) {
   Promise.all([
     fetch("/api/customers").then((response) => response.json()),
     fetch("/api/sales").then((response) => response.json()),
-    // fetch("archives/data/customers.json").then((response) => response.json()),
-    // fetch("archives/data/sales.json").then((response) => response.json()),
   ]).then(([customersData, salesData]) => {
     customerList.innerHTML = "";
 
@@ -65,7 +63,7 @@ export function loadCustomers(salesId) {
 
     document.querySelectorAll(".js-customer-link").forEach((button) => {
       button.addEventListener("click", () => {
-        const customerId = button.dataset.customerId;
+        const customerId = parseInt(button.dataset.customerId);
         window.location.hash = `purchased-items/${customerId}`;
       });
     });
