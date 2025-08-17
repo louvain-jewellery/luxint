@@ -92,7 +92,10 @@ function updateNavigationWithParameter(pageName) {
   const navLink = document.querySelector(`a[href="#${pageName}"]`);
 
   if (navLink) {
-    navLink.addEventListener("click", (e) => {
+    const newNavLink = navLink.cloneNode(true);
+    navLink.parentNode.replaceChild(newNavLink, navLink);
+
+    newNavLink.addEventListener("click", (e) => {
       e.preventDefault();
 
       const selectedSales = loadSelectedSales();
