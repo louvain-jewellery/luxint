@@ -9,9 +9,9 @@ const pageMain = document.querySelector(".js-page-main");
 function loadPage(page) {
   const [pageName, parameter] = page.split("/");
 
-  document.body.className = page-${pageName};
+  document.body.className = `page-${pageName}`;
 
-  fetch(pages/${pageName}.html)
+  fetch(`pages/${pageName}.html`)
     .then((response) => response.text())
     .then((data) => {
       window.scrollTo(0, 0);
