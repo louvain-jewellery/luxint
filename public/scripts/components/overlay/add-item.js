@@ -29,6 +29,17 @@ async function renderAddOverlay(overlay) {
     const sales = data.find((sales) => sales.id === parseInt(salesId));
 
     title.textContent = `Tambahkan Item: ${sales.name}`;
+
+    if (!salesId) {
+      const overlayForm = overlay.querySelector(".js-overlay-form");
+      overlayForm.innerHTML = "";
+      const p = document.createElement("p");
+      p.classList.add("overlay__warning", "warning");
+      p.textContent = "Pilih sales terlebih dahulu";
+
+      overlayForm.appendChild(p);
+      return;
+    }
   } catch (error) {
     console.error("failed to fetch overlay: ", error);
   }
