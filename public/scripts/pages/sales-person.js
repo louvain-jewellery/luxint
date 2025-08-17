@@ -78,12 +78,11 @@ export function loadSales() {
 export function loadCardData(data, salesId) {
   const cardDetail = document.querySelector(".js-card-detail");
   const cardId = cardDetail.querySelector(".js-card-id");
-  const cardName = cardDetail.querySelector(".js-card-detail");
+  const cardName = cardDetail.querySelector(".js-card-name");
   const cardCount = cardDetail.querySelector(".js-card-customer-count");
   const cardImage = cardDetail.querySelector(".js-card-image");
 
   const sales = data.find((sales) => sales.id === parseInt(salesId));
-  console.log(sales);
   cardId.textContent = formatSalesId(sales.id);
   cardName.textContent = sales.name;
   cardCount.textContent = "??? Orang";
