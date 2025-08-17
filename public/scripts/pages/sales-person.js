@@ -44,7 +44,6 @@ export function loadSales() {
         item.addEventListener("click", () => {
           const salesId = parseInt(item.dataset.salesId);
 
-          history.replaceState(null, null, `#home/${salesId}`);
           saveSelectedSales(salesId);
           item.appendChild(selected);
           loadCardData(salesId);
@@ -139,15 +138,6 @@ export function saveSelectedSales(salesId) {
 }
 
 export function loadSelectedSales() {
-  const hash = location.hash.slice(1);
-  const [pageName, parameter] = hash.split("/");
-
-  if (pageName === "home" && parameter) {
-    const salesId = parseInt(parameter);
-    localStorage.setItem("selectedSales", salesId);
-    return salesId;
-  }
-
   const saved = localStorage.getItem("selectedSales");
   return saved ? parseInt(saved) : null;
 }

@@ -35,13 +35,3 @@ function renderAddOverlay(overlay) {
   const title = overlay.querySelector(".js-overlay-header-title");
   title.textContent = `Tambahkan Item: ${getCurrentSalesId()}`;
 }
-
-function getCurrentSalesId() {
-  const hash = location.hash.slice(1);
-  const [pageName, parameter] = hash.split("/");
-
-  if (parameter) {
-    return parseInt(parameter);
-  }
-  return null;
-}

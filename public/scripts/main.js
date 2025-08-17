@@ -9,19 +9,19 @@ const pageMain = document.querySelector(".js-page-main");
 function loadPage(page) {
   const [pageName, parameter] = page.split("/");
 
-  document.body.className = `page-${pageName}`;
+  document.body.className = page-${pageName};
 
-  fetch(`pages/${pageName}.html`)
+  fetch(pages/${pageName}.html)
     .then((response) => response.text())
     .then((data) => {
       window.scrollTo(0, 0);
       pageMain.innerHTML = data;
       updateNavItem();
-      updateNavigationWithParameter(pageName);
+      updateCustomersNavigation();
       showAddOverlay();
 
       if (pageName === "home") {
-        loadSales(parseInt(parameter) || null);
+        loadSales(parseInt(parameter));
       }
 
       if (pageName === "customers") {
@@ -42,7 +42,7 @@ function loadPage(page) {
 }
 
 function initRouter() {
-  const defaultPage = "home/";
+  const defaultPage = "home";
   let currentPage = location.hash.slice(1) || defaultPage;
   loadPage(currentPage);
 
@@ -88,18 +88,15 @@ function goBack() {
   }
 }
 
-function updateNavigationWithParameter(pageName) {
-  const navLink = document.querySelector(`a[href="#${pageName}"]`);
+function updateCustomersNavigation() {
+  const customersNavLink = document.querySelector('a[href="#customers"]');
 
-  if (navLink) {
-    const newNavLink = navLink.cloneNode(true);
-    navLink.parentNode.replaceChild(newNavLink, navLink);
-
-    newNavLink.addEventListener("click", (e) => {
+  if (customersNavLink) {
+    customersNavLink.addEventListener("click", (e) => {
       e.preventDefault();
 
       const selectedSales = loadSelectedSales();
-      window.location.hash = `${pageName}/${selectedSales}`;
+      window.location.hash = `customers/${selectedSales}`;
     });
   }
 }
