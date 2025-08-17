@@ -77,16 +77,34 @@ export function loadSales() {
 
 export function loadCardData(data, salesId) {
   const cardDetail = document.querySelector(".js-card-detail");
-  const cardId = cardDetail.querySelector(".js-card-id");
-  const cardName = cardDetail.querySelector(".js-card-name");
-  const cardCount = cardDetail.querySelector(".js-card-customer-count");
-  const cardImage = cardDetail.querySelector(".js-card-image");
+  cardDetail.innerHTML = "";
 
   const sales = data.find((sales) => sales.id === parseInt(salesId));
-  cardId.textContent = `: ${formatSalesId(sales.id)}`;
-  cardName.textContent = `: ${sales.name}`;
-  cardCount.textContent = "??? Orang";
-  cardImage.src = sales.image;
+
+  cardDetail.innerHTML = `
+    <div class="employee-card__detail">
+      <div class="employee-card__row">
+        <p class="employee-card__title">ID</p>
+        <p class="employee-card__content js-card-id">: ${formatSalesId(
+          sales.id
+        )}</p>
+      </div>
+      <div class="employee-card__row">
+        <p class="employee-card__title">Nama</p>
+        <p class="employee-card__content js-card-name">: ${sales.name}</p>
+      </div>
+      <div class="employee-card__row">
+        <p class="employee-card__title">Pelanggan</p>
+        <p class="employee-card__content js-card-customer-count">: ??
+        orang</p>
+      </div>
+    </div>
+    <div class="employee-card__image-wrapper">
+      <img class="employee-card__image js-card-image" src=${
+        sales.image
+      } alt="card pfp" />
+    </div>
+  `;
 }
 
 export function loadAddItem() {
