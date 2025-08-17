@@ -12,7 +12,7 @@ export function showAddOverlay() {
 
       overlay.addEventListener("click", (e) => {
         if (!e.target.closest(".js-overlay-wrapper")) {
-          closeOverlay();
+          closeOverlay("add-item");
         }
       });
     });

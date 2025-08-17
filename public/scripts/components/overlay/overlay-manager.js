@@ -27,8 +27,8 @@ export async function showOverlay(overlayName) {
   }
 }
 
-export function closeOverlay() {
-  const overlay = document.querySelector(".js-overlay");
+export function closeOverlay(overlayName) {
+  const overlay = document.querySelector(`.js-${overlayName}-overlay`);
   if (!overlay) return;
 
   overlay.classList.remove("show");

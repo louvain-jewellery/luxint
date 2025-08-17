@@ -11,7 +11,7 @@ export function showPurchasedOverlay() {
       overlay
         .querySelector(".js-close-button")
         .addEventListener("click", () => {
-          closeOverlay();
+          closeOverlay("purchased-item");
         });
     });
   });

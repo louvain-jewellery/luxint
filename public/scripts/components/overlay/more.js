@@ -15,7 +15,7 @@ export function showMoreOverlay() {
           !e.target.closest(".js-selected-item") &&
           !e.target.closest(".menu")
         ) {
-          closeOverlay();
+          closeOverlay("more");
         }
       });
     });
