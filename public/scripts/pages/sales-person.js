@@ -9,7 +9,7 @@ export function loadSales() {
   );
 
   fetch("/api/sales")
-  // fetch("archives/data/sales.json")
+    // fetch("archives/data/sales.json")
     .then((response) => response.json())
     .then((data) => {
       const selectorList = document.querySelector(".js-selector-list");
@@ -37,9 +37,7 @@ export function loadSales() {
         selectorItem.appendChild(itemName);
 
         selectorList.appendChild(selectorItem);
-        selectorItem.addEventListener('click', () => {
-          
-        })
+        selectorItem.addEventListener("click", () => {});
       });
 
       loadAddItem();
@@ -47,6 +45,7 @@ export function loadSales() {
       selectorList.querySelectorAll(".js-selector-item").forEach((item) => {
         item.addEventListener("click", () => {
           const salesId = parseInt(item.dataset.salesId);
+          window.location.hash = `home/${salesId}`;
 
           saveSelectedSales(salesId);
           item.appendChild(selected);
@@ -84,7 +83,7 @@ export function loadCardData(salesId) {
   cardDetail.innerHTML = "";
 
   fetch("/api/sales")
-  // fetch("archives/data/sales.json")
+    // fetch("archives/data/sales.json")
     .then((response) => response.json())
     .then((data) => {
       const sales = data.find((sales) => sales.id === salesId);

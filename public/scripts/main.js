@@ -17,7 +17,7 @@ function loadPage(page) {
       window.scrollTo(0, 0);
       pageMain.innerHTML = data;
       updateNavItem();
-      updateCustomersNavigation();
+      updateNavigation("pageName");
       showAddOverlay();
 
       if (pageName === "home") {
@@ -31,17 +31,15 @@ function loadPage(page) {
       }
 
       if (pageName === "purchased-items") {
-        if (parameter) {
-          showHeaderName();
-          loadPurchasedItems(parseInt(parameter));
-          goBack();
-        }
+        showHeaderName();
+        loadPurchasedItems(parseInt(parameter));
+        goBack();
       }
     });
 }
 
 function initRouter() {
-  const defaultPage = "home";
+  const defaultPage = `home/${loadSelectedSales()}`;
   let currentPage = location.hash.slice(1) || defaultPage;
   loadPage(currentPage);
 
@@ -53,7 +51,7 @@ function initRouter() {
 
 function updateNavItem() {
   const navItems = document.querySelectorAll(".js-bottom-nav-item");
-  const currentHash = location.hash || "#home";
+  const currentHash = location.hash || `#home/${loadSelectedSales()}`;
 
   const currentPageName = currentHash.split("/")[0];
 
@@ -87,15 +85,15 @@ function goBack() {
   }
 }
 
-function updateCustomersNavigation() {
-  const customersNavLink = document.querySelector('a[href="#customers"]');
+function updateNavigation(pageName) {
+  const navLink = document.querySelector(`a[href="#${pageName}"]`);
 
-  if (customersNavLink) {
-    customersNavLink.addEventListener("click", (e) => {
+  if (navLink) {
+    navLink.addEventListener("click", (e) => {
       e.preventDefault();
 
       const selectedSales = loadSelectedSales();
-      window.location.hash = `customers/${selectedSales}`;
+      window.location.hash = `${pageName}/${selectedSales}`;
     });
   }
 }
