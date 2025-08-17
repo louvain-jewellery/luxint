@@ -14,7 +14,7 @@
 }
 
 .card--customer {
-  margin: 15px;
+  width: calc(100% - 30px);
 }
 
 .card::before {
