@@ -5,7 +5,9 @@ export async function showOverlay(overlayName) {
     document.body.insertAdjacentHTML("beforeend", html);
 
     const overlay = document.querySelector(`.js-${overlayName}-overlay`);
-    setTimeout(() => overlay.classList.add("show"), 10);
+    requestAnimationFrame(() => {
+      overlay.classList.add("show");
+    });
     document.body.style.overflow = "hidden";
 
     overlay.dataset.originalState = JSON.stringify(history.state);
@@ -45,6 +47,6 @@ export function closeOverlay(overlayName, shouldGoBack = true) {
   if (shouldGoBack && history.state?.overlay === overlayName) {
     history.back();
   }
-  
+
   setTimeout(() => overlay.remove(), 300);
 }
