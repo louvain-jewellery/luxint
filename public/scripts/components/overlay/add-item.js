@@ -24,10 +24,10 @@ function renderAddOverlay(overlay) {
   if (!parameter) {
     overlay.innerHTML = "";
     const p = document.createElement("p");
-    p.classList.add("customers__warning", "warning");
+    p.classList.add("warning");
     p.textContent = "Pilih sales terlebih dahulu";
 
-    customerList.appendChild(p);
+    overlay.appendChild(p);
     return;
   }
 
