@@ -16,7 +16,7 @@ export async function showOverlay(overlayName) {
         !event.state?.overlay &&
         document.querySelector(`.js-${overlayName}-overlay`)
       ) {
-        closeOverlay();
+        closeOverlay(overlayName, false);
         window.removeEventListener("popstate", handlePopState);
       }
     };
@@ -30,12 +30,21 @@ export async function showOverlay(overlayName) {
   }
 }
 
-export function closeOverlay(overlayName) {
+export function closeOverlay(overlayName, shouldGoBack = true) {
   const overlay = document.querySelector(`.js-${overlayName}-overlay`);
   if (!overlay) return;
 
   overlay.classList.remove("show");
   document.body.style.overflow = "auto";
 
+  const handler = overlay.dataset.popstateHandler;
+  if (handler === "attached") {
+    overlay.dataset.popstateHandler = "removed";
+  }
+
+  if (shouldGoBack && history.state?.overlay === overlayName) {
+    history.back();
+  }
+  
   setTimeout(() => overlay.remove(), 300);
 }
