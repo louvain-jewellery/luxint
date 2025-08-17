@@ -83,6 +83,7 @@ export function loadCardData(data, salesId) {
   const cardImage = cardDetail.querySelector(".js-card-image");
 
   const sales = data.find((sales) => sales.id === parseInt(salesId));
+  console.log(sales);
   cardId.textContent = formatSalesId(sales.id);
   cardName.textContent = sales.name;
   cardCount.textContent = "??? Orang";
