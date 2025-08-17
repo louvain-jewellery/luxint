@@ -4,7 +4,7 @@ export async function showOverlay(overlayName) {
     const html = await response.text();
     document.body.insertAdjacentHTML("beforeend", html);
 
-    const overlay = document.querySelector(".js-overlay");
+    const overlay = document.querySelector(`.js-${overlayName}-overlay`);
     setTimeout(() => overlay.classList.add("show"), 10);
     document.body.style.overflow = "hidden";
 
