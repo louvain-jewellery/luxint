@@ -46,7 +46,7 @@ export function loadSales() {
 
           saveSelectedSales(salesId);
           item.appendChild(selected);
-          loadCardData(salesId);
+          loadCardData(data, salesId);
         });
       });
 
@@ -69,46 +69,24 @@ export function loadSales() {
         if (savedItem) {
           savedItem.appendChild(selected);
 
-          loadCardData(savedSalesId);
+          loadCardData(data, savedSalesId);
         }
       }
     });
 }
 
-export function loadCardData(salesId) {
+export function loadCardData(data, salesId) {
   const cardDetail = document.querySelector(".js-card-detail");
-  cardDetail.innerHTML = "";
+  const cardId = cardDetail.querySelector(".js-card-id");
+  const cardName = cardDetail.querySelector(".js-card-detail");
+  const cardCount = cardDetail.querySelector(".js-card-customer-count");
+  const cardImage = cardDetail.querySelector(".js-card-image");
 
-  fetch("/api/sales")
-    .then((response) => response.json())
-    .then((data) => {
-      const sales = data.find((sales) => sales.id === salesId);
-
-      cardDetail.innerHTML = `
-          <div class="employee-card__detail">
-            <div class="employee-card__row">
-              <p class="employee-card__title">ID</p>
-              <p class="employee-card__content js-card-id">: ${formatSalesId(
-                sales.id
-              )}</p>
-            </div>
-            <div class="employee-card__row">
-              <p class="employee-card__title">Nama</p>
-              <p class="employee-card__content js-card-name">: ${sales.name}</p>
-            </div>
-            <div class="employee-card__row">
-              <p class="employee-card__title">Pelanggan</p>
-              <p class="employee-card__content js-card-customer-count">: ??
-              orang</p>
-            </div>
-          </div>
-          <div class="employee-card__image-wrapper">
-            <img class="employee-card__image js-card-image" src=${
-              sales.image
-            } alt="card pfp" />
-          </div>
-        `;
-    });
+  const sales = data.find((sales) => sales.id === parseInt(salesId));
+  cardId.textContent = formatSalesId(sales.id);
+  cardName.textContent = sales.name;
+  cardCount.textContent = "??? Orang";
+  cardImage.src = sales.image;
 }
 
 export function loadAddItem() {

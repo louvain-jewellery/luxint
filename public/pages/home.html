@@ -5,9 +5,27 @@
 <section class="employee">
   <div class="employee-card">
     <div class="employee-card__top">
-      <img class="employee-card__logo" src="assets/images/logo2.png" alt="" />
+      <img class="employee-card__logo" src="assets/images/logo2.png" />
     </div>
-    <div class="employee-card__bottom js-card-detail"></div>
+    <div class="employee-card__bottom js-card-detail">
+      <div class="employee-card__detail">
+        <div class="employee-card__row">
+          <p class="employee-card__title">ID</p>
+          <p class="employee-card__content js-card-id"></p>
+        </div>
+        <div class="employee-card__row">
+          <p class="employee-card__title">Nama</p>
+          <p class="employee-card__content js-card-name"></p>
+        </div>
+        <div class="employee-card__row">
+          <p class="employee-card__title">Pelanggan</p>
+          <p class="employee-card__content js-card-customer-count"></p>
+        </div>
+      </div>
+      <div class="employee-card__image-wrapper">
+        <img class="employee-card__image js-card-image" alt="profile picture" />
+      </div>
+    </div>
   </div>
 
   <nav class="employee-selector">
