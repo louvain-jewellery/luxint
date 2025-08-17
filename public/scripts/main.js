@@ -17,7 +17,7 @@ function loadPage(page) {
       window.scrollTo(0, 0);
       pageMain.innerHTML = data;
       updateNavItem();
-      updateNavigation("pageName");
+      updateNavigation(pageName);
       showAddOverlay();
 
       if (pageName === "home") {
