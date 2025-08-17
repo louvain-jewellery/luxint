@@ -13,6 +13,10 @@
   border-top: 2px solid rgba(255, 255, 255, 0.212);
 }
 
+.card--customer {
+  margin: 15px;
+}
+
 .card::before {
   content: "";
   position: absolute;
@@ -121,7 +125,7 @@
 .card__title,
 .card__content {
   font-size: 14px;
-  font-family:  "Times New Roman", Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-weight: 500;
   white-space: nowrap;
 }
