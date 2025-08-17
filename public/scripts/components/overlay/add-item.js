@@ -8,7 +8,7 @@ export function showAddOverlay() {
 
       overlay
         .querySelector(".js-close-button")
-        .addEventListener("click", closeOverlay);
+        .addEventListener("click", () => closeOverlay("add-item"));
 
       overlay.addEventListener("click", (e) => {
         if (!e.target.closest(".js-overlay-wrapper")) {
