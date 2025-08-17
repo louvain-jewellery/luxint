@@ -75,6 +75,11 @@
   border-bottom: 3px solid rgba(255, 255, 255, 0.168);
 }
 
+.card--customer .card__top {
+  height: 25%;
+  padding: 2.5%;
+}
+
 .card__logo {
   height: 100%;
 }
@@ -94,12 +99,13 @@
   border-radius: 0 0 15px 15px;
 }
 
-.card__bottom--employee {
+.card--employee .card__bottom {
   padding: 7%;
 }
 
-.card__bottom--customer {
+.card--customer .card__bottom {
   padding: 5%;
+  height: 75%;
 }
 
 .card__detail {
@@ -108,11 +114,11 @@
   flex: 1;
 }
 
-.card__detail--employee {
+.card--employee .card__detail {
   gap: 15px;
 }
 
-.card__detail--customer {
+.card--customer .card__detail {
   gap: 5px;
 }
 
@@ -126,8 +132,8 @@
 .card__title,
 .card__content {
   font-size: 14px;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 500;
+  font-family:  "Cormorant Garamond", "Times New Roman", Times, serif;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -135,7 +141,7 @@
   width: 90px;
 }
 
-.card__title--customer {
+.card--customer .card__title {
   width: 130px;
 }
 

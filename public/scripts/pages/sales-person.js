@@ -82,17 +82,17 @@ export function loadCardData(data, salesId) {
   const sales = data.find((sales) => sales.id === parseInt(salesId));
 
   cardDetail.innerHTML = `
-    <div class="card__detail card__detail--employee">
+    <div class="card__detail">
       <div class="card__row">
-        <p class="card__title--employee">ID</p>
+        <p class="card__title">ID</p>
         <p class="card__content">: ${formatSalesId(sales.id)}</p>
       </div>
       <div class="card__row">
-        <p class="card__title--employee">Nama</p>
+        <p class="card__title">Nama</p>
         <p class="card__content">: ${sales.name}</p>
       </div>
       <div class="card__row">
-        <p class="card__title--employee">Pelanggan</p>
+        <p class="card__title">Pelanggan</p>
         <p class="card__content">: ??
         orang</p>
       </div>
