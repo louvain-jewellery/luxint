@@ -173,3 +173,8 @@
   border: none;
   border-radius: 100px;
 }
+
+.overlay__warning {
+  color: rgba(255, 255, 255, 0.5);
+  padding: 100px 0;
+}

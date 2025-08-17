@@ -22,12 +22,13 @@ export function showAddOverlay() {
 function renderAddOverlay(overlay) {
   const parameter = getCurrentSalesId();
   if (!parameter) {
-    overlay.innerHTML = "";
+    const overlayForm = overlay.querySelector(".js-overlay-form");
+    overlayForm.innerHTML = "";
     const p = document.createElement("p");
-    p.classList.add("warning");
+    p.classList.add("overlay__warning", "warning");
     p.textContent = "Pilih sales terlebih dahulu";
 
-    overlay.appendChild(p);
+    overlayForm.appendChild(p);
     return;
   }
 
