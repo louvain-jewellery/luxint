@@ -12,7 +12,10 @@ export async function showOverlay(overlayName) {
     history.pushState({ overlay: overlayName }, "", window.location.href);
 
     const handlePopState = (event) => {
-      if (!event.state?.overlay && document.querySelector(".js-overlay")) {
+      if (
+        !event.state?.overlay &&
+        document.querySelector(`.js-${overlayName}-overlay`)
+      ) {
         closeOverlay();
         window.removeEventListener("popstate", handlePopState);
       }
