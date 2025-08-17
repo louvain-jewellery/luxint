@@ -27,14 +27,13 @@ function loadPage(page) {
       if (pageName === "customers") {
         showHeaderName();
         loadCustomers(parseInt(parameter));
-
         goBack();
       }
 
       if (pageName === "purchased-items") {
         if (parameter) {
-          loadPurchasedItems(parseInt(parameter));
           showHeaderName();
+          loadPurchasedItems(parseInt(parameter));
           goBack();
         }
       }
