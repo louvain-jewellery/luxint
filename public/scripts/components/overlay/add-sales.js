@@ -8,7 +8,7 @@ export function showAddSalesOverlay() {
       renderOverlay(overlay);
       overlay
         .querySelector(".js-cancel-button")
-        .addEventListener("click", closeOverlay);
+        .addEventListener("click", () => closeOverlay("add-sales"));
 
       overlay.addEventListener("click", (e) => {
         if (!e.target.closest(".js-overlay-wrapper")) {
