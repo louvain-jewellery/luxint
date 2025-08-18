@@ -36,7 +36,7 @@ async function renderAddOverlay(overlay) {
     return;
   }
 
-  await loadCustomerSelectOption(customerSelect);
+  await loadCustomerSelectOption(customerSelect, salesId);
 
   const imageInput = overlay.querySelector(".js-item-image-input");
   const imageInputButton = overlay.querySelector(".js-image-input-button");
@@ -56,27 +56,26 @@ async function renderAddOverlay(overlay) {
   try {
     const response1 = await fetch("/api/sales");
     const data1 = await response1.json();
-
     const sales = data1.find((sales) => sales.id === parseInt(salesId));
-
     title.textContent = `Tambahkan Item: ${sales.name}`;
   } catch (error) {
     console.error("failed to fetch overlay: ", error);
   }
 }
 
-async function loadCustomerSelectOption(customerSelect) {
+async function loadCustomerSelectOption(customerSelect, salesId) {
   customerSelect.innerHTML = "";
   const option = document.createElement("option");
   option.selected = true;
   option.disabled = true;
+  option.textContent = "Pilih";
   customerSelect.appendChild(option);
 
-  const response = await fetch("/api/customers");
-  const data = await response.json();
   try {
+    const response = await fetch("/api/customers");
+    const data = await response.json();
     const customers = data.filter(
-      (customers) => customers.salesId === sales.id
+      (customers) => customers.salesId === parseInt(salesId)
     );
 
     customers.forEach((customer) => {
