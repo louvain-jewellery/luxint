@@ -132,7 +132,7 @@
 .card__title,
 .card__content {
   font-size: 14px;
-  font-family:  "Cormorant Garamond", "Times New Roman", Times, serif;
+  font-family:  "Lora", "Times New Roman", Times, serif;
   font-weight: 600;
   white-space: nowrap;
 }

@@ -43,7 +43,6 @@
   border-radius: 200px;
   padding: 5px 5px;
   cursor: pointer;
-  /* transform: scale(1); */
 
   transition: all 0.3s ease;
   background-color: transparent;
@@ -52,7 +51,6 @@
 .bottom-nav__item.selected {
   position: relative;
   background-color: rgba(255, 255, 255, 0.179);
-  /* transform: scale(1.05); */
 }
 
 .bottom-nav__link {
