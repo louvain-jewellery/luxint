@@ -36,7 +36,7 @@ async function renderAddOverlay(overlay) {
     return;
   }
 
-  const imageInput = overlay.querySelector("js-item-image-input");
+  const imageInput = overlay.querySelector(".js-item-image-input");
   const imageInputButton = overlay.querySelector(".js-image-input-button");
   imageInputButton.addEventListener("click", () => imageInput.click());
   imageInput.addEventListener("change", (event) => {
