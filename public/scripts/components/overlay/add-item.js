@@ -23,7 +23,7 @@ export function showAddOverlay() {
 async function renderAddOverlay(overlay) {
   const salesId = loadSelectedSales();
   const title = overlay.querySelector(".js-overlay-header-title");
-  const customerSelect = overlay.querySelector("js-overlay-customer-select");
+  const customerSelect = overlay.querySelector(".js-overlay-customer-select");
 
   if (!salesId) {
     const overlayForm = overlay.querySelector(".js-overlay-form");
