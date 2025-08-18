@@ -133,7 +133,6 @@
 .field__input-wrapper {
   position: relative;
   width: 100%;
-  height: fit-content;
 }
 
 .field__input-unit {
