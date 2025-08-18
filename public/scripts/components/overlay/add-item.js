@@ -43,8 +43,11 @@ async function renderAddOverlay(overlay) {
     const image = event.target.files[0];
     if (image) {
       const imageName = image.name;
-
-      imageInputButton.textContent = imageName;
+      if (imageName.length > 15) {
+        imageInputButton.textContent = imageName.slice(0, 15) + "...";
+      } else {
+        imageInputButton.textContent = imageName;
+      }
     }
   });
 
@@ -53,21 +56,27 @@ async function renderAddOverlay(overlay) {
     const data1 = await response1.json();
     const response2 = await fetch("/api/customers");
     const data2 = await response2.json();
-    const response3 = await fetch("/api/items");
-    const data3 = await response3.json();
 
     const sales = data1.find((sales) => sales.id === parseInt(salesId));
+
     const customers = data2.filter(
       (customers) => customers.salesId === sales.id
     );
 
     customers.forEach((customer) => {
       const option = document.createElement("option");
+      option.classList.add("js-option-customer");
       option.value = customer.id;
       option.textContent = customer.name;
 
       customerSelect.appendChild(option);
     });
+
+    const hash = window.location.hash.slice(1);
+    const [pageName, parameter] = hash.split("/");
+    if (pageName === "purchased-items" && parameter) {
+      customerSelect.value = parameter;
+    }
 
     title.textContent = `Tambahkan Item: ${sales.name}`;
   } catch (error) {

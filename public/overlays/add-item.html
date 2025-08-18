@@ -27,13 +27,15 @@
             >
             <p class="field__seperator">:</p>
           </div>
-          <select
-            id="itemCustomerSelect"
-            class="field__input field__input--select js-overlay-customer-select"
-            name="customerId"
-          >
-            <option value="" selected disabled>Pilih</option>
-          </select>
+          <div class="field__input-wrapper">
+            <select
+              id="itemCustomerSelect"
+              class="field__input field__input--select js-overlay-customer-select"
+              name="customerId"
+            >
+              <option value="" selected disabled>Pilih</option>
+            </select>
+          </div>
         </div>
 
         <div class="field">
@@ -45,20 +47,22 @@
             <label class="field__label" for="itemTypeSelect">Jenis</label>
             <p class="field__seperator">:</p>
           </div>
-          <select
-            id="itemTypeSelect"
-            class="field__input field__input--select"
-            name="type"
-          >
-            <option value="" selected disabled>Pilih</option>
-            <option value="ring">Cincin</option>
-            <option value="bracelet">Gelang</option>
-            <option value="necklace">Kalung</option>
-            <option value="earrings">Anting</option>
-            <option value="diamond">Diamond</option>
-            <option value="gold">Emas</option>
-            <option value="others">Lainnya</option>
-          </select>
+          <div class="field__input-wrapper">
+            <select
+              id="itemTypeSelect"
+              class="field__input field__input--select"
+              name="type"
+            >
+              <option value="" selected disabled>Pilih</option>
+              <option value="ring">Cincin</option>
+              <option value="bracelet">Gelang</option>
+              <option value="necklace">Kalung</option>
+              <option value="earrings">Anting</option>
+              <option value="diamond">Diamond</option>
+              <option value="gold">Emas</option>
+              <option value="others">Lainnya</option>
+            </select>
+          </div>
         </div>
 
         <div class="field">
@@ -70,12 +74,14 @@
             <label class="field__label" for="itemNameInput">Nama Item</label>
             <p class="field__seperator">:</p>
           </div>
-          <input
-            id="itemNameInput"
-            class="field__input"
-            type="text"
-            name="itemName"
-          />
+          <div class="field__input-wrapper">
+            <input
+              id="itemNameInput"
+              class="field__input"
+              type="text"
+              name="itemName"
+            />
+          </div>
         </div>
 
         <div class="field">
@@ -87,12 +93,15 @@
             <label class="field__label" for="itemWeightInput">Berat</label>
             <p class="field__seperator">:</p>
           </div>
-          <input
-            id="itemWeightInput"
-            class="field__input"
-            type="text"
-            name="weight"
-          />
+          <div class="field__input-wrapper field__input-wrapper--weight">
+            <input
+              id="itemWeightInput"
+              class="field__input"
+              type="text"
+              name="weight"
+            />
+            <p class="field__input-unit">gr</p>
+          </div>
         </div>
 
         <div class="field">
@@ -104,12 +113,14 @@
             <label class="field__label" for="itemDateInput">Tanggal Beli</label>
             <p class="field__seperator">:</p>
           </div>
-          <input
-            id="itemDateInput"
-            class="field__input"
-            type="date"
-            name="date"
-          />
+          <div class="field__input-wrapper">
+            <input
+              id="itemDateInput"
+              class="field__input"
+              type="date"
+              name="date"
+            />
+          </div>
         </div>
 
         <div class="field">
@@ -118,15 +129,21 @@
               class="field__icon icon"
               src="assets/icons/input/percent_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
             />
-            <label class="field__label" for="itemGoldInput">Kadar Emas</label>
+            <label class="field__label" for="itemGoldSelect">Kadar Emas</label>
             <p class="field__seperator">:</p>
           </div>
-          <input
-            id="itemGoldInput"
-            class="field__input"
-            type="text"
-            name="goldPurity"
-          />
+          <div class="field__input-wrapper field__input-wrapper--gold">
+            <select
+              name="goldPurity"
+              id="itemGoldSelect"
+              class="field__input field__input--select"
+            >
+              <option value="" selected disabled>Pilih</option>
+              <option value="70">70</option>
+              <option value="75">75</option>
+            </select>
+            <p class="field__input-unit">%</p>
+          </div>
         </div>
 
         <div class="field">
@@ -138,12 +155,15 @@
             <label class="field__label" for="itemPriceInput">Harga Jual</label>
             <p class="field__seperator">:</p>
           </div>
-          <input
-            id="itemPriceInput"
-            class="field__input"
-            type="text"
-            name="sellingPrice"
-          />
+          <div class="field__input-wrapper field__input-wrapper--price">
+            <input
+              id="itemPriceInput"
+              class="field__input"
+              type="text"
+              name="sellingPrice"
+            />
+            <p class="field__input-unit field__input-unit--left">Rp.</p>
+          </div>
         </div>
 
         <div class="field">
@@ -155,14 +175,16 @@
             <label class="field__label" for="itemImageInput">Foto Produk</label>
             <p class="field__seperator">:</p>
           </div>
-          <input
-            id="itemImageInput"
-            class="field__input--file js-item-image-input"
-            type="file"
-            name="productImage"
-            accept="image/*"
-          />
-          <div class="field__input js-image-input-button">Pilih</div>
+          <div class="field__input-wrapper">
+            <input
+              id="itemImageInput"
+              class="field__input--file js-item-image-input"
+              type="file"
+              name="productImage"
+              accept="image/*"
+            />
+            <div class="field__input js-image-input-button">Pilih</div>
+          </div>
         </div>
       </div>
 

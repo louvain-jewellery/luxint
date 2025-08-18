@@ -99,6 +99,7 @@
   flex-direction: column;
   gap: 15px;
   width: 100%;
+  overflow: hidden;
   max-width: 100%;
 }
 
@@ -129,11 +130,32 @@
   min-width: 100px;
 }
 
+.field__input-wrapper {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+
+.field__input-unit {
+  position: absolute;
+  bottom: 50%;
+  right: 15px;
+  transform: translateY(50%);
+  width: fit-content;
+  pointer-events: none;
+}
+
+.field__input-unit--left {
+  right: none;
+  left: 15px;
+}
+
 .field__input {
   padding: 7.5px 15px;
   font-size: 16px;
   color: rgba(255, 255, 255);
   width: 100%;
+
   border-radius: 100px;
   background-color: rgba(255, 255, 255, 0.179);
   border: 2px solid rgba(255, 255, 255, 0.037);
@@ -143,6 +165,16 @@
   -moz-appearance: none;
 
   appearance: none;
+}
+
+.field__input-wrapper--weight .field__input,
+.field__input-wrapper--gold .field__input {
+  padding-right: 45px;
+}
+
+.field__input-wrapper--price .field__input {
+  padding-left: 45px;
+  padding-right: 7.5px;
 }
 
 .field__input::-webkit-calendar-picker-indicator {
