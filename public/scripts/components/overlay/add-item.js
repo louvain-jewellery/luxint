@@ -37,21 +37,7 @@ async function renderAddOverlay(overlay) {
   }
 
   await loadCustomerSelectOption(customerSelect, salesId);
-
-  const imageInput = overlay.querySelector(".js-item-image-input");
-  const imageInputButton = overlay.querySelector(".js-image-input-button");
-  imageInputButton.addEventListener("click", () => imageInput.click());
-  imageInput.addEventListener("change", (event) => {
-    const image = event.target.files[0];
-    if (image) {
-      const imageName = image.name;
-      if (imageName.length > 15) {
-        imageInputButton.textContent = imageName.slice(0, 15) + "...";
-      } else {
-        imageInputButton.textContent = imageName;
-      }
-    }
-  });
+  setupImageInput(overlay);
 
   try {
     const response1 = await fetch("/api/sales");
@@ -77,7 +63,6 @@ async function loadCustomerSelectOption(customerSelect, salesId) {
     const customers = data.filter(
       (customers) => customers.salesId === parseInt(salesId)
     );
-
     customers.forEach((customer) => {
       const option = document.createElement("option");
       option.classList.add("js-option-customer");
@@ -95,4 +80,21 @@ async function loadCustomerSelectOption(customerSelect, salesId) {
   } catch (error) {
     console.error("failed to load customer options: ", error);
   }
+}
+
+function setupImageInput(overlay) {
+  const imageInput = overlay.querySelector(".js-item-image-input");
+  const imageInputButton = overlay.querySelector(".js-image-input-button");
+  imageInputButton.addEventListener("click", () => imageInput.click());
+  imageInput.addEventListener("change", (event) => {
+    const image = event.target.files[0];
+    if (image) {
+      const imageName = image.name;
+      if (imageName.length > 15) {
+        imageInputButton.textContent = imageName.slice(0, 15) + "...";
+      } else {
+        imageInputButton.textContent = imageName;
+      }
+    }
+  });
 }
