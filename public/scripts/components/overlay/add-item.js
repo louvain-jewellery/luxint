@@ -36,6 +36,18 @@ async function renderAddOverlay(overlay) {
     return;
   }
 
+  const imageInput = overlay.querySelector("js-item-image-input");
+  const imageInputButton = overlay.querySelector("js-image-input-button");
+  imageInputButton.addEventListener("click", () => imageInput.click());
+  imageInput.addEventListener("change", (event) => {
+    const image = event.target.files[0];
+    if (image) {
+      const imageName = file.name;
+
+      imageInputButton.textContent = imageName;
+    }
+  });
+
   try {
     const response1 = await fetch("/api/sales");
     const data1 = await response1.json();
