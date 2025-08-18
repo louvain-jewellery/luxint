@@ -6,9 +6,17 @@ import { showHeaderName } from "./ui/header.js";
 
 const pageMain = document.querySelector(".js-page-main");
 
+let previousPage = null;
+
 function loadPage(page) {
   const [pageName, parameter] = page.split("/");
 
+  let slideClass = "";
+  if (previousPage === "home" && pageName === "customers") {
+    slideClass = "slide-right";
+  } else if (previousPage === "customers" && pageName === "home") {
+    slideClass = "slide-left";
+  }
   document.body.className = `page-${pageName}`;
 
   fetch(`pages/${pageName}.html`)
@@ -16,12 +24,18 @@ function loadPage(page) {
     .then((data) => {
       window.scrollTo(0, 0);
       pageMain.innerHTML = data;
+
+      if (slideClass) {
+        pageMain.classList.add(slideClass);
+        setTimeout(() => pageMain.classList.remove(slideClass), 300);
+      }
+
       updateNavItem();
       updateCustomersNavigation();
       showAddOverlay();
 
       if (pageName === "home") {
-        loadSales(parseInt(parameter));
+        loadSales();
       }
 
       if (pageName === "customers") {
@@ -38,6 +52,8 @@ function loadPage(page) {
           goBack();
         }
       }
+
+      previousPage = pageName;
     });
 }
 
