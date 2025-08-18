@@ -137,6 +137,11 @@
   white-space: nowrap;
 }
 
+.card--customer .card__title,
+.card--customer .card__content {
+  font-size: 12px;
+}
+
 .card__title {
   width: 90px;
 }
