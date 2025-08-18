@@ -22,15 +22,18 @@
               class="field__icon icon"
               src="assets/icons/input/person_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
             />
-            <label class="field__label" for="itemWeightInput">Pelanggan</label>
+            <label class="field__label" for="itemCustomerSelect"
+              >Pelanggan</label
+            >
             <p class="field__seperator">:</p>
           </div>
-          <input
-            id="itemWeightInput"
-            class="field__input"
-            type="text"
-            name="weight"
-          />
+          <select
+            id="itemCustomerSelect"
+            class="field__input js-overlay-customer-select"
+            name="customerId"
+          >
+            <option value="" selected disabled>Pilih</option>
+          </select>
         </div>
 
         <div class="field">

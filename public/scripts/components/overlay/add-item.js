@@ -23,6 +23,7 @@ export function showAddOverlay() {
 async function renderAddOverlay(overlay) {
   const salesId = loadSelectedSales();
   const title = overlay.querySelector(".js-overlay-header-title");
+  const customerSelect = overlay.querySelector("js-overlay-customer-select");
 
   if (!salesId) {
     const overlayForm = overlay.querySelector(".js-overlay-form");
@@ -36,9 +37,25 @@ async function renderAddOverlay(overlay) {
   }
 
   try {
-    const response = await fetch("/api/sales");
-    const data = await response.json();
-    const sales = data.find((sales) => sales.id === parseInt(salesId));
+    const response1 = await fetch("/api/sales");
+    const data1 = await response1.json();
+    const response2 = await fetch("/api/customers");
+    const data2 = await response2.json();
+    const response3 = await fetch("/api/items");
+    const data3 = await response3.json();
+
+    const sales = data1.find((sales) => sales.id === parseInt(salesId));
+    const customers = data2.filter(
+      (customers) => customers.salesId === sales.id
+    );
+
+    customers.forEach((customer) => {
+      const option = document.createElement("option");
+      option.value = customer.id;
+      option.textContent = customer.name;
+
+      customerSelect.appendChild(option);
+    });
 
     title.textContent = `Tambahkan Item: ${sales.name}`;
   } catch (error) {
