@@ -1,26 +1,29 @@
 import { loadSelectedSales } from "../../pages/sales-person.js";
 import { closeOverlay, showOverlay } from "./overlay-manager.js";
 
-export function showAddOverlay() {
-  document
-    .querySelector(".js-add-button")
-    .addEventListener("click", async () => {
-      const overlay = await showOverlay("add-item");
-      renderAddOverlay(overlay);
+export function showAddItemOverlay() {
+  const button = document.querySelector(".js-add-button");
 
-      overlay
-        .querySelector(".js-close-button")
-        .addEventListener("click", () => closeOverlay("add-item"));
+  const newButton = button.cloneNode(true);
+  button.parentNode.replaceChild(newButton, button);
 
-      overlay.addEventListener("click", (e) => {
-        if (!e.target.closest(".js-overlay-wrapper")) {
-          closeOverlay("add-item");
-        }
-      });
+  newButton.addEventListener("click", async () => {
+    const overlay = await showOverlay("add-item");
+    renderAddItemOverlay(overlay);
+
+    overlay
+      .querySelector(".js-close-button")
+      .addEventListener("click", () => closeOverlay("add-item"));
+
+    overlay.addEventListener("click", (e) => {
+      if (!e.target.closest(".js-overlay-wrapper")) {
+        closeOverlay("add-item");
+      }
     });
+  });
 }
 
-async function renderAddOverlay(overlay) {
+async function renderAddItemOverlay(overlay) {
   const salesId = loadSelectedSales();
   const title = overlay.querySelector(".js-overlay-header-title");
   const customerSelect = overlay.querySelector(".js-overlay-customer-select");

@@ -3,7 +3,10 @@ import { closeOverlay, showOverlay } from "./overlay-manager.js";
 
 export function showPurchasedOverlay() {
   document.querySelectorAll(".js-purchased-items").forEach((item) => {
-    item.addEventListener("click", async () => {
+    const newItem = item.cloneNode(true);
+    item.parentNode.replaceChild(newItem, item);
+
+    newItem.addEventListener("click", async () => {
       const overlay = await showOverlay("purchased-item");
       const itemId = parseInt(item.dataset.itemId);
       renderPurchasedOverlay(itemId, overlay);

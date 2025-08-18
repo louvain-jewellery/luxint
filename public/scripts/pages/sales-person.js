@@ -38,7 +38,7 @@ export function loadSales() {
         selectorList.appendChild(selectorItem);
       });
 
-      loadAddItem();
+      loadAddSelector();
 
       selectorList.querySelectorAll(".js-selector-item").forEach((item) => {
         item.addEventListener("click", () => {
@@ -75,7 +75,7 @@ export function loadSales() {
     });
 }
 
-export function loadCardData(data, salesId) {
+function loadCardData(data, salesId) {
   const cardDetail = document.querySelector(".js-employee-card-detail");
   cardDetail.innerHTML = "";
 
@@ -103,7 +103,7 @@ export function loadCardData(data, salesId) {
   `;
 }
 
-export function loadAddItem() {
+function loadAddSelector() {
   const selectorList = document.querySelector(".js-selector-list");
 
   const addItem = document.createElement("li");

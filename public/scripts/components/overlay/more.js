@@ -3,7 +3,9 @@ import { closeOverlay, showOverlay } from "./overlay-manager.js";
 
 export function showMoreOverlay() {
   document.querySelectorAll(".js-more-button").forEach((button) => {
-    button.addEventListener("click", async (e) => {
+    const newButton = button.cloneNode(true);
+    button.parentNode.replaceChild(newButton, button);
+    newButton.addEventListener("click", async (e) => {
       e.stopPropagation();
       const overlay = await showOverlay("more");
 

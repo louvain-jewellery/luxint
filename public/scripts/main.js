@@ -1,4 +1,4 @@
-import { showAddOverlay } from "./components/overlay/add-item.js";
+import { showAddItemOverlay } from "./components/overlay/add-item.js";
 import { loadCustomers } from "./pages/customers.js";
 import { loadPurchasedItems } from "./pages/purchased-items.js";
 import { loadSales, loadSelectedSales } from "./pages/sales-person.js";
@@ -18,10 +18,10 @@ function loadPage(page) {
       pageMain.innerHTML = data;
       updateNavItem();
       updateCustomersNavigation();
-      showAddOverlay();
+      showAddItemOverlay();
 
       if (pageName === "home") {
-        loadSales();
+        loadSales(parseInt(parameter));
       }
 
       if (pageName === "customers") {

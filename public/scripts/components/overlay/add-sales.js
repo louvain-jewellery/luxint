@@ -1,21 +1,23 @@
 import { closeOverlay, showOverlay } from "./overlay-manager.js";
 
 export function showAddSalesOverlay() {
-  document
-    .querySelector(".js-selector-add")
-    .addEventListener("click", async () => {
-      const overlay = await showOverlay("add-sales");
-      renderOverlay(overlay);
-      overlay
-        .querySelector(".js-cancel-button")
-        .addEventListener("click", () => closeOverlay("add-sales"));
+  const button = document.querySelector(".js-selector-add");
+  const newButton = button.cloneNode(true);
+  button.parentNode.replaceChild(newButton, button);
 
-      overlay.addEventListener("click", (e) => {
-        if (!e.target.closest(".js-overlay-wrapper")) {
-          closeOverlay("add-sales");
-        }
-      });
+  newButton.addEventListener("click", async () => {
+    const overlay = await showOverlay("add-sales");
+    renderOverlay(overlay);
+    overlay
+      .querySelector(".js-cancel-button")
+      .addEventListener("click", () => closeOverlay("add-sales"));
+
+    overlay.addEventListener("click", (e) => {
+      if (!e.target.closest(".js-overlay-wrapper")) {
+        closeOverlay("add-sales");
+      }
     });
+  });
 }
 
 function renderOverlay(overlay) {
