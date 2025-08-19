@@ -74,14 +74,14 @@ async function loadCustomerOption(customerSelect, salesId) {
 
       customerSelect.appendChild(option);
     });
-
-    const hash = window.location.hash.slice(1);
-    const [pageName, parameter] = hash.split("/");
-    if (pageName === "purchased-items" && parameter) {
-      customerSelect.value = parameter;
-    }
   } catch (error) {
     console.error("failed to load customer options: ", error);
+  }
+
+  const hash = window.location.hash.slice(1);
+  const [pageName, parameter] = hash.split("/");
+  if (pageName === "purchased-items" && parameter) {
+    customerSelect.value = parameter;
   }
 }
 

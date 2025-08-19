@@ -25,7 +25,6 @@ export function showAddCustomerOverlay() {
 
 async function renderOverlay(overlay) {
   const salesId = loadSelectedSales();
-  const title = overlay.querySelector(".js-overlay-title");
   const form = overlay.querySelector("#addCustomerForm");
   const salesSelect = form.querySelector("#customerSalesSelect");
 
@@ -39,19 +38,10 @@ async function renderOverlay(overlay) {
     return;
   }
 
-  try {
-    const response = await fetch("/api/sales");
-    const data = await response.json();
-    const sales = data.find((sales) => sales.id === parseInt(salesId));
-
-    title.textContent = `Pelanggan Baru: ${sales.name}`;
-    loadSalesSelect(data, salesSelect);
-  } catch (error) {
-    console.error("failed to fetch overlay:", error);
-  }
+  loadSalesSelect(salesSelect);
 }
 
-function loadSalesSelect(data, salesSelect) {
+async function loadSalesSelect(salesSelect) {
   salesSelect.innerHTML = "";
   const option = document.createElement("option");
   option.selected = true;
@@ -59,13 +49,20 @@ function loadSalesSelect(data, salesSelect) {
   option.textContent = "Pilih";
   salesSelect.appendChild(option);
 
-  data.forEach((sales) => {
-    const option = document.createElement("option");
-    option.value = sales.id;
-    option.textContent = sales.name;
+  try {
+    const response = await fetch("/api/sales");
+    const data = await response.json();
 
-    salesSelect.appendChild(option);
-  });
+    data.forEach((sales) => {
+      const option = document.createElement("option");
+      option.value = sales.id;
+      option.textContent = sales.name;
+
+      salesSelect.appendChild(option);
+    });
+  } catch (error) {
+    console.error("failed to fetch overlay:", error);
+  }
 
   const hash = window.location.hash.slice(1);
   const [pageName, parameter] = hash.split("/");
