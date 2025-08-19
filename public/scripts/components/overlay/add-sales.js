@@ -44,7 +44,7 @@ function renderOverlay(overlay) {
     e.preventDefault();
 
     const formEl = e.currentTarget;
-    const formData = new FormData(this);
+    const formData = new FormData(formEl);
     const submitButton = formEl.querySelector('button[type="submit"]');
 
     submitButton.disabled = true;
@@ -58,7 +58,7 @@ function renderOverlay(overlay) {
       .then((result) => {
         if (result.success) {
           alert("Sales berhasil ditambah!");
-          this.reset();
+          formEl.reset();
           closeOverlay("add-sales");
         } else {
           alert("Gagal menambah sales");
