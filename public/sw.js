@@ -6,7 +6,6 @@ const IMAGE_CACHE = "luxury-images-v1.0.0";
 // Core files that should always be available offline
 const STATIC_ASSETS = [
   "./",
-  "./index.html",
   "./site.webmanifest",
 
   // Your actual manifest icons
@@ -30,12 +29,6 @@ const STATIC_ASSETS = [
   "./assets/icons/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
   "./assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
   "./assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
-
-  // Profile pictures
-  "./assets/images/pfp/pfp1.jpg",
-  "./assets/images/pfp/pfp2.jpg",
-  "./assets/images/pfp/pfp3.jpg",
-  "./assets/images/pfp/pfp4.jpg",
 ];
 
 // Google Fonts URLs to cache
