@@ -11,11 +11,10 @@ export function loadSales() {
   fetch("/api/sales")
     .then((response) => response.json())
     .then((data) => {
+      const savedSalesId = loadSelectedSales();
       const selectorList = document.querySelector(".js-selector-list");
       selectorList.innerHTML = "";
 
-      const savedSalesId = loadSelectedSales();
- 
       data.forEach((sales) => {
         const selectorItem = document.createElement("li");
         selectorItem.classList.add(
@@ -43,10 +42,7 @@ export function loadSales() {
       selectorList.querySelectorAll(".js-selector-item").forEach((item) => {
         item.addEventListener("click", () => {
           const salesId = parseInt(item.dataset.salesId);
-
-          saveSelectedSales(salesId);
-          item.appendChild(selected);
-          loadCardData(data, salesId);
+          selectSales(data, salesId, selected);
         });
       });
 
@@ -60,22 +56,23 @@ export function loadSales() {
 
         cardDetail.appendChild(p);
         return;
-      }
-
-      if (savedSalesId) {
-        const savedItem = selectorList.querySelector(
-          `[data-sales-id="${savedSalesId}"]`
-        );
-        if (savedItem) {
-          savedItem.appendChild(selected);
-
-          loadCardData(data, savedSalesId);
-        }
+      } else {
+        selectSales(data, savedSalesId, selected);
       }
     });
 }
 
-function loadCardData(data, salesId) {
+function selectSales(data, salesId, selectedElement) {
+  const item = document.querySelector(`[data-sales-id="${salesId}]"`);
+  if (item) {
+    saveSelectedSales(salesId);
+    item.appendChild(selectedElement);
+    loadCardData(data);
+  }
+}
+
+function loadCardData(data) {
+  const salesId = loadSelectedSales();
   const cardDetail = document.querySelector(".js-employee-card-detail");
   cardDetail.innerHTML = "";
 
