@@ -125,7 +125,6 @@
 .card__row {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
 }
 
 .card__title,
