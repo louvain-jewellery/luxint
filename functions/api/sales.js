@@ -42,7 +42,7 @@ export async function onRequest(context) {
       }
 
       const result = await DB.prepare(
-        "INSERT INTO sales (name, image) VALUES (?, ?, ?)"
+        "INSERT INTO sales (name, image) VALUES (?, ?)"
       )
         .bind(name, imageUrl)
         .run();
