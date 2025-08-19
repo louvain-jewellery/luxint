@@ -78,7 +78,7 @@ async function loadCardData(data, salesId) {
   cardDetail.innerHTML = "";
 
   const response = await fetch("/api/customers");
-  const customersData = response.json();
+  const customersData = await response.json();
   const customers = customersData.filter(
     (customer) => customer.salesId === parseInt(salesId)
   );
@@ -97,7 +97,7 @@ async function loadCardData(data, salesId) {
       </div>
       <div class="card__row">
         <p class="card__title">Pelanggan</p>
-        <p class="card__content">: ${customers.Length}
+        <p class="card__content">: ${customers.length}
         orang</p>
       </div>
     </div>
