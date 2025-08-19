@@ -45,7 +45,7 @@ export function loadCustomers(salesId) {
           </div>
           <div class="customers__text">
             <p class="customers__name">${customer.name}</p>
-            <p class="customers__count">${items.length} Perhiasan</p>
+            <p class="customers__count">${items.length} Barang</p>
           </div>
         </button>
         <button class="customers__more-button js-more-button" data-customer-id="${
