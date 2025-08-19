@@ -1,265 +1,246 @@
 const CACHE_NAME = "luxury-international-v1.0.0";
-const STATIC_CACHE = "luxury-static-v1.0.0";
-const DYNAMIC_CACHE = "luxury-dynamic-v1.0.0";
-const IMAGE_CACHE = "luxury-images-v1.0.0";
 
-// Core files that should always be available offline
-const STATIC_ASSETS = [
-  "./",
-  "./site.webmanifest",
-
-  // Your actual manifest icons
-  "./web-app-manifest-192x192.png",
-  "./web-app-manifest-512x512.png",
-  "./favicon-96x96.png",
-  "./apple-touch-icon.png",
-
-  // CSS files
-  "./styles/main.css",
-  "./styles/header.css",
-  "./styles/home.css",
-  "./styles/bottom-nav.css",
-
-  // Core images
-  "./assets/images/logo.png",
-  "./assets/images/logo2.png",
-
-  // Navigation icons
-  "./assets/icons/home_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
-  "./assets/icons/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
-  "./assets/icons/more_horiz_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
-  "./assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg",
-];
-
-// Google Fonts URLs to cache
-const FONT_URLS = [
-  "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  "https://fonts.gstatic.com",
-];
-
-// Install event - cache static assets
 self.addEventListener("install", (event) => {
-  console.log("Luxury International SW: Installing...");
+  console.log("Luxury International SW: Installing (PWA online-only mode)...");
+  event.waitUntil(self.skipWaiting());
+});
+
+self.addEventListener("activate", (event) => {
+  console.log("Luxury International SW: Activating (PWA online-only mode)...");
 
   event.waitUntil(
     Promise.all([
-      // Cache static assets (with error handling for missing files)
-      caches.open(STATIC_CACHE).then(async (cache) => {
-        console.log("Luxury International SW: Caching static assets");
-        const cachePromises = STATIC_ASSETS.map(async (url) => {
-          try {
-            await cache.add(url);
-            console.log(`Cached: ${url}`);
-          } catch (error) {
-            console.warn(`Failed to cache ${url}:`, error.message);
-            // Don't fail the entire installation for missing files
-          }
-        });
-        await Promise.all(cachePromises);
-      }),
-      // Cache Google Fonts
-      caches.open("fonts-cache").then(async (cache) => {
-        console.log("Luxury International SW: Caching fonts");
-        try {
-          await cache.addAll(
-            FONT_URLS.filter((url) => url.includes("googleapis"))
-          );
-        } catch (error) {
-          console.warn("Failed to cache fonts:", error.message);
-        }
-      }),
-    ])
-      .then(() => {
-        console.log("Luxury International SW: Installation completed");
-        return self.skipWaiting(); // Activate immediately
-      })
-      .catch((error) => {
-        console.error("Luxury International SW: Installation failed:", error);
-      })
-  );
-});
-
-// Activate event - clean up old caches
-self.addEventListener("activate", (event) => {
-  console.log("Luxury International SW: Activating...");
-
-  event.waitUntil(
-    caches
-      .keys()
-      .then((cacheNames) => {
+      caches.keys().then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
-            // Delete old versions of our caches
-            if (
-              cacheName.startsWith("luxury-") &&
-              cacheName !== STATIC_CACHE &&
-              cacheName !== DYNAMIC_CACHE &&
-              cacheName !== IMAGE_CACHE
-            ) {
-              console.log(
-                "Luxury International SW: Deleting old cache:",
-                cacheName
-              );
-              return caches.delete(cacheName);
-            }
+            console.log("Clearing cache:", cacheName);
+            return caches.delete(cacheName);
           })
         );
-      })
-      .then(() => {
-        console.log("Luxury International SW: Activated successfully");
-        return self.clients.claim(); // Take control of all pages
-      })
+      }),
+      self.clients.claim(),
+    ]).then(() => {
+      console.log(
+        "Service Worker activated - PWA installable but requires internet"
+      );
+    })
   );
 });
 
-// Fetch event - handle requests with different strategies
 self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET requests
   if (request.method !== "GET") {
     return;
   }
 
-  // Handle different types of requests
-  if (url.origin === self.location.origin) {
-    // Same origin requests
-    event.respondWith(handleSameOriginRequest(request));
-  } else if (
-    url.hostname === "fonts.googleapis.com" ||
-    url.hostname === "fonts.gstatic.com"
-  ) {
-    // Google Fonts requests
-    event.respondWith(handleFontRequest(request));
-  } else {
-    // External requests
-    event.respondWith(handleExternalRequest(request));
-  }
+  event.respondWith(
+    fetch(request).catch((error) => {
+      console.log("Network failed:", url.href, error.message);
+
+      if (request.headers.get("accept")?.includes("text/html")) {
+        return createOfflineHtmlResponse();
+      } else if (request.headers.get("accept")?.includes("application/json")) {
+        return createOfflineJsonResponse();
+      } else {
+        return createOfflineResponse();
+      }
+    })
+  );
 });
 
-// Handle same-origin requests (your app files)
-async function handleSameOriginRequest(request) {
-  const url = new URL(request.url);
-
-  try {
-    // For HTML pages, try network first, fallback to cache
-    if (request.headers.get("accept")?.includes("text/html")) {
-      return await networkFirstStrategy(request, STATIC_CACHE);
+function createOfflineHtmlResponse() {
+  return new Response(
+    `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Internet Connection Required - Luxury International</title>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+        }
+        
+        .offline-container {
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          padding: 40px;
+          border-radius: 20px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          max-width: 500px;
+          width: 100%;
+        }
+        
+        .icon {
+          font-size: 64px;
+          margin-bottom: 20px;
+          animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+        
+        h1 {
+          color: #2c3e50;
+          margin-bottom: 16px;
+          font-size: 28px;
+          font-weight: 600;
+        }
+        
+        p {
+          color: #7f8c8d;
+          line-height: 1.6;
+          margin-bottom: 30px;
+          font-size: 16px;
+        }
+        
+        .retry-btn {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border: none;
+          padding: 14px 28px;
+          border-radius: 50px;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          margin: 0 10px 10px;
+        }
+        
+        .retry-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .status {
+          margin-top: 20px;
+          padding: 12px;
+          border-radius: 10px;
+          font-size: 14px;
+        }
+        
+        .online {
+          background: #d4edda;
+          color: #155724;
+        }
+        
+        .offline {
+          background: #f8d7da;
+          color: #721c24;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="offline-container">
+        <div class="icon">🌐</div>
+        <h1>Internet Connection Required</h1>
+        <p>Luxury International requires an active internet connection to function properly. Please check your network connection and try again.</p>
+        
+        <button class="retry-btn" onclick="window.location.reload()">
+          🔄 Try Again
+        </button>
+        
+        <div id="connectionStatus" class="status offline">
+          📡 Currently Offline
+        </div>
+      </div>
+      
+      <script>
+        // Monitor connection status
+        function updateConnectionStatus() {
+          const status = document.getElementById('connectionStatus');
+          if (navigator.onLine) {
+            status.textContent = '✅ Connected - Refreshing...';
+            status.className = 'status online';
+            setTimeout(() => window.location.reload(), 1000);
+          } else {
+            status.textContent = '📡 Currently Offline';
+            status.className = 'status offline';
+          }
+        }
+        
+        // Check connection status periodically
+        setInterval(updateConnectionStatus, 2000);
+        
+        // Listen for online/offline events
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+        
+        // Initial check
+        updateConnectionStatus();
+      </script>
+    </body>
+    </html>
+    `,
+    {
+      status: 503,
+      statusText: "Service Unavailable - Internet Required",
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+      },
     }
+  );
+}
 
-    // For CSS and JS files, try cache first, fallback to network
-    if (url.pathname.endsWith(".css") || url.pathname.endsWith(".js")) {
-      return await cacheFirstStrategy(request, STATIC_CACHE);
-    }
-
-    // For images, try cache first, fallback to network, then cache
-    if (
-      request.headers.get("accept")?.includes("image") ||
-      url.pathname.includes("/assets/images/") ||
-      url.pathname.includes("/assets/icons/")
-    ) {
-      return await cacheFirstStrategy(request, IMAGE_CACHE);
-    }
-
-    // For other assets, try cache first
-    return await cacheFirstStrategy(request, STATIC_CACHE);
-  } catch (error) {
-    console.error(
-      "Luxury International SW: Error handling same-origin request:",
-      error
-    );
-    return new Response("Offline - Content not available", {
+// Create offline JSON response for API requests
+function createOfflineJsonResponse() {
+  return new Response(
+    JSON.stringify({
+      error: "Internet connection required",
+      message: "This application requires an active internet connection",
+      code: "OFFLINE_ERROR",
+      timestamp: new Date().toISOString(),
+    }),
+    {
       status: 503,
       statusText: "Service Unavailable",
-    });
-  }
-}
-
-// Handle Google Fonts requests
-async function handleFontRequest(request) {
-  try {
-    return await cacheFirstStrategy(request, "fonts-cache");
-  } catch (error) {
-    console.error("Luxury International SW: Font request failed:", error);
-    return fetch(request);
-  }
-}
-
-// Handle external requests
-async function handleExternalRequest(request) {
-  try {
-    // Try network first for external resources
-    const response = await fetch(request);
-    return response;
-  } catch (error) {
-    console.error("Luxury International SW: External request failed:", error);
-    return new Response("External resource unavailable offline", {
-      status: 503,
-    });
-  }
-}
-
-// Cache-first strategy: check cache first, fallback to network
-async function cacheFirstStrategy(request, cacheName) {
-  const cache = await caches.open(cacheName);
-  const cachedResponse = await cache.match(request);
-
-  if (cachedResponse) {
-    return cachedResponse;
-  }
-
-  try {
-    const networkResponse = await fetch(request);
-    // Cache successful responses
-    if (networkResponse.ok) {
-      cache.put(request, networkResponse.clone());
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+      },
     }
-    return networkResponse;
-  } catch (error) {
-    console.error("Luxury International SW: Network request failed:", error);
-    throw error;
-  }
+  );
 }
 
-// Network-first strategy: try network first, fallback to cache
-async function networkFirstStrategy(request, cacheName) {
-  try {
-    const networkResponse = await fetch(request);
-    // Cache successful responses
-    if (networkResponse.ok) {
-      const cache = await caches.open(cacheName);
-      cache.put(request, networkResponse.clone());
-    }
-    return networkResponse;
-  } catch (error) {
-    console.log("Luxury International SW: Network failed, trying cache");
-    const cache = await caches.open(cacheName);
-    const cachedResponse = await cache.match(request);
-
-    if (cachedResponse) {
-      return cachedResponse;
-    }
-
-    throw error;
-  }
+// Create generic offline response
+function createOfflineResponse() {
+  return new Response("Internet connection required", {
+    status: 503,
+    statusText: "Service Unavailable - Internet Required",
+    headers: {
+      "Cache-Control": "no-cache, no-store, must-revalidate",
+    },
+  });
 }
 
-// Handle background sync (if you want to add this feature later)
+// Handle background sync - prevent offline sync
 self.addEventListener("sync", (event) => {
-  if (event.tag === "employee-data-sync") {
-    event.waitUntil(syncEmployeeData());
-  }
+  console.log("Background sync blocked - online-only mode");
+  // Don't wait for anything - just log and exit
 });
 
-// Placeholder for syncing employee data when back online
-async function syncEmployeeData() {
-  console.log("Luxury International SW: Syncing employee data...");
-  // Add your sync logic here
-}
-
-// Handle push notifications (if you want to add this feature later)
+// Handle push notifications (only when online)
 self.addEventListener("push", (event) => {
+  // Check if we can reasonably assume we're online
   const options = {
     body: event.data
       ? event.data.text()
@@ -267,6 +248,8 @@ self.addEventListener("push", (event) => {
     icon: "/favicon-96x96.png",
     badge: "/favicon-96x96.png",
     vibrate: [100, 50, 100],
+    tag: "luxury-notification",
+    requireInteraction: false,
     data: {
       dateOfArrival: Date.now(),
       primaryKey: 1,
@@ -281,5 +264,33 @@ self.addEventListener("push", (event) => {
 // Handle notification clicks
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
-  event.waitUntil(clients.openWindow("/"));
+
+  event.waitUntil(
+    clients.matchAll({ type: "window" }).then((clientList) => {
+      // If a window/tab is already open, focus it
+      for (const client of clientList) {
+        if (client.url === self.registration.scope && "focus" in client) {
+          return client.focus();
+        }
+      }
+      // Otherwise open a new window/tab
+      if (clients.openWindow) {
+        return clients.openWindow("/");
+      }
+    })
+  );
+});
+
+// Message handling for communication with main app
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+
+  if (event.data && event.data.type === "GET_VERSION") {
+    event.ports[0].postMessage({
+      version: CACHE_NAME,
+      mode: "online-only",
+    });
+  }
 });
