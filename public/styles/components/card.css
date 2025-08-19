@@ -140,6 +140,10 @@
   font-weight: 500;
 }
 
+.card__content::before {
+  content: ": ";
+}
+
 .card--customer .card__title,
 .card--customer .card__content {
   font-size: 12px;
