@@ -42,7 +42,10 @@ export function loadSales() {
       selectorList.querySelectorAll(".js-selector-item").forEach((item) => {
         item.addEventListener("click", () => {
           const salesId = parseInt(item.dataset.salesId);
-          selectSales(data, salesId, selected);
+
+          saveSelectedSales(salesId);
+          item.appendChild(selected);
+          loadCardData(data, salesId);
         });
       });
 
@@ -56,23 +59,21 @@ export function loadSales() {
 
         cardDetail.appendChild(p);
         return;
-      } else {
-        selectSales(data, savedSalesId, selected);
+      }
+
+      if (savedSalesId) {
+        const savedItem = selectorList.querySelector(
+          `[data-sales-id="${savedSalesId}"]`
+        );
+        if (savedItem) {
+          savedItem.appendChild(selected);
+          loadCardData(data, savedSalesId);
+        }
       }
     });
 }
 
-function selectSales(data, salesId, selectedElement) {
-  const item = document.querySelector(`[data-sales-id="${salesId}]"`);
-  if (item) {
-    saveSelectedSales(salesId);
-    item.appendChild(selectedElement);
-    loadCardData(data);
-  }
-}
-
-function loadCardData(data) {
-  const salesId = loadSelectedSales();
+function loadCardData(data, salesId) {
   const cardDetail = document.querySelector(".js-employee-card-detail");
   cardDetail.innerHTML = "";
 
