@@ -92,6 +92,7 @@
   align-items: flex-start;
   justify-content: space-between;
   height: 70%;
+  gap: 10px;
   width: 100%;
   flex: 1;
   background-color: rgb(221, 205, 118);
