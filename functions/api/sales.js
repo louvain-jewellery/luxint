@@ -19,10 +19,6 @@ export async function onRequest(context) {
       const name = formData.get("name");
       const imageFile = formData.get("image");
 
-      console.log("Name:", name); // Add this
-      console.log("Image file:", imageFile); // Add this
-      console.log("Image file size:", imageFile ? imageFile.size : "no file"); // Add this
-
       let imageUrl = null;
 
       if (imageFile && imageFile.size > 0) {
@@ -30,8 +26,6 @@ export async function onRequest(context) {
         const uploadFormData = new FormData();
         uploadFormData.append("file", imageFile);
         uploadFormData.append("upload_preset", "sales_images");
-
-        console.log("Uploading to Cloudinary..."); // Add this
 
         const cloudinaryResponse = await fetch(
           `https://api.cloudinary.com/v1_1/${context.env.CLOUDINARY_CLOUD_NAME}/image/upload`,
@@ -41,19 +35,11 @@ export async function onRequest(context) {
           }
         );
 
-        console.log("Uploading to Cloudinary..."); // Add this
-
         if (cloudinaryResponse.ok) {
           const result = await cloudinaryResponse.json();
-          console.log("Cloudinary result:", result); // Add this
           imageUrl = result.secure_url;
-        } else {
-          const error = await cloudinaryResponse.text();
-          console.log("Cloudinary error:", error); // Add this
         }
       }
-
-      console.log("Final imageUrl:", imageUrl); // Add this
 
       const result = await DB.prepare(
         "INSERT INTO sales (name, image) VALUES (?, ?)"
