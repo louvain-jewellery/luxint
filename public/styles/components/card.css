@@ -130,8 +130,6 @@
 .card__row {
   display: flex;
   flex-direction: row;
-  height: fit-content;
-  align-items: flex-start;
 }
 
 .card__title,
@@ -145,21 +143,21 @@
 
 .card__content::before {
   content: ": ";
-  height: 100%;
-  display: flex;
-  width: fit-content;
 }
 
 .card--customer .card__title,
 .card--customer .card__content {
   font-size: 12px;
   display: flex;
-  width: fit-content;
 }
 
 .card__title {
   width: 90px;
   min-width: 90px;
+}
+
+.card__title::after {
+  content: ": ";
 }
 
 .card--customer .card__title {
