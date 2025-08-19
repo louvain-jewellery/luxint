@@ -4,6 +4,9 @@ import { loadTitle } from "../ui/header.js";
 import { generateInitials } from "../utils/initials-generator.js";
 
 export function loadCustomers(salesId) {
+  showMoreOverlay();
+  showAddCustomerOverlay();
+
   const customerList = document.querySelector(".js-customers-list");
   customerList.innerHTML = "";
 
@@ -70,8 +73,6 @@ export function loadCustomers(salesId) {
 
       customerList.appendChild(li);
     });
-    showMoreOverlay();
-    showAddCustomerOverlay();
 
     document.querySelectorAll(".js-customer-link").forEach((button) => {
       button.addEventListener("click", () => {

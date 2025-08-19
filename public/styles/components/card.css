@@ -156,10 +156,6 @@
   min-width: 90px;
 }
 
-.card__title::after {
-  content: ": ";
-}
-
 .card--customer .card__title {
   width: 130px;
 }
