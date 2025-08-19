@@ -15,12 +15,36 @@ export async function onRequest(context) {
   // POST - Create new sales person
   if (request.method === "POST") {
     try {
-      const { name, custCount, image } = await request.json();
+      const formData = await request.formData();
+      const name = formData.get("name");
+      const imageFile = formData.get("image");
+
+      let imageUrl = null;
+
+      if (imageFile && imageFile.size > 0) {
+        // Upload to Cloudinary
+        const uploadFormData = new FormData();
+        uploadFormData.append("file", imageFile);
+        uploadFormData.append("upload_preset", "sales_images");
+
+        const cloudinaryResponse = await fetch(
+          `https://api.cloudinary.com/v1_1/${context.env.CLOUDINARY_CLOUD_NAME}/image/upload`,
+          {
+            method: "POST",
+            body: uploadFormData,
+          }
+        );
+
+        if (cloudinaryResponse.ok) {
+          const result = await cloudinaryResponse.json();
+          imageUrl = result.secure_url;
+        }
+      }
 
       const result = await DB.prepare(
-        "INSERT INTO sales (name, custCount, image) VALUES (?, ?, ?)"
+        "INSERT INTO sales (name, image) VALUES (?, ?, ?)"
       )
-        .bind(name, custCount, image)
+        .bind(name, imageUrl)
         .run();
 
       return Response.json({
