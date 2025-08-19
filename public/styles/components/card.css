@@ -130,6 +130,7 @@
 .card__row {
   display: flex;
   flex-direction: row;
+  height: fit-content;
 }
 
 .card__title,
@@ -138,10 +139,13 @@
   font-size: 14px;
   font-family: "Lora", "Times New Roman", Times, serif;
   font-weight: 500;
+  height: 100%;
 }
 
 .card__content::before {
   content: ": ";
+  height: 100%;
+  display: inline-block;
 }
 
 .card--customer .card__title,
