@@ -5,6 +5,7 @@ import { generateInitials } from "../utils/initials-generator.js";
 
 export function loadCustomers(salesId) {
   const customerList = document.querySelector(".js-customers-list");
+  customerList.innerHTML = "";
 
   if (!salesId) {
     customerList.innerHTML = "";
@@ -21,7 +22,6 @@ export function loadCustomers(salesId) {
     fetch("/api/sales").then((response) => response.json()),
     fetch("/api/items").then((response) => response.json()),
   ]).then(([customersData, salesData, itemsData]) => {
-    customerList.innerHTML = "";
     const sales = salesData.find((sales) => sales.id === salesId);
     loadTitle(sales);
 
