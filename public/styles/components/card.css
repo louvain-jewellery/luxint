@@ -147,12 +147,14 @@
   content: ": ";
   height: 100%;
   display: flex;
+  width: fit-content;
 }
 
 .card--customer .card__title,
 .card--customer .card__content {
   font-size: 12px;
   display: flex;
+  width: fit-content;
 }
 
 .card__title {
