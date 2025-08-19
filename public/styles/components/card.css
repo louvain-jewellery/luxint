@@ -108,6 +108,10 @@
   height: 75%;
 }
 
+.card--employee .card-detail {
+  width: 60%;
+}
+
 .card__detail {
   display: flex;
   flex-direction: column;
