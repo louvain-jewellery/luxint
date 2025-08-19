@@ -2,19 +2,30 @@ import { showPurchasedOverlay } from "../components/overlay/items.js";
 import { loadTitle } from "../ui/header.js";
 
 export function loadPurchasedItems(customerId) {
+  showPurchasedOverlay();
+
   const itemList = document.querySelector(".js-purchased-items-list");
+  itemList.innerHTML = "";
 
   Promise.all([
     fetch("/api/items").then((response) => response.json()),
     fetch("/api/customers").then((response) => response.json()),
   ]).then(([itemsData, customersData]) => {
-    const items = itemsData.filter((items) => items.customerId === customerId);
-
-    console.log(customerId);
-    itemList.innerHTML = "";
     const customer = customersData.find(
       (customer) => customer.id === customerId
     );
+    loadTitle(customer);
+
+    const items = itemsData.filter((items) => items.customerId === customerId);
+    if (items.length === 0) {
+      itemList.innerHTML = "";
+      const p = document.createElement("p");
+      p.classList.add("customers__warning", "warning");
+      p.textContent = "Tidak ada pelanggan";
+
+      itemList.appendChild(p);
+      return;
+    }
 
     items.forEach((item) => {
       const li = document.createElement("li");
@@ -40,8 +51,5 @@ export function loadPurchasedItems(customerId) {
 
       itemList.appendChild(li);
     });
-
-    showPurchasedOverlay();
-    loadTitle(customer);
   });
 }

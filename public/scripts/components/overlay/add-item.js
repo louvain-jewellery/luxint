@@ -9,7 +9,7 @@ export function showAddItemOverlay() {
 
   newButton.addEventListener("click", async () => {
     const overlay = await showOverlay("add-item");
-    renderAddItemOverlay(overlay);
+    renderOverlay(overlay);
 
     overlay
       .querySelector(".js-close-button")
@@ -23,9 +23,9 @@ export function showAddItemOverlay() {
   });
 }
 
-async function renderAddItemOverlay(overlay) {
+async function renderOverlay(overlay) {
   const salesId = loadSelectedSales();
-  const title = overlay.querySelector(".js-overlay-header-title");
+  const title = overlay.querySelector(".js-overlay-title");
   const customerSelect = overlay.querySelector(".js-overlay-customer-select");
   customerSelect.innerHTML = "";
 
@@ -40,20 +40,20 @@ async function renderAddItemOverlay(overlay) {
     return;
   }
 
-  await loadCustomerSelectOption(customerSelect, salesId);
+  await loadCustomerOption(customerSelect, salesId);
   setupImageInput(overlay);
 
   try {
-    const response1 = await fetch("/api/sales");
-    const data1 = await response1.json();
-    const sales = data1.find((sales) => sales.id === parseInt(salesId));
+    const response = await fetch("/api/sales");
+    const data = await response.json();
+    const sales = data.find((sales) => sales.id === parseInt(salesId));
     title.textContent = `Tambahkan Item: ${sales.name}`;
   } catch (error) {
     console.error("failed to fetch overlay: ", error);
   }
 }
 
-async function loadCustomerSelectOption(customerSelect, salesId) {
+async function loadCustomerOption(customerSelect, salesId) {
   customerSelect.innerHTML = "";
   const option = document.createElement("option");
   option.selected = true;
