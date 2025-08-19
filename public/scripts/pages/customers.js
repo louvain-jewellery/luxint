@@ -19,7 +19,8 @@ export function loadCustomers(salesId) {
   Promise.all([
     fetch("/api/customers").then((response) => response.json()),
     fetch("/api/sales").then((response) => response.json()),
-  ]).then(([customersData, salesData]) => {
+    fetch("/api/items").then((response) => response.json()),
+  ]).then(([customersData, salesData, itemsData]) => {
     customerList.innerHTML = "";
 
     const customers = customersData.filter(
@@ -28,6 +29,9 @@ export function loadCustomers(salesId) {
     const sales = salesData.find((sales) => sales.id === salesId);
 
     customers.forEach((customer) => {
+      const items = itemsData.filter(
+        (items) => items.customerId === customer.id
+      );
       const li = document.createElement("li");
       li.classList.add("customers__item");
 
@@ -41,7 +45,7 @@ export function loadCustomers(salesId) {
           </div>
           <div class="customers__text">
             <p class="customers__name">${customer.name}</p>
-            <p class="customers__count">??? items</p>
+            <p class="customers__count">${items.length} Perhiasan</p>
           </div>
         </button>
         <button class="customers__more-button js-more-button" data-customer-id="${
