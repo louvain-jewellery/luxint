@@ -22,11 +22,18 @@ export function loadCustomers(salesId) {
     fetch("/api/items").then((response) => response.json()),
   ]).then(([customersData, salesData, itemsData]) => {
     customerList.innerHTML = "";
-
+    const sales = salesData.find((sales) => sales.id === salesId);
     const customers = customersData.filter(
       (customer) => customer.salesId === salesId
     );
-    const sales = salesData.find((sales) => sales.id === salesId);
+    if (customers.length === 0) {
+      customerList.innerHTML = "";
+      p.classList.add("customers__warning", "warning");
+      p.textContent = "Tidak ada pelanggan";
+
+      customerList.appendChild(p);
+      return;
+    }
 
     customers.forEach((customer) => {
       const items = itemsData.filter(
@@ -60,7 +67,6 @@ export function loadCustomers(salesId) {
 
       customerList.appendChild(li);
     });
-
     loadTitle(sales);
     showMoreOverlay();
     showAddCustomerOverlay();
