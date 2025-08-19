@@ -28,6 +28,7 @@ export function loadCustomers(salesId) {
     );
     if (customers.length === 0) {
       customerList.innerHTML = "";
+      const p = document.createElement("p");
       p.classList.add("customers__warning", "warning");
       p.textContent = "Tidak ada pelanggan";
 
