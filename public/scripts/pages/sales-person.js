@@ -15,7 +15,7 @@ export function loadSales() {
       selectorList.innerHTML = "";
 
       const savedSalesId = loadSelectedSales();
-
+ 
       data.forEach((sales) => {
         const selectorItem = document.createElement("li");
         selectorItem.classList.add(
