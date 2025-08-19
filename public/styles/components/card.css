@@ -146,13 +146,13 @@
 .card__content::before {
   content: ": ";
   height: 100%;
-  display: inline-block;
+  display: block;
 }
 
 .card--customer .card__title,
 .card--customer .card__content {
   font-size: 12px;
-  display: inline-block;
+  display: block;
 }
 
 .card__title {
