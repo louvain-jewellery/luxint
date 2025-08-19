@@ -1,4 +1,5 @@
 import { closeOverlay, showOverlay } from "./overlay-manager.js";
+import { loadSales } from "../../pages/sales-person.js";
 
 export function showAddSalesOverlay() {
   const button = document.querySelector(".js-selector-add");
@@ -60,6 +61,7 @@ function renderOverlay(overlay) {
           alert("Sales berhasil ditambah!");
           formEl.reset();
           closeOverlay("add-sales");
+          loadSales();
         } else {
           alert("Gagal menambah sales");
         }
