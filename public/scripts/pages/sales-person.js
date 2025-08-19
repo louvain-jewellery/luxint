@@ -89,15 +89,15 @@ async function loadCardData(data, salesId) {
     <div class="card__detail">
       <div class="card__row">
         <p class="card__title">ID</p>
-        <p class="card__content">: ${formatSalesId(sales.id)}</p>
+        <p class="card__content">${formatSalesId(sales.id)}</p>
       </div>
       <div class="card__row">
         <p class="card__title">Nama</p>
-        <p class="card__content">: ${sales.name}</p>
+        <p class="card__content">${sales.name}</p>
       </div>
       <div class="card__row">
         <p class="card__title">Pelanggan</p>
-        <p class="card__content">: ${customers.length}
+        <p class="card__content">${customers.length}
         orang</p>
       </div>
     </div>
