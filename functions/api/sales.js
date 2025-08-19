@@ -19,6 +19,10 @@ export async function onRequest(context) {
       const name = formData.get("name");
       const imageFile = formData.get("image");
 
+      console.log("Name:", name); // Add this
+      console.log("Image file:", imageFile); // Add this
+      console.log("Image file size:", imageFile ? imageFile.size : "no file"); // Add this
+
       let imageUrl = null;
 
       if (imageFile && imageFile.size > 0) {
