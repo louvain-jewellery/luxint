@@ -41,7 +41,7 @@ async function renderOverlay(overlay) {
   try {
     const response = await fetch("/api/sales");
     const data = await response.json();
-    const sales = data.find((sales) => sales.id === salesId);
+    const sales = data.find((sales) => sales.id === parseInt(salesId));
 
     title.textContent = `Pelanggan Baru: ${sales.name}`;
   } catch (error) {
