@@ -23,7 +23,7 @@ export function showAddSalesOverlay() {
 function renderOverlay(overlay) {
   const profileInput = overlay.querySelector("#salesProfileInput");
   const profile = overlay.querySelector(".js-overlay-profile");
-  const nameInput = overlay.querySelector("#salesNameInput");
+  const form = overlay.querySelector("#addSalesForm");
 
   profile.addEventListener("click", () => profileInput.click());
 
@@ -38,5 +38,38 @@ function renderOverlay(overlay) {
       };
       reader.readAsDataURL(image);
     }
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const submitButton = this.querySelector('button[type="submit"]');
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Menambah...";
+
+    fetch("/api/sales", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.success) {
+          alert("Sales berhasil ditambah!");
+          this.reset();
+          closeOverlay("add-sales");
+        } else {
+          alert("Gagal menambah sales");
+        }
+      })
+      .catch((error) => {
+        alert("Terjadi Kesalahan");
+        console.log("Error:", error);
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = "Tambah";
+      });
   });
 }
