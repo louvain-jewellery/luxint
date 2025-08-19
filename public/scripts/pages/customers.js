@@ -23,6 +23,8 @@ export function loadCustomers(salesId) {
   ]).then(([customersData, salesData, itemsData]) => {
     customerList.innerHTML = "";
     const sales = salesData.find((sales) => sales.id === salesId);
+    loadTitle(sales);
+
     const customers = customersData.filter(
       (customer) => customer.salesId === salesId
     );
@@ -68,7 +70,6 @@ export function loadCustomers(salesId) {
 
       customerList.appendChild(li);
     });
-    loadTitle(sales);
     showMoreOverlay();
     showAddCustomerOverlay();
 
