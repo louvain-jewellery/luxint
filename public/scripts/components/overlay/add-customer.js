@@ -26,15 +26,16 @@ export function showAddCustomerOverlay() {
 async function renderOverlay(overlay) {
   const salesId = loadSelectedSales();
   const title = overlay.querySelector(".js-overlay-title");
-  const wrapper = overlay.querySelector(".js-overlay-wrapper");
+  const form = overlay.querySelector("#addCustomerForm");
+  const salesSelect = form.querySelector("#customerSalesSelect");
 
   if (!salesId) {
-    wrapper.innerHTML = "";
+    form.innerHTML = "";
     const p = document.createElement("p");
     p.classList.add("overlay__warning", "warning");
     p.textContent = "Pilih sales terlebih dahulu";
 
-    overlayForm.appendChild(p);
+    form.appendChild(p);
     return;
   }
 
@@ -44,7 +45,31 @@ async function renderOverlay(overlay) {
     const sales = data.find((sales) => sales.id === parseInt(salesId));
 
     title.textContent = `Pelanggan Baru: ${sales.name}`;
+    loadSalesSelect(data, salesSelect);
   } catch (error) {
     console.error("failed to fetch overlay:", error);
+  }
+}
+
+function loadSalesSelect(data, salesSelect) {
+  salesSelect.innerHTML = "";
+  const option = document.createElement("option");
+  option.selected = true;
+  option.disabled = true;
+  option.textContent = "Pilih";
+  salesSelect.appendChild(option);
+
+  data.forEach((sales) => {
+    const option = document.createElement("option");
+    option.value = sales.id;
+    option.textContent = sales.name;
+
+    salesSelect.appendChild(option);
+  });
+
+  const hash = window.location.hash.slice(1);
+  const [pageName, parameter] = hash.split("/");
+  if (parameter) {
+    salesSelect.value = parameter;
   }
 }

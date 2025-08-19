@@ -12,12 +12,28 @@
     </div>
     <form
       id="addCustomerForm"
-      class="overlay__form"
+      class="overlay__form js-overlay-form"
       autocomplete="off"
-      action="/submit"
+      action="/api/customers"
       method="POST"
     >
       <div class="overlay__form-body">
+        <div class="field">
+          <div class="field__left">
+            <img
+              class="field__icon icon"
+              src="assets/icons/input/badge_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+            />
+            <label class="field__label" for="customerSalesSelect">Sales</label>
+            <p class="field__seperator">:</p>
+          </div>
+          <select
+            class="field__input field__input--select"
+            name="salesId"
+            id="customerSalesSelect"
+          ></select>
+        </div>
+
         <div class="field">
           <div class="field__left">
             <img

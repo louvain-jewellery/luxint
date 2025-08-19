@@ -69,7 +69,6 @@ async function loadCustomerOption(customerSelect, salesId) {
     );
     customers.forEach((customer) => {
       const option = document.createElement("option");
-      option.classList.add("js-option-customer");
       option.value = customer.id;
       option.textContent = customer.name;
 
