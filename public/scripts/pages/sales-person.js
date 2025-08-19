@@ -73,9 +73,15 @@ export function loadSales() {
     });
 }
 
-function loadCardData(data, salesId) {
+async function loadCardData(data, salesId) {
   const cardDetail = document.querySelector(".js-employee-card-detail");
   cardDetail.innerHTML = "";
+
+  const response = await fetch("/api/customers");
+  const customersData = response.json();
+  const customers = customersData.filter(
+    (customer) => customer.salesId === parseInt(salesId)
+  );
 
   const sales = data.find((sales) => sales.id === parseInt(salesId));
 
@@ -91,7 +97,7 @@ function loadCardData(data, salesId) {
       </div>
       <div class="card__row">
         <p class="card__title">Pelanggan</p>
-        <p class="card__content">: ??
+        <p class="card__content">: ${customers.Length}
         orang</p>
       </div>
     </div>
