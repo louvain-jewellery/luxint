@@ -80,7 +80,7 @@
 }
 
 .employee-selector__name {
-  white-space: nowrap;
+  /* white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
 }
