@@ -147,6 +147,7 @@
 
 .card__title {
   width: 90px;
+  min-width: 90px;
 }
 
 .card--customer .card__title {
