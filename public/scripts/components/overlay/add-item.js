@@ -78,7 +78,7 @@ async function loadSalesOption(salesSelect, salesId) {
     const data = await response.json();
 
     data.forEach((sales) => {
-      const option = document.querySelector("option");
+      const option = document.createElement("option");
       option.value = sales.id;
       option.textContent = sales.name;
 
@@ -89,7 +89,7 @@ async function loadSalesOption(salesSelect, salesId) {
   }
 
   if (salesId) {
-    salesSelect.value = String(salesId);
+    salesSelect.value = salesId;
   }
 }
 
