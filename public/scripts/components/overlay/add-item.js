@@ -29,8 +29,8 @@ export function showAddItemOverlay() {
 async function renderOverlay(overlay) {
   const salesId = loadSelectedSales();
 
-  await loadSalesOption(salesSelect, salesId);
-  await loadCustomerOption(customerSelect, salesId);
+  await loadSalesOption(overlay, salesId);
+  await loadCustomerOption(overlay, salesId);
   setupImageInput(overlay);
 }
 
