@@ -97,6 +97,7 @@ async function loadSalesOption(salesSelect, salesId) {
 
   salesSelect.addEventListener("change", function () {
     saveSelectedSales(this.value);
+    loadCustomerOption();
   });
 }
 
