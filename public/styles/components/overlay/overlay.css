@@ -165,6 +165,10 @@
   left: 15px;
 }
 
+.overlay__header .field__input {
+  width: fit-content;
+}
+
 .field__input {
   padding: 7.5px 15px;
   font-size: 16px;
