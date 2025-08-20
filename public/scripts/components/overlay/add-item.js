@@ -98,7 +98,8 @@ async function loadSalesOption(overlay) {
   }
 
   salesSelect.addEventListener("change", function () {
-    saveSelectedSales(this.value);
+    const salesId = this.value;
+    saveSelectedSales(salesId);
     loadCustomerOption(overlay);
 
     const hash = window.location.hash.slice(1);
