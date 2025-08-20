@@ -31,6 +31,10 @@
   transform: translateY(0);
 }
 
+.overlay--purchased .overlay__title {
+  text-wrap: wrap;
+}
+
 .overlay__body {
   display: flex;
   flex-direction: column;
