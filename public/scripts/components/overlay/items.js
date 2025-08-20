@@ -9,7 +9,7 @@ export function showPurchasedOverlay() {
     newItem.addEventListener("click", async () => {
       const overlay = await showOverlay("purchased-item");
       const itemId = parseInt(item.dataset.itemId);
-      renderPurchasedOverlay(itemId, overlay);
+      renderOverlay(itemId, overlay);
 
       overlay
         .querySelector(".js-close-button")
@@ -20,7 +20,7 @@ export function showPurchasedOverlay() {
   });
 }
 
-async function renderPurchasedOverlay(itemId, overlay) {
+async function renderOverlay(itemId, overlay) {
   const name = overlay.querySelector(".js-item-name");
   const image = overlay.querySelector(".js-item-image");
   const date = overlay.querySelector(".js-item-date");

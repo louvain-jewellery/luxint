@@ -19,7 +19,7 @@ export function loadPurchasedItems(customerId) {
       itemList.innerHTML = "";
       const p = document.createElement("p");
       p.classList.add("customers__warning", "warning");
-      p.textContent = "Tidak ada pelanggan";
+      p.textContent = "Tidak ada barang";
 
       itemList.appendChild(p);
       return;
