@@ -71,7 +71,7 @@ async function loadSalesOption(salesSelect, salesId) {
   option.selected = true;
   option.disabled = true;
   option.textContent = "Pilih sales";
-  customerSelect.appendChild(option);
+  salesSelect.appendChild(option);
 
   try {
     const response = await fetch("/api/sales");
