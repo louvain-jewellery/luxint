@@ -7,13 +7,13 @@
     <div class="overlay__header">
       <p class="overlay__title js-overlay-title">Pelanggan Baru</p>
       <div class="overlay__header-right">
-        <select
-          class="field__input field__input--select"
-          name="salesId"
-          id="customerSalesSelect"
-        >
-          <option value="" selected disabled>Pilih</option>
-        </select>
+        <div class="field__input-wrapper field__input-wrapper--select">
+          <select
+            class="field__input field__input--select js-overlay-sales-select"
+            name="salesId"
+            id="customerSalesSelect"
+          ></select>
+        </div>
         <button
           type="button"
           class="btn overlay__button overlay__round-button js-close-button"
@@ -50,7 +50,7 @@
         <div class="field">
           <div class="field__left">
             <img
-              class="field-icon icon"
+              class="field__icon icon"
               src="assets/icons/input/call_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
             />
             <label for="customerPhoneInput" class="field__label">
@@ -69,7 +69,7 @@
         <div class="field">
           <div class="field__left">
             <img
-              class="field-icon icon"
+              class="field__icon icon"
               src="assets/icons/input/circle_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
             />
             <label for="customerRingInput" class="field__label"
@@ -88,7 +88,7 @@
         <div class="field">
           <div class="field__left">
             <img
-              class="field-icon icon"
+              class="field__icon icon"
               src="assets/icons/input/circle_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
             />
             <label for="customerBraceletInput" class="field__label"
@@ -107,7 +107,7 @@
         <div class="field">
           <div class="field__left">
             <img
-              class="field-icon icon"
+              class="field__icon icon"
               src="assets/icons/input/location_on_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
             />
             <label for="customerAddressInput" class="field__label"
@@ -126,7 +126,7 @@
         <div class="field">
           <div class="field__left">
             <img
-              class="field-icon icon"
+              class="field__icon icon"
               src="assets/icons/input/work_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
             />
             <label for="customerJobInput" class="field__label">
@@ -145,7 +145,7 @@
         <div class="field">
           <div class="field__left">
             <img
-              class="field-icon icon"
+              class="field__icon icon"
               src="assets/icons/input/favorite_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
             />
             <label for="customerFavoriteInput" class="field__label">

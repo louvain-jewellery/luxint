@@ -147,7 +147,8 @@
   pointer-events: none;
 }
 
-.field__input-wrapper--select .field__input {
+.field__input-wrapper--select .field__input,
+.field__input-wrapper--unit .field__input {
   padding-right: 40px;
 }
 
@@ -183,15 +184,6 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-
-.field__input-wrapper--weight .field__input {
-  padding-right: 45px;
-}
-
-.field__input-wrapper--price .field__input {
-  padding-left: 45px;
-  padding-right: 7.5px;
 }
 
 .field__input::-webkit-calendar-picker-indicator {
