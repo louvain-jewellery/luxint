@@ -32,6 +32,42 @@ async function renderOverlay(overlay) {
   await loadSalesOption(overlay);
   await loadCustomerOption(overlay);
   setupImageInput(overlay);
+  const salesId = loadSelectedSales();
+  const form = overlay.querySelector("#addItemForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new formData(this);
+    const submitButton = this.querySelector('button[type="submit"]');
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Menambah...";
+
+    fetch("/api/items", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.success) {
+          alert("Barang berhasil ditambah!");
+          this.reset();
+          closeOverlay("add-item");
+          loadCustomers(salesId);
+        } else {
+          alert("Gagal menambah barang");
+        }
+      })
+      .catch((error) => {
+        alert("Terjadi Kesalahan");
+        console.log("Error:", error);
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = "Tambah";
+      });
+  });
 }
 
 async function loadCustomerOption(overlay) {

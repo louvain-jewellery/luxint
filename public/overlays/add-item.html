@@ -10,6 +10,7 @@
             class="field__input field__input--select js-overlay-sales-select"
             name="salesId"
             id="itemSalesSelect"
+            required
           ></select>
         </div>
         <button
@@ -20,12 +21,14 @@
         </button>
       </div>
     </div>
+
     <form
       id="addItemForm"
       class="overlay__form js-overlay-form"
       autocomplete="off"
-      action="/submit"
+      action="/api/items"
       method="POST"
+      enctype="multipart/form-data"
     >
       <div class="overlay__form-body">
         <div class="field">
@@ -44,6 +47,7 @@
               id="itemCustomerSelect"
               class="field__input field__input--select js-overlay-customer-select"
               name="customerId"
+              required
             >
               <option value="" selected disabled>Pilih</option>
             </select>
@@ -64,6 +68,7 @@
               id="itemTypeSelect"
               class="field__input field__input--select"
               name="type"
+              required
             >
               <option value="" selected disabled>Pilih</option>
               <option value="ring">Cincin</option>
@@ -92,6 +97,7 @@
               class="field__input"
               type="text"
               name="itemName"
+              required
             />
           </div>
         </div>
@@ -111,6 +117,7 @@
               class="field__input"
               type="text"
               name="weight"
+              required
             />
             <p class="field__input-unit">gr</p>
           </div>
@@ -131,6 +138,7 @@
               class="field__input"
               type="date"
               name="date"
+              required
             />
           </div>
         </div>
@@ -149,6 +157,7 @@
               name="goldPurity"
               id="itemGoldSelect"
               class="field__input field__input--select"
+              required
             >
               <option value="" selected disabled>Pilih</option>
               <option value="70">70%</option>
@@ -172,6 +181,7 @@
               class="field__input"
               type="text"
               name="sellingPrice"
+              required
             />
             <p class="field__input-unit field__input-unit--left">Rp.</p>
           </div>
@@ -193,13 +203,14 @@
               type="file"
               name="productImage"
               accept="image/*"
+              required
             />
             <div class="field__input js-image-input-button">Pilih</div>
           </div>
         </div>
       </div>
 
-      <button class="overlay__submit-button" type="submit">Submit</button>
+      <button class="overlay__submit-button" type="submit">Tambah</button>
     </form>
   </div>
 </section>

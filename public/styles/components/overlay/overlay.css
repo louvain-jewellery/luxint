@@ -28,6 +28,19 @@
     inset 0 0 4px 2px rgba(255, 255, 255, 0.045);
 }
 
+.overlay__wrapper--form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 768px;
+  align-items: flex-start;
+  padding-bottom: 50px;
+  transform: translateY(100%);
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
 .overlay__header {
   display: flex;
   flex-direction: row;
@@ -69,19 +82,6 @@
 
 .overlay__button--danger {
   color: rgb(255, 19, 19);
-}
-
-.overlay__wrapper--form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 768px;
-  align-items: flex-start;
-  padding-bottom: 50px;
-  transform: translateY(100%);
-  will-change: transform;
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .overlay__form {

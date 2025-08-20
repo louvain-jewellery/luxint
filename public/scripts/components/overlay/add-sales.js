@@ -41,12 +41,11 @@ function renderOverlay(overlay) {
     }
   });
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const formEl = e.currentTarget;
-    const formData = new FormData(formEl);
-    const submitButton = formEl.querySelector('button[type="submit"]');
+    const formData = new FormData(this);
+    const submitButton = this.querySelector('button[type="submit"]');
 
     submitButton.disabled = true;
     submitButton.textContent = "Menambah...";
@@ -59,7 +58,7 @@ function renderOverlay(overlay) {
       .then((result) => {
         if (result.success) {
           alert("Sales berhasil ditambah!");
-          formEl.reset();
+          this.reset();
           closeOverlay("add-sales");
           loadSales();
         } else {
