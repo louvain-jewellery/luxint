@@ -69,6 +69,7 @@ async function loadCustomerOption(overlay) {
 }
 
 async function loadSalesOption(overlay) {
+  const salesId = loadSelectedSales();
   const salesSelect = overlay.querySelector(".js-overlay-sales-select");
   salesSelect.innerHTML = "";
   const option = document.createElement("option");
