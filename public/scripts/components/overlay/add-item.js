@@ -1,4 +1,6 @@
+import { loadCustomers } from "../../pages/customers.js";
 import {
+  loadSales,
   loadSelectedSales,
   saveSelectedSales,
 } from "../../pages/sales-person.js";
@@ -27,14 +29,13 @@ export function showAddItemOverlay() {
 }
 
 async function renderOverlay(overlay) {
-  const salesId = loadSelectedSales();
-
-  await loadSalesOption(overlay, salesId);
-  await loadCustomerOption(overlay, salesId);
+  await loadSalesOption(overlay);
+  await loadCustomerOption(overlay);
   setupImageInput(overlay);
 }
 
-async function loadCustomerOption(overlay, salesId) {
+async function loadCustomerOption(overlay) {
+  const salesId = loadSelectedSales();
   const customerSelect = overlay.querySelector(".js-overlay-customer-select");
   customerSelect.innerHTML = "";
   const option = document.createElement("option");
@@ -67,7 +68,7 @@ async function loadCustomerOption(overlay, salesId) {
   }
 }
 
-async function loadSalesOption(overlay, salesId) {
+async function loadSalesOption(overlay) {
   const salesSelect = overlay.querySelector(".js-overlay-sales-select");
   salesSelect.innerHTML = "";
   const option = document.createElement("option");
@@ -96,9 +97,18 @@ async function loadSalesOption(overlay, salesId) {
   }
 
   salesSelect.addEventListener("change", function () {
-    const salesId = this.value;
-    saveSelectedSales(salesId);
-    loadCustomerOption(overlay, salesId);
+    saveSelectedSales(this.value);
+    loadCustomerOption(overlay);
+
+    const hash = window.location.hash.slice(1);
+    const [pageName, parameter] = hash.split("/");
+    if (pageName === "home") {
+      loadSales();
+    }
+
+    if (pageName === "customers") {
+      loadCustomers();
+    }
   });
 }
 
