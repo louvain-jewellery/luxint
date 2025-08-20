@@ -73,7 +73,7 @@ async function loadSalesOption(overlay, salesId) {
   const option = document.createElement("option");
   option.selected = true;
   option.disabled = true;
-  option.textContent = "Pilih sales";
+  option.textContent = "Sales";
   salesSelect.appendChild(option);
 
   try {
