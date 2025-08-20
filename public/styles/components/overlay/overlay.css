@@ -137,7 +137,7 @@
 }
 
 .field__input-wrapper--select::after {
-  content: url(assets/icons/arrow_back_ios_new_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg);
+  content: url(../../../assets/icons/arrow_back_ios_new_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg);
   filter: invert(1);
   position: absolute;
   display: inline-block;
