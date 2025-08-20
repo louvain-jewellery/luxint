@@ -28,15 +28,14 @@ export function showAddItemOverlay() {
 
 async function renderOverlay(overlay) {
   const salesId = loadSelectedSales();
-  const customerSelect = overlay.querySelector(".js-overlay-customer-select");
-  const salesSelect = overlay.querySelector(".js-overlay-sales-select");
 
   await loadSalesOption(salesSelect, salesId);
   await loadCustomerOption(customerSelect, salesId);
   setupImageInput(overlay);
 }
 
-async function loadCustomerOption(customerSelect, salesId) {
+async function loadCustomerOption(overlay, salesId) {
+  const customerSelect = overlay.querySelector(".js-overlay-customer-select");
   customerSelect.innerHTML = "";
   const option = document.createElement("option");
   option.selected = true;
@@ -68,7 +67,8 @@ async function loadCustomerOption(customerSelect, salesId) {
   }
 }
 
-async function loadSalesOption(salesSelect, salesId) {
+async function loadSalesOption(overlay, salesId) {
+  const salesSelect = overlay.querySelector(".js-overlay-sales-select");
   salesSelect.innerHTML = "";
   const option = document.createElement("option");
   option.selected = true;
@@ -97,7 +97,7 @@ async function loadSalesOption(salesSelect, salesId) {
 
   salesSelect.addEventListener("change", function () {
     saveSelectedSales(this.value);
-    loadCustomerOption();
+    loadCustomerOption(overlay, salesId);
   });
 }
 
