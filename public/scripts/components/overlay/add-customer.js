@@ -33,7 +33,7 @@ async function renderOverlay(overlay) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const formData = new formData(this);
+    const formData = new FormData(this);
     const submitButton = this.querySelector('button[type="submit"]');
 
     submitButton.disabled = true;
