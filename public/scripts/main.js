@@ -21,7 +21,7 @@ function loadPage(page) {
       showAddItemOverlay();
 
       if (pageName === "home") {
-        loadSales(parseInt(parameter));
+        loadSales();
       }
 
       if (pageName === "customers") {
