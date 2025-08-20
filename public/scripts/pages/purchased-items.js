@@ -2,8 +2,6 @@ import { showPurchasedOverlay } from "../components/overlay/items.js";
 import { loadTitle } from "../ui/header.js";
 
 export function loadPurchasedItems(customerId) {
-  showPurchasedOverlay();
-
   const itemList = document.querySelector(".js-purchased-items-list");
   itemList.innerHTML = "";
 
@@ -51,5 +49,6 @@ export function loadPurchasedItems(customerId) {
 
       itemList.appendChild(li);
     });
+    showPurchasedOverlay();
   });
 }

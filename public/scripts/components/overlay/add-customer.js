@@ -28,17 +28,7 @@ async function renderOverlay(overlay) {
   const form = overlay.querySelector("#addCustomerForm");
   const salesSelect = form.querySelector("#customerSalesSelect");
 
-  if (!salesId) {
-    form.innerHTML = "";
-    const p = document.createElement("p");
-    p.classList.add("overlay__warning", "warning");
-    p.textContent = "Pilih sales terlebih dahulu";
-
-    form.appendChild(p);
-    return;
-  }
-
-  loadSalesSelect(salesSelect);
+  await loadSalesSelect(salesSelect);
 }
 
 async function loadSalesSelect(salesSelect) {

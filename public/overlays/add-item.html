@@ -1,14 +1,25 @@
 <section class="overlay overlay--form overlay--add-item js-add-item-overlay">
   <div
-    class="overlay__wrapper overlay__wrapper--form overlay__wrapper--add-item js-overlay-wrapper"
+    class="overlay__wrapper overlay__wrapper--form overlay__wrapper js-overlay-wrapper"
   >
     <div class="overlay__header">
-      <h2 class="overlay__title js-overlay-title">Tambahkan Item</h2>
-      <button class="btn overlay__button overlay__close-button js-close-button">
-        &#10005;
-      </button>
+      <h2 class="overlay__title js-overlay-title">Item Baru</h2>
+      <div class="overlay__header-right">
+        <div class="field__input-wrapper field__input-wrapper--select">
+          <select
+            class="field__input field__input--select js-overlay-sales-select"
+            name="salesId"
+            id="itemSalesSelect"
+          ></select>
+        </div>
+        <button
+          class="btn overlay__button overlay__round-button js-close-button"
+          type="button"
+        >
+          &#10005;
+        </button>
+      </div>
     </div>
-
     <form
       id="addItemForm"
       class="overlay__form js-overlay-form"
@@ -28,7 +39,7 @@
             >
             <p class="field__seperator">:</p>
           </div>
-          <div class="field__input-wrapper">
+          <div class="field__input-wrapper field__input-wrapper--select">
             <select
               id="itemCustomerSelect"
               class="field__input field__input--select js-overlay-customer-select"
@@ -48,7 +59,7 @@
             <label class="field__label" for="itemTypeSelect">Jenis</label>
             <p class="field__seperator">:</p>
           </div>
-          <div class="field__input-wrapper">
+          <div class="field__input-wrapper field__input-wrapper--select">
             <select
               id="itemTypeSelect"
               class="field__input field__input--select"
@@ -133,17 +144,16 @@
             <label class="field__label" for="itemGoldSelect">Kadar Emas</label>
             <p class="field__seperator">:</p>
           </div>
-          <div class="field__input-wrapper field__input-wrapper--gold">
+          <div class="field__input-wrapper field__input-wrapper--select">
             <select
               name="goldPurity"
               id="itemGoldSelect"
               class="field__input field__input--select"
             >
               <option value="" selected disabled>Pilih</option>
-              <option value="70">70</option>
-              <option value="75">75</option>
+              <option value="70">70%</option>
+              <option value="75">75%</option>
             </select>
-            <p class="field__input-unit">%</p>
           </div>
         </div>
 

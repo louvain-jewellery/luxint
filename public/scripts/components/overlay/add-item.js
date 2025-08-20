@@ -25,32 +25,12 @@ export function showAddItemOverlay() {
 
 async function renderOverlay(overlay) {
   const salesId = loadSelectedSales();
-  const title = overlay.querySelector(".js-overlay-title");
   const customerSelect = overlay.querySelector(".js-overlay-customer-select");
-  customerSelect.innerHTML = "";
+  const salesSelect = overlay.querySelector(".js-overlay-sales-select");
 
-  if (!salesId) {
-    const overlayForm = overlay.querySelector(".js-overlay-form");
-    overlayForm.innerHTML = "";
-    const p = document.createElement("p");
-    p.classList.add("overlay__warning", "warning");
-    p.textContent = "Pilih sales terlebih dahulu";
-
-    overlayForm.appendChild(p);
-    return;
-  }
-
+  await loadSalesOption(salesSelect, salesId);
   await loadCustomerOption(customerSelect, salesId);
   setupImageInput(overlay);
-
-  try {
-    const response = await fetch("/api/sales");
-    const data = await response.json();
-    const sales = data.find((sales) => sales.id === parseInt(salesId));
-    title.textContent = `Tambahkan Item: ${sales.name}`;
-  } catch (error) {
-    console.error("failed to fetch overlay: ", error);
-  }
 }
 
 async function loadCustomerOption(customerSelect, salesId) {
@@ -82,6 +62,34 @@ async function loadCustomerOption(customerSelect, salesId) {
   const [pageName, parameter] = hash.split("/");
   if (pageName === "purchased-items" && parameter) {
     customerSelect.value = parameter;
+  }
+}
+
+async function loadSalesOption(salesSelect, salesId) {
+  salesSelect.innerHTML = "";
+  const option = document.createElement("option");
+  option.selected = true;
+  option.disabled = true;
+  option.textContent = "Pilih sales";
+  customerSelect.appendChild(option);
+
+  try {
+    const response = await fetch("/api/sales");
+    const data = await response.json();
+
+    data.forEach((sales) => {
+      const option = document.querySelector("option");
+      option.value = sales.id;
+      option.textContent = sales.name;
+
+      salesSelect.appendChild(option);
+    });
+  } catch (error) {
+    console.error("failed to load sales options:", error);
+  }
+
+  if (salesId) {
+    salesSelect.value = salesId;
   }
 }
 

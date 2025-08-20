@@ -20,7 +20,7 @@
   border-radius: 35px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding: 25px;
-  overflow: auto;
+  /* overflow: auto; */
 
   backdrop-filter: blur(20px) saturate(180%);
   background: rgba(255, 255, 255, 0.1);
@@ -35,6 +35,7 @@
   align-items: center;
   width: 100%;
   gap: 15px;
+  margin-bottom: 35px;
 }
 
 .overlay__header-right {
@@ -58,7 +59,7 @@
   border: none;
 }
 
-.overlay__close-button {
+.overlay__round-button {
   font-size: 15px;
   aspect-ratio: 1/1;
   padding: 0 0 2px 0;
@@ -73,7 +74,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 35px;
   width: 100%;
   max-width: 768px;
   align-items: flex-start;
@@ -91,7 +91,6 @@
   height: 100%;
   width: 100%;
   max-width: 100%;
-  gap: 75px;
 }
 
 .overlay__form-body {
@@ -101,6 +100,7 @@
   width: 100%;
   overflow: hidden;
   max-width: 100%;
+  margin-bottom: 75px;
 }
 
 .field {
@@ -135,6 +135,21 @@
   width: 100%;
 }
 
+.field__input-wrapper--select::after {
+  content: url(/public/assets/icons/arrow_back_ios_new_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg);
+  filter: invert(1);
+  position: absolute;
+  display: inline-block;
+  right: 10px;
+  bottom: 7.5%;
+  transform: scale(0.5) rotate(270deg);
+  pointer-events: none;
+}
+
+.field__input-wrapper--select .field__input {
+  padding-right: 40px;
+}
+
 .field__input-unit {
   position: absolute;
   bottom: 50%;
@@ -156,18 +171,16 @@
   width: 100%;
 
   border-radius: 100px;
-  background-color: rgba(255, 255, 255, 0.179);
+  background-color: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.037);
   border: none;
 
   -webkit-appearance: none;
   -moz-appearance: none;
-
   appearance: none;
 }
 
-.field__input-wrapper--weight .field__input,
-.field__input-wrapper--gold .field__input {
+.field__input-wrapper--weight .field__input {
   padding-right: 45px;
 }
 
