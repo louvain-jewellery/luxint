@@ -89,7 +89,7 @@ async function loadSalesOption(salesSelect, salesId) {
   }
 
   if (salesId) {
-    salesSelect.value = salesId;
+    salesSelect.value = String(salesId);
   }
 }
 
