@@ -108,7 +108,7 @@ async function loadSalesOption(overlay) {
     }
 
     if (pageName === "customers") {
-      loadCustomers();
+      loadCustomers(salesId);
     }
   });
 }
