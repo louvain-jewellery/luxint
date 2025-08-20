@@ -1,4 +1,7 @@
-import { loadSelectedSales } from "../../pages/sales-person.js";
+import {
+  loadSelectedSales,
+  saveSelectedSales,
+} from "../../pages/sales-person.js";
 import { closeOverlay, showOverlay } from "./overlay-manager.js";
 
 export function showAddItemOverlay() {
@@ -91,6 +94,10 @@ async function loadSalesOption(salesSelect, salesId) {
   if (salesId) {
     salesSelect.value = salesId.toString();
   }
+
+  salesSelect.addEventListener("change", function () {
+    saveSelectedSales(this.value);
+  });
 }
 
 function setupImageInput(overlay) {
