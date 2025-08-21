@@ -3,17 +3,25 @@ import { generateInitials } from "../utils/initials-generator.js";
 export function loadTitle(data) {
   if (data) {
     const headerTitle = document.querySelector(".js-header-name");
-    const pictureWrapper = document.querySelector(".js-header-picture-wrapper");
-    const headerPicture = pictureWrapper.querySelector(".js-header-picture");
     headerTitle.textContent = data.name;
-    if (data.image) {
-      headerPicture.src = data.image;
-    } else {
+
+    const pictureWrapper = document.querySelector(".js-header-picture-wrapper");
+    picture.src = data.image;
+    if (!data.image) {
       pictureWrapper.innerHTML = "";
-      pictureWrapper.innerHTML = `
-        <div class="customers__icon-wrapper">
-          <p class="customers__icon">${generateInitials(data.name)}</p>
-      `;
+      const p = document.createElement("p");
+      p.classList.add("header__picture");
+      p.textContent = generateInitials(data.name);
+      return;
+    }
+
+    if (data.image) {
+      pictureWrapper.innerHTML = "";
+      const img = document.createElement("img");
+      img.classList.add("header__picture");
+      img.src = data.image;
+      pictureWrapper.appendChild(picture);
+      return;
     }
   }
 }

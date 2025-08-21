@@ -25,9 +25,13 @@
 }
 
 .header__picture-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 60px;
   aspect-ratio: 1/1;
   border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.2);
   overflow: hidden;
   z-index: 101;
 }
@@ -36,6 +40,7 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
+  font-size: 20px;
 }
 
 .header__button {
