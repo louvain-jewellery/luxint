@@ -1,25 +1,27 @@
 import { formatSalesId } from "../utils/format-id.js";
 
 export function loadCardData(data) {
+  const card = document.querySelector(".js-card");
   const hash = window.location.hash.slice(1);
   const [pageName, parameter] = hash.split("/");
 
   if (pageName === "home" || pageName === "customers") {
+    card.classList.remove("card--customer");
+    card.classList.add("card--employee");
     renderSalesCard(data);
     return;
   }
 
   if (pageName === "purchased-items") {
+    card.classList.remove("card--employee");
+    card.classList.add("card--customer");
     renderCustomerCard(data);
     return;
   }
 }
 
 async function renderSalesCard(sales) {
-  const card = document.querySelector(".js-card");
-  card.classList.remove("card--customer");
-  card.classList.add("card--employee");
-  const cardDetail = card.querySelector(".js-card-detail");
+  const cardDetail = document.querySelector(".js-card-detail");
   cardDetail.innerHTML = "";
   try {
     const response = await fetch("/api/customers");
@@ -54,10 +56,7 @@ async function renderSalesCard(sales) {
 }
 
 function renderCustomerCard(customer) {
-  const card = document.querySelector(".js-card");
-  card.classList.remove("card--employee");
-  card.classList.add("card--customer");
-  const cardDetail = card.querySelector(".js-card-detail");
+  const cardDetail = document.querySelector(".js-card-detail");
   cardDetail.innerHTML = "";
   cardDetail.innerHTML = `
     <div class="card__detail">
