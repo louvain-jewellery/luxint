@@ -1,26 +1,23 @@
 import { formatSalesId } from "../utils/format-id.js";
 
 export function loadCardData(data) {
-  const card = document.querySelector(".js-card");
   const hash = window.location.hash.slice(1);
-  
   const [pageName, parameter] = hash.split("/");
-  if (pageName === "home") {
-  }
 
   if (pageName === "home" || pageName === "customers") {
-    card.classList.add("card--employee");
-    renderSalesCard(card, data);
+    renderSalesCard(data);
     return;
   }
 
   if (pageName === "purchasedItems") {
-    card.classList.add("card--customer");
-    renderCustomerCard(card, data);
+    renderCustomerCard(data);
+    return;
   }
 }
 
-async function renderSalesCard(card, sales) {
+async function renderSalesCard(sales) {
+  const card = document.querySelector(".js-card");
+  card.classList.add("card--employee");
   const cardDetail = card.querySelector(".js-card-detail");
   cardDetail.innerHTML = "";
   try {
@@ -55,7 +52,9 @@ async function renderSalesCard(card, sales) {
   }
 }
 
-function renderCustomerCard(card, customer) {
+function renderCustomerCard(customer) {
+  const card = document.querySelector(".js-card");
+  card.classList.add("card--customer");
   const cardDetail = card.querySelector(".js-card-detail");
   cardDetail.innerHTML = "";
   cardDetail.innerHTML = `
