@@ -1,3 +1,5 @@
+import { generateInitials } from "../utils/initials-generator.js";
+
 export function loadTitle(data) {
   if (data) {
     const headerTitle = document.querySelector(".js-header-name");
