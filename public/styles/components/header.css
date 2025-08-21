@@ -8,6 +8,8 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+  backdrop-filter: blur(20px) saturate(180%);
+  z-index: 100;
 }
 
 .header__top {
@@ -17,8 +19,6 @@
   width: 100%;
   align-items: flex-start;
   justify-content: space-between;
-  backdrop-filter: blur(20px) saturate(180%);
-  z-index: 100;
 }
 
 .header__logo {
