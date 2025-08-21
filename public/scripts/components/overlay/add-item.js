@@ -52,7 +52,7 @@ async function renderOverlay(overlay) {
           alert("Barang berhasil ditambah!");
           this.reset();
           closeOverlay("add-item");
-          reloadPage;
+          reloadPage();
         } else {
           alert("Gagal menambah barang");
         }

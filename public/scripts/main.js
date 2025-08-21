@@ -110,7 +110,7 @@ export function reloadPage() {
   }
 
   if (pageName === "purchased-items") {
-    loadPurchasedItems(salesId);
+    loadPurchasedItems(parameter);
   }
 }
 

@@ -4,13 +4,21 @@
   width: 100%;
   padding: 15px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.header__top {
+  display: flex;
   flex-direction: row;
   gap: 15px;
+  width: 100%;
   align-items: flex-start;
   justify-content: space-between;
   backdrop-filter: blur(20px) saturate(180%);
   z-index: 100;
-  /* background-color: lightblue; */
 }
 
 .header__logo {
@@ -52,6 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 7.5px;
 
   /* aspect-ratio: 1/1; */
   border-radius: 100px;
@@ -67,6 +76,11 @@
   font-weight: 600;
   margin-top: -5px;
   padding: 10px 15px;
+}
+
+.header__name-icon {
+  height: 14px;
+  transform: rotate(270deg);
 }
 
 .header__icon {

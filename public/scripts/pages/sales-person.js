@@ -15,6 +15,8 @@ export function loadSales() {
       const selectorList = document.querySelector(".js-selector-list");
       selectorList.innerHTML = "";
 
+      const sales = data.find((sales) => sales.id === parseInt(savedSalesId));
+
       data.forEach((sales) => {
         const selectorItem = document.createElement("li");
         selectorItem.classList.add(
@@ -45,7 +47,7 @@ export function loadSales() {
 
           saveSelectedSales(salesId);
           item.appendChild(selected);
-          loadCardData(data, salesId);
+          loadCardData(sales);
         });
       });
 
@@ -67,44 +69,10 @@ export function loadSales() {
         );
         if (savedItem) {
           savedItem.appendChild(selected);
-          loadCardData(data, savedSalesId);
+          loadCardData(sales);
         }
       }
     });
-}
-
-async function loadCardData(data, salesId) {
-  const cardDetail = document.querySelector(".js-employee-card-detail");
-  cardDetail.innerHTML = "";
-
-  const response = await fetch("/api/customers");
-  const customersData = await response.json();
-  const customers = customersData.filter(
-    (customer) => customer.salesId === parseInt(salesId)
-  );
-
-  const sales = data.find((sales) => sales.id === parseInt(salesId));
-
-  cardDetail.innerHTML = `
-    <div class="card__detail">
-      <div class="card__row">
-        <p class="card__title">ID</p>
-        <p class="card__content">${formatSalesId(sales.id)}</p>
-      </div>
-      <div class="card__row">
-        <p class="card__title">Nama</p>
-        <p class="card__content">${sales.name}</p>
-      </div>
-      <div class="card__row">
-        <p class="card__title">Pelanggan</p>
-        <p class="card__content">${customers.length}
-        orang</p>
-      </div>
-    </div>
-    <div class="card__image-wrapper">
-      <img class="card__image" src=${sales.image} alt="card pfp" />
-    </div>
-  `;
 }
 
 function loadAddSelector() {

@@ -1,3 +1,4 @@
+import { loadCardData } from "../components/card.js";
 import { showPurchasedOverlay } from "../components/overlay/items.js";
 import { loadTitle } from "../ui/header.js";
 
@@ -13,6 +14,7 @@ export function loadPurchasedItems(customerId) {
       (customer) => customer.id === customerId
     );
     loadTitle(customer);
+    loadCardData(customer);
 
     const items = itemsData.filter((items) => items.customerId === customerId);
     if (items.length === 0) {

@@ -1,3 +1,4 @@
+import { loadCardData } from "../components/card.js";
 import { showAddCustomerOverlay } from "../components/overlay/add-customer.js";
 import { showMoreOverlay } from "../components/overlay/more.js";
 import { loadTitle } from "../ui/header.js";
@@ -28,6 +29,7 @@ export function loadCustomers(salesId) {
   ]).then(([customersData, salesData, itemsData]) => {
     const sales = salesData.find((sales) => sales.id === salesId);
     loadTitle(sales);
+    loadCardData(sales);
 
     const customers = customersData.filter(
       (customer) => customer.salesId === salesId
