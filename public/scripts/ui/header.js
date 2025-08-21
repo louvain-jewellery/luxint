@@ -1,3 +1,4 @@
+import { showCard } from "../components/card.js";
 import { generateInitials } from "../utils/initials-generator.js";
 
 export function loadTitle(data) {
@@ -7,7 +8,7 @@ export function loadTitle(data) {
     headerTitle.textContent = data.name;
 
     const img = document.createElement("img");
-    img.classList.add("icon", "header__name-icon");
+    img.classList.add("icon", "header__name-icon", "js-header-name-icon");
     img.src =
       "assets/icons/arrow_back_ios_new_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg";
     headerTitle.appendChild(img);

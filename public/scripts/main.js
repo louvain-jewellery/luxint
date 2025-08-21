@@ -2,6 +2,7 @@ import { showAddItemOverlay } from "./components/overlay/add-item.js";
 import { loadCustomers } from "./pages/customers.js";
 import { loadPurchasedItems } from "./pages/purchased-items.js";
 import { loadSales, loadSelectedSales } from "./pages/sales-person.js";
+import { showCard } from "./components/card.js";
 
 const pageMain = document.querySelector(".js-page-main");
 
@@ -18,6 +19,7 @@ function loadPage(page) {
       updateNavItem();
       updateCustomersNavigation();
       showAddItemOverlay();
+      showCard();
 
       if (pageName === "home") {
         loadSales();
