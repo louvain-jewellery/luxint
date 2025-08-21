@@ -3,10 +3,9 @@ import { generateInitials } from "../utils/initials-generator.js";
 export function loadTitle(data) {
   if (data) {
     const headerTitle = document.querySelector(".js-header-name");
+    const pictureWrapper = document.querySelector(".js-header-picture-wrapper");
     headerTitle.textContent = data.name;
 
-    const pictureWrapper = document.querySelector(".js-header-picture-wrapper");
-    picture.src = data.image;
     if (!data.image) {
       pictureWrapper.innerHTML = "";
       const p = document.createElement("p");
