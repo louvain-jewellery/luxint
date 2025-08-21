@@ -12,6 +12,7 @@ export function loadTitle(data) {
       const p = document.createElement("p");
       p.classList.add("header__picture");
       p.textContent = generateInitials(data.name);
+      pictureWrapper.appendChild(p);
       return;
     }
 
@@ -20,7 +21,7 @@ export function loadTitle(data) {
       const img = document.createElement("img");
       img.classList.add("header__picture");
       img.src = data.image;
-      pictureWrapper.appendChild(picture);
+      pictureWrapper.appendChild(img);
       return;
     }
   }
