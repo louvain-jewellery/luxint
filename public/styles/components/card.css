@@ -21,6 +21,11 @@
   height: 100%;
 }
 
+.page-customers .card::before,
+.page-purchased-items .card::before {
+  display: none;
+}
+
 .card::before {
   content: "";
   position: absolute;

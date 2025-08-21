@@ -2,7 +2,8 @@ import { formatSalesId } from "../utils/format-id.js";
 
 export function showCard() {
   const card = document.querySelector(".js-card");
-  const button = document.querySelector(".js-header-name");
+  const header = document.querySelector(".js-header");
+  const button = header.querySelector(".js-header-name");
   const buttonIcon = button.querySelector(".js-header-name-icon");
 
   const newButton = button.cloneNode(true);
@@ -11,9 +12,15 @@ export function showCard() {
     card.classList.toggle("show");
     console.log("clicked");
     if (card.classList.contains("show")) {
+      document.body.style.marginTop = "380px";
       buttonIcon.style.transform = "rotate(90deg)";
+      header.style.gap = "15px";
     } else {
+      document.body.style.marginTop = "120px";
       buttonIcon.style.transform = "rotate(270deg)";
+      setTimeout(() => {
+        header.style.gap = "0";
+      }, 300);
     }
   });
 }
