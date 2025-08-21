@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+.overlay--purchased .overlay__header {
+  margin-bottom: 0;
+}
+
 .overlay--purchased.show {
   opacity: 1;
   visibility: visible;
