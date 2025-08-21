@@ -6,7 +6,7 @@ export function loadTitle(data) {
     const pictureWrapper = document.querySelector(".js-header-picture-wrapper");
     const headerPicture = pictureWrapper.querySelector(".js-header-picture");
     headerTitle.textContent = data.name;
-    if (headerPicture.src) {
+    if (data.image) {
       headerPicture.src = data.image;
     } else {
       pictureWrapper.innerHTML = "";
