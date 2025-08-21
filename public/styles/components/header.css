@@ -38,12 +38,6 @@
   object-fit: cover;
 }
 
-.header__name {
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: -5px;
-}
-
 .header__button {
   display: flex;
   align-items: center;
@@ -56,6 +50,13 @@
   box-shadow: inset 0 0 4px 2px rgba(255, 255, 255, 0.045);
 
   z-index: 100;
+}
+
+.header__name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: -5px;
+  padding: 10px 15px;
 }
 
 .header__icon {
