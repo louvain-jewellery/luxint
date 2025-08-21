@@ -3,6 +3,7 @@ import { formatSalesId } from "../utils/format-id.js";
 export function loadCardData(data) {
   const card = document.querySelector(".js-card");
   const hash = window.location.hash.slice(1);
+  
   const [pageName, parameter] = hash.split("/");
   if (pageName === "home") {
   }
