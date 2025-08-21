@@ -152,6 +152,10 @@
   padding-right: 40px;
 }
 
+.field__input-wrapper--unit-left .field__input {
+  padding-left: 45px;
+}
+
 .field__input-unit {
   position: absolute;
   bottom: 50%;
@@ -161,7 +165,7 @@
   pointer-events: none;
 }
 
-.field__input-unit--left {
+.field__input-wrapper--unit-left .field__input-unit {
   right: none;
   left: 15px;
 }
