@@ -4,7 +4,7 @@ import {
   loadSelectedSales,
   saveSelectedSales,
 } from "../../pages/sales-person.js";
-import { closeOverlay, showOverlay } from "./overlay-manager.js";
+import { closeOverlay, reloadPage, showOverlay } from "./overlay-manager.js";
 import { loadPurchasedItems } from "../../pages/purchased-items.js";
 
 export function showAddItemOverlay() {
@@ -33,7 +33,6 @@ async function renderOverlay(overlay) {
   await loadSalesOption(overlay);
   await loadCustomerOption(overlay);
   setupImageInput(overlay);
-  const salesId = loadSelectedSales();
   const form = overlay.querySelector("#addItemForm");
 
   form.addEventListener("submit", function (e) {
@@ -55,7 +54,7 @@ async function renderOverlay(overlay) {
           alert("Barang berhasil ditambah!");
           this.reset();
           closeOverlay("add-item");
-          loadPurchasedItems(salesId);
+          reloadPage();
         } else {
           alert("Gagal menambah barang");
         }
@@ -138,16 +137,7 @@ export async function loadSalesOption(overlay) {
     const salesId = parseInt(this.value);
     saveSelectedSales(salesId);
     loadCustomerOption(overlay);
-
-    const hash = window.location.hash.slice(1);
-    const [pageName, parameter] = hash.split("/");
-    if (pageName === "home") {
-      loadSales();
-    }
-
-    if (pageName === "customers") {
-      loadCustomers(salesId);
-    }
+    reloadPage();
   });
 }
 

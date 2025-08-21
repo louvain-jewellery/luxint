@@ -101,4 +101,21 @@ function updateCustomersNavigation() {
   }
 }
 
+export function reloadPage() {
+  const salesId = loadSelectedSales();
+  const hash = window.location.hash.slice(1);
+  const [pageName, parameter] = hash.split("/");
+  if (pageName === "home") {
+    loadSales();
+  }
+
+  if (pageName === "customers") {
+    loadCustomers(salesId);
+  }
+
+  if (pageName === "purchased-items") {
+    loadPurchasedItems(salesId);
+  }
+}
+
 initRouter();
