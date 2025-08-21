@@ -17,6 +17,7 @@ export function loadCardData(data) {
 
 async function renderSalesCard(sales) {
   const card = document.querySelector(".js-card");
+  card.classList.remove("card--customer");
   card.classList.add("card--employee");
   const cardDetail = card.querySelector(".js-card-detail");
   cardDetail.innerHTML = "";
@@ -54,6 +55,7 @@ async function renderSalesCard(sales) {
 
 function renderCustomerCard(customer) {
   const card = document.querySelector(".js-card");
+  card.classList.remove("card--employee");
   card.classList.add("card--customer");
   const cardDetail = card.querySelector(".js-card-detail");
   cardDetail.innerHTML = "";
