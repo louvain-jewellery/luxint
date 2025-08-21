@@ -5,6 +5,7 @@ import {
   saveSelectedSales,
 } from "../../pages/sales-person.js";
 import { closeOverlay, showOverlay } from "./overlay-manager.js";
+import { loadPurchasedItems } from "../../pages/purchased-items.js";
 
 export function showAddItemOverlay() {
   const button = document.querySelector(".js-add-button");
@@ -54,7 +55,7 @@ async function renderOverlay(overlay) {
           alert("Barang berhasil ditambah!");
           this.reset();
           closeOverlay("add-item");
-          loadCustomers(salesId);
+          loadPurchasedItems(salesId);
         } else {
           alert("Gagal menambah barang");
         }
