@@ -25,7 +25,7 @@ export async function onRequest(context) {
 
       let imageUrl = null;
 
-      if (imageFile && imageFile > 0) {
+      if (imageFile && imageFile.size > 0) {
         const uploadFormData = new FormData();
         uploadFormData.append("file", imageFile);
         uploadFormData.append("upload_preset", "item_images");
