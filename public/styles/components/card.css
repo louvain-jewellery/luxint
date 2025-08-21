@@ -15,6 +15,7 @@
   transition: all 0.3s ease;
 }
 
+.page-home .card,
 .card.show {
   opacity: 1;
   visibility: visible;

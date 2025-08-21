@@ -4,10 +4,10 @@ export function showCard() {
   const card = document.querySelector(".js-card");
   const header = document.querySelector(".js-header");
   const button = header.querySelector(".js-header-name");
-  const buttonIcon = button.querySelector(".js-header-name-icon");
 
   const newButton = button.cloneNode(true);
   button.parentNode.replaceChild(newButton, button);
+  const buttonIcon = newButton.querySelector(".js-header-name-icon");
   newButton.addEventListener("click", () => {
     card.classList.toggle("show");
     console.log("clicked");
@@ -22,6 +22,10 @@ export function showCard() {
         header.style.gap = "0";
       }, 300);
     }
+  });
+
+  window.addEventListener("hashchange", () => {
+    document.querySelector(".js-card")?.classList.remove("show");
   });
 }
 
