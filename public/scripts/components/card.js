@@ -9,7 +9,7 @@ export function loadCardData(data) {
     return;
   }
 
-  if (pageName === "purchasedItems") {
+  if (pageName === "purchased-items") {
     renderCustomerCard(data);
     return;
   }
