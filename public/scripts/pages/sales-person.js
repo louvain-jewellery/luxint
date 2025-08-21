@@ -52,7 +52,7 @@ export function loadSales() {
       });
 
       if (!savedSalesId) {
-        const cardDetail = document.querySelector(".js-employee-card-detail");
+        const cardDetail = document.querySelector(".js-card-detail");
         cardDetail.innerHTML = "";
 
         const p = document.createElement("p");
