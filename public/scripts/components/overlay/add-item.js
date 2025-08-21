@@ -1,11 +1,9 @@
-import { loadCustomers } from "../../pages/customers.js";
+import { reloadPage } from "../../main.js";
 import {
-  loadSales,
   loadSelectedSales,
   saveSelectedSales,
 } from "../../pages/sales-person.js";
-import { closeOverlay, reloadPage, showOverlay } from "./overlay-manager.js";
-import { loadPurchasedItems } from "../../pages/purchased-items.js";
+import { closeOverlay, showOverlay } from "./overlay-manager.js";
 
 export function showAddItemOverlay() {
   const button = document.querySelector(".js-add-button");
@@ -54,7 +52,7 @@ async function renderOverlay(overlay) {
           alert("Barang berhasil ditambah!");
           this.reset();
           closeOverlay("add-item");
-          reloadPage();
+          reloadPage;
         } else {
           alert("Gagal menambah barang");
         }
