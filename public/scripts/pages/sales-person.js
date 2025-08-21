@@ -1,5 +1,5 @@
 import { showAddSalesOverlay } from "../components/overlay/add-sales.js";
-import { formatSalesId } from "../utils/format-id.js";
+import { loadCardData } from "../components/card.js";
 
 export function loadSales() {
   const selected = document.createElement("div");
