@@ -6,6 +6,12 @@ export function loadTitle(data) {
     const pictureWrapper = document.querySelector(".js-header-picture-wrapper");
     headerTitle.textContent = data.name;
 
+    const img = document.createElement("img");
+    img.classList.add("icon", "header__name-icon");
+    img.src =
+      "assets/icons/arrow_back_ios_new_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg";
+    headerTitle.appendChild(img);
+
     if (!data.image) {
       pictureWrapper.innerHTML = "";
       const p = document.createElement("p");
