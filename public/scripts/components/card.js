@@ -2,21 +2,34 @@ import { adjustBodyMargin } from "../ui/header.js";
 import { formatSalesId } from "../utils/format-id.js";
 
 export function showCard() {
-  const card = document.querySelector(".js-card");
   const header = document.querySelector(".js-header");
   const button = header.querySelector(".js-header-name");
+  const card = document.createElement("div");
+  card.classList.add("card", "js-card");
+  card.innerHTML = `
+  <div class="card__top">
+  <img class="card__logo" src="assets/images/logo2.png"/>
+  </div>
+  <div class="card__bottom js-card-detail"></div>
+  `;
 
   if (button) {
     const newButton = button.cloneNode(true);
     button.parentNode.replaceChild(newButton, button);
     const buttonIcon = newButton.querySelector(".js-header-name-icon");
+
     newButton.addEventListener("click", () => {
-      card.classList.toggle("show");
-      if (card.classList.contains("show")) {
+      const cardInHeader = header.contains(card);
+
+      if (!cardInHeader) {
+        header.appendChild(card);
         buttonIcon.style.transform = "rotate(90deg)";
         header.style.gap = "15px";
+        card.classList.toggle("show");
       } else {
         buttonIcon.style.transform = "rotate(270deg)";
+        card.classList.remove("show");
+        header.removeChild(card);
         setTimeout(() => {
           header.style.gap = "0";
         }, 300);

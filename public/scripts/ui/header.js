@@ -1,8 +1,21 @@
-import { showCard } from "../components/card.js";
 import { generateInitials } from "../utils/initials-generator.js";
 
 export function renderHeader(pageName) {
   const header = document.querySelector(".js-header");
+
+  if (pageName === "home") {
+    const hasHomeHeader = header.querySelector(".js-header-home");
+    if (hasHomeHeader) {
+      return;
+    }
+  }
+
+  if (pageName === "customers" || pageName === "purchased-items") {
+    const hasCorrectHeader = header.querySelector("js-header-top");
+    if (hasCorrectHeader) {
+      return;
+    }
+  }
 
   const headerHome = document.createElement("div");
   headerHome.classList.add("header__home", "js-header-home");
@@ -38,15 +51,6 @@ export function renderHeader(pageName) {
     </button>
   `;
 
-  const headerCard = document.createElement("div");
-  headerCard.classList.add("card", "js-card");
-  headerCard.innerHTML = `
-    <div class="card__top">
-      <img class="card__logo" src="assets/images/logo2.png"/>
-    </div>
-    <div class="card__bottom js-card-detail"></div>
-  `;
-
   if (pageName === "home") {
     header.innerHTML = "";
     header.appendChild(headerHome);
@@ -55,7 +59,6 @@ export function renderHeader(pageName) {
   if (pageName === "customers" || pageName === "purchased-items") {
     header.innerHTML = "";
     header.appendChild(headerTop);
-    header.appendChild(headerCard);
   }
 }
 
