@@ -14,14 +14,19 @@ const pageMain = document.querySelector(".js-page-main");
 function loadPage(page) {
   const [pageName, parameter] = page.split("/");
   document.body.className = `page-${pageName}`;
-  updateNavItem();
-  updateCustomersNavigation();
 
   fetch(`pages/${pageName}.html`)
     .then((response) => response.text())
     .then((data) => {
       window.scrollTo(0, 0);
       pageMain.innerHTML = data;
+      updateNavItem();
+      updateCustomersNavigation();
+      renderHeader(pageName);
+      showCard();
+      setupHeaderObserver();
+      showAddItemOverlay();
+      goBack();
 
       if (pageName === "home") {
         loadSales();
@@ -34,14 +39,6 @@ function loadPage(page) {
       if (pageName === "purchased-items") {
         loadPurchasedItems(parseInt(parameter));
       }
-
-      renderHeader(pageName);
-      setupHeaderObserver();
-      goBack();
-      showCard();
-      adjustBodyMargin();
-
-      showAddItemOverlay();
     });
 }
 

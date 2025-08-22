@@ -6,21 +6,23 @@ export function showCard() {
   const header = document.querySelector(".js-header");
   const button = header.querySelector(".js-header-name");
 
-  const newButton = button.cloneNode(true);
-  button.parentNode.replaceChild(newButton, button);
-  const buttonIcon = newButton.querySelector(".js-header-name-icon");
-  newButton.addEventListener("click", () => {
-    card.classList.toggle("show");
-    if (card.classList.contains("show")) {
-      buttonIcon.style.transform = "rotate(90deg)";
-      header.style.gap = "15px";
-    } else {
-      buttonIcon.style.transform = "rotate(270deg)";
-      setTimeout(() => {
-        header.style.gap = "0";
-      }, 300);
-    }
-  });
+  if (button) {
+    const newButton = button.cloneNode(true);
+    button.parentNode.replaceChild(newButton, button);
+    const buttonIcon = newButton.querySelector(".js-header-name-icon");
+    newButton.addEventListener("click", () => {
+      card.classList.toggle("show");
+      if (card.classList.contains("show")) {
+        buttonIcon.style.transform = "rotate(90deg)";
+        header.style.gap = "15px";
+      } else {
+        buttonIcon.style.transform = "rotate(270deg)";
+        setTimeout(() => {
+          header.style.gap = "0";
+        }, 300);
+      }
+    });
+  }
 }
 
 export function loadCardData(data) {
