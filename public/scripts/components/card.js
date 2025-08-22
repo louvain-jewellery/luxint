@@ -1,3 +1,4 @@
+import { adjustBodyMargin } from "../ui/header.js";
 import { formatSalesId } from "../utils/format-id.js";
 
 export function showCard() {
@@ -10,22 +11,16 @@ export function showCard() {
   const buttonIcon = newButton.querySelector(".js-header-name-icon");
   newButton.addEventListener("click", () => {
     card.classList.toggle("show");
-    console.log("clicked");
+    adjustBodyMargin();
     if (card.classList.contains("show")) {
-      document.body.style.marginTop = "380px";
       buttonIcon.style.transform = "rotate(90deg)";
       header.style.gap = "15px";
     } else {
-      document.body.style.marginTop = "120px";
       buttonIcon.style.transform = "rotate(270deg)";
       setTimeout(() => {
         header.style.gap = "0";
       }, 300);
     }
-  });
-
-  window.addEventListener("hashchange", () => {
-    document.querySelector(".js-card")?.classList.remove("show");
   });
 }
 

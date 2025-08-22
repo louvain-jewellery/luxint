@@ -11,8 +11,6 @@ export function loadCustomers(salesId) {
   customerList.innerHTML = "";
 
   if (!salesId) {
-    const title = document.querySelector(".js-page-title");
-    title.textContent = "Pelanggan";
     customerList.innerHTML = "";
     const p = document.createElement("p");
     p.classList.add("customers__warning", "warning");

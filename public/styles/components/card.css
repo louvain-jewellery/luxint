@@ -8,6 +8,7 @@
   background-color: rgb(18, 18, 18);
   overflow: visible;
   width: 100%;
+  max-width: 738px;
   height: 0;
   aspect-ratio: 3/2;
   border-radius: 15px;
