@@ -1,4 +1,3 @@
-import { adjustBodyMargin } from "../ui/header.js";
 import { formatSalesId } from "../utils/format-id.js";
 
 export function showCard() {
