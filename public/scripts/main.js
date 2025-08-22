@@ -13,8 +13,9 @@ const pageMain = document.querySelector(".js-page-main");
 
 function loadPage(page) {
   const [pageName, parameter] = page.split("/");
-
   document.body.className = `page-${pageName}`;
+  updateNavItem();
+  updateCustomersNavigation();
 
   fetch(`pages/${pageName}.html`)
     .then((response) => response.text())
@@ -39,8 +40,7 @@ function loadPage(page) {
       goBack();
       showCard();
       adjustBodyMargin();
-      updateNavItem();
-      updateCustomersNavigation();
+
       showAddItemOverlay();
     });
 }
