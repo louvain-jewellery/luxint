@@ -18,6 +18,8 @@ function loadPage(page) {
       window.scrollTo(0, 0);
       pageMain.innerHTML = data;
       renderHeader(pageName);
+      goBack();
+      showCard();
       adjustBodyMargin();
       updateNavItem();
       updateCustomersNavigation();
@@ -29,14 +31,10 @@ function loadPage(page) {
 
       if (pageName === "customers") {
         loadCustomers(parseInt(parameter));
-        showCard();
-        goBack();
       }
 
       if (pageName === "purchased-items") {
         loadPurchasedItems(parseInt(parameter));
-        showCard();
-        goBack();
       }
     });
 }
