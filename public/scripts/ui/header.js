@@ -97,3 +97,16 @@ export function adjustBodyMargin() {
 
   body.style.marginTop = header.offsetHeight + "px";
 }
+
+export function setupHeaderObserver() {
+  const header = document.querySelector(".js-header");
+
+  if (header) {
+    const resizeObserver = new ResizeObserver((entries) => {
+      adjustBodyMargin();
+    });
+
+    resizeObserver.observe(header);
+    return resizeObserver;
+  }
+}

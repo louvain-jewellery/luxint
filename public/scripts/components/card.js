@@ -10,7 +10,6 @@ export function showCard() {
   button.parentNode.replaceChild(newButton, button);
   const buttonIcon = newButton.querySelector(".js-header-name-icon");
   newButton.addEventListener("click", () => {
-    adjustBodyMargin();
     card.classList.toggle("show");
     if (card.classList.contains("show")) {
       buttonIcon.style.transform = "rotate(90deg)";

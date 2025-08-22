@@ -3,7 +3,11 @@ import { loadCustomers } from "./pages/customers.js";
 import { loadPurchasedItems } from "./pages/purchased-items.js";
 import { loadSales, loadSelectedSales } from "./pages/sales-person.js";
 import { showCard } from "./components/card.js";
-import { adjustBodyMargin, renderHeader } from "./ui/header.js";
+import {
+  adjustBodyMargin,
+  renderHeader,
+  setupHeaderObserver,
+} from "./ui/header.js";
 
 const pageMain = document.querySelector(".js-page-main");
 
@@ -17,13 +21,6 @@ function loadPage(page) {
     .then((data) => {
       window.scrollTo(0, 0);
       pageMain.innerHTML = data;
-      renderHeader(pageName);
-      goBack();
-      showCard();
-      adjustBodyMargin();
-      updateNavItem();
-      updateCustomersNavigation();
-      showAddItemOverlay();
 
       if (pageName === "home") {
         loadSales();
@@ -36,6 +33,15 @@ function loadPage(page) {
       if (pageName === "purchased-items") {
         loadPurchasedItems(parseInt(parameter));
       }
+
+      renderHeader(pageName);
+      setupHeaderObserver();
+      goBack();
+      showCard();
+      adjustBodyMargin();
+      updateNavItem();
+      updateCustomersNavigation();
+      showAddItemOverlay();
     });
 }
 
