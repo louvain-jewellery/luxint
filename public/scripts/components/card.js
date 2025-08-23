@@ -46,7 +46,7 @@ export function showCard() {
 export async function loadCardData() {
   const salesId = loadSelectedSales();
   const card = document.querySelector(".js-card");
-  const hash = window.location.hash.slice(1);
+  const hash = window.location.hash.slice(1) || "home";
   const [pageName, parameter] = hash.split("/");
 
   if (pageName === "home" || pageName === "customers") {

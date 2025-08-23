@@ -2,12 +2,11 @@ import { showAddSalesOverlay } from "../components/overlay/add-sales.js";
 import { loadCardData } from "../components/card.js";
 import { adjustBodyMargin, loadHeader } from "../ui/header.js";
 
-export async function loadHomePage() {
+export async function loadHomePage(pageName) {
   try {
     const response = await fetch("archives/data/sales.json");
     const data = await response.json();
-    const hash = window.location.hash.slice(1);
-    const [pageName, parameter] = hash.split("/");
+
     loadHeader(pageName);
     adjustBodyMargin();
     loadSales(data);

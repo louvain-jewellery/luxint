@@ -23,7 +23,7 @@ function loadPage(page) {
       showAddItemOverlay();
 
       if (pageName === "home") {
-        loadHomePage();
+        loadHomePage(pageName);
       }
 
       if (pageName === "customers") {
