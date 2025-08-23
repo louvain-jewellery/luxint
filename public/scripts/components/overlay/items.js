@@ -1,7 +1,7 @@
 import { formatWithDots } from "../../utils/number.js";
 import { closeOverlay, showOverlay } from "./overlay-manager.js";
 
-export function showPurchasedOverlay() {
+export function showPurchasedOverlay(itemsData) {
   document.querySelectorAll(".js-purchased-items").forEach((item) => {
     const newItem = item.cloneNode(true);
     item.parentNode.replaceChild(newItem, item);
@@ -9,7 +9,7 @@ export function showPurchasedOverlay() {
     newItem.addEventListener("click", async () => {
       const overlay = await showOverlay("purchased-item");
       const itemId = parseInt(item.dataset.itemId);
-      renderOverlay(itemId, overlay);
+      renderOverlay(itemId, itemsData, overlay);
 
       overlay
         .querySelector(".js-close-button")
@@ -20,28 +20,16 @@ export function showPurchasedOverlay() {
   });
 }
 
-async function renderOverlay(itemId, overlay) {
-  const name = overlay.querySelector(".js-item-name");
-  const image = overlay.querySelector(".js-item-image");
-  const date = overlay.querySelector(".js-item-date");
-  const type = overlay.querySelector(".js-item-type");
-  const weight = overlay.querySelector(".js-item-weight");
-  const goldPurity = overlay.querySelector(".js-item-gold");
-  const price = overlay.querySelector(".js-item-price");
-
-  try {
-    const response = await fetch("/api/items");
-    const items = await response.json();
-    const item = items.find((item) => item.id === parseInt(itemId));
-    name.textContent = item.itemName;
-    image.src = item.productImage;
-    image.alt = item.itemName;
-    date.textContent = item.date;
-    type.textContent = item.type;
-    weight.textContent = `${item.weight} gr`;
-    goldPurity.textContent = `${item.goldPurity}%`;
-    price.textContent = `Rp.${formatWithDots(item.sellingPrice)}`;
-  } catch (err) {
-    console.error("failed to fetch overlay: ", err);
-  }
+function renderOverlay(itemId, itemsData, overlay) {
+  const item = itemsData.find((item) => item.id === parseInt(itemId));
+  overlay.querySelector(".js-item-name").textContent = item.itemName;
+  overlay.querySelector(".js-item-image").src = item.productImage;
+  overlay.querySelector(".js-item-image").alt = item.itemName;
+  overlay.querySelector(".js-item-date").textContent = item.date;
+  overlay.querySelector(".js-item-type").textContent = item.type;
+  overlay.querySelector(".js-item-weight").textContent = `${item.weight} gr`;
+  overlay.querySelector(".js-item-gold").textContent = `${item.goldPurity}%`;
+  overlay.querySelector(".js-item-price").textContent = `Rp.${formatWithDots(
+    item.sellingPrice
+  )}`;
 }

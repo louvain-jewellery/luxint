@@ -1,78 +1,84 @@
 import { showAddSalesOverlay } from "../components/overlay/add-sales.js";
 import { loadCardData } from "../components/card.js";
+import { adjustBodyMargin, loadHeader } from "../ui/header.js";
 
-export function loadSales() {
+export async function loadHomePage() {
+  try {
+    const response = await fetch("archives/data/sales.json");
+    const data = await response.json();
+    const hash = window.location.hash.slice(1);
+    const [pageName, parameter] = hash.split("/");
+    loadHeader(pageName);
+    adjustBodyMargin();
+    loadSales(data);
+  } catch (error) {
+    console.error("failed to load home-page:", error);
+  }
+}
+
+export function loadSales(data) {
+  const savedSalesId = loadSelectedSales();
+  const selectorList = document.querySelector(".js-selector-list");
+  selectorList.innerHTML = "";
+
   const selected = document.createElement("div");
   selected.classList.add(
     "employee-selector__selected-item",
     "js-selected-item"
   );
 
-  fetch("/api/sales")
-    .then((response) => response.json())
-    .then((data) => {
-      const savedSalesId = loadSelectedSales();
-      const selectorList = document.querySelector(".js-selector-list");
-      selectorList.innerHTML = "";
+  data.forEach((sales) => {
+    const selectorItem = document.createElement("li");
+    selectorItem.classList.add("employee-selector__item", "js-selector-item");
+    selectorItem.dataset.salesId = sales.id;
 
-      const sales = data.find((sales) => sales.id === parseInt(savedSalesId));
+    const itemImage = document.createElement("img");
+    itemImage.classList.add("employee-selector__image");
+    itemImage.src = sales.image;
+    itemImage.alt = sales.name;
+    selectorItem.appendChild(itemImage);
 
-      data.forEach((sales) => {
-        const selectorItem = document.createElement("li");
-        selectorItem.classList.add(
-          "employee-selector__item",
-          "js-selector-item"
-        );
-        selectorItem.dataset.salesId = sales.id;
+    const itemName = document.createElement("p");
+    itemName.classList.add("employee-selector__name");
+    itemName.textContent = sales.name;
+    selectorItem.appendChild(itemName);
 
-        const itemImage = document.createElement("img");
-        itemImage.classList.add("employee-selector__image");
-        itemImage.src = sales.image;
-        itemImage.alt = sales.name;
-        selectorItem.appendChild(itemImage);
+    selectorList.appendChild(selectorItem);
+  });
 
-        const itemName = document.createElement("p");
-        itemName.classList.add("employee-selector__name");
-        itemName.textContent = sales.name;
-        selectorItem.appendChild(itemName);
+  loadAddSelector();
 
-        selectorList.appendChild(selectorItem);
-      });
+  selectorList.querySelectorAll(".js-selector-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      const salesId = parseInt(item.dataset.salesId);
 
-      loadAddSelector();
-
-      selectorList.querySelectorAll(".js-selector-item").forEach((item) => {
-        item.addEventListener("click", () => {
-          const salesId = parseInt(item.dataset.salesId);
-
-          saveSelectedSales(salesId);
-          item.appendChild(selected);
-          loadCardData(sales);
-        });
-      });
-
-      if (!savedSalesId) {
-        const cardDetail = document.querySelector(".js-card-detail");
-        cardDetail.innerHTML = "";
-
-        const p = document.createElement("p");
-        p.classList.add("employee-card__warning", "warning");
-        p.textContent = "Pilih sales terlebih dahulu";
-
-        cardDetail.appendChild(p);
-        return;
-      }
-
-      if (savedSalesId) {
-        const savedItem = selectorList.querySelector(
-          `[data-sales-id="${savedSalesId}"]`
-        );
-        if (savedItem) {
-          savedItem.appendChild(selected);
-          loadCardData(sales);
-        }
-      }
+      saveSelectedSales(salesId);
+      item.appendChild(selected);
+      loadCardData();
     });
+  });
+
+  if (!savedSalesId) {
+    const cardDetail = document.querySelector(".js-card-detail");
+    cardDetail.innerHTML = "";
+
+    const p = document.createElement("p");
+    p.classList.add("employee-card__warning", "warning");
+    p.textContent = "Pilih sales terlebih dahulu";
+
+    cardDetail.appendChild(p);
+    return;
+  }
+
+  if (savedSalesId) {
+    const savedItem = selectorList.querySelector(
+      `[data-sales-id="${savedSalesId}"]`
+    );
+    if (savedItem) {
+      savedItem.appendChild(selected);
+      loadCardData();
+    }
+  }
 }
 
 function loadAddSelector() {

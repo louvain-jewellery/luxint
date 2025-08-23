@@ -1,37 +1,47 @@
-import { loadCardData } from "../components/card.js";
 import { showPurchasedOverlay } from "../components/overlay/items.js";
-import { loadTitle } from "../ui/header.js";
+import { adjustBodyMargin, loadHeader } from "../ui/header.js";
 
-export function loadPurchasedItems(customerId) {
+export async function loadItemPage(pageName, parameter) {
+  try {
+    const response1 = await fetch("archives/data/purchased-items.json");
+    const response2 = await fetch("archives/data/customers.json");
+    const itemsData = await response1.json();
+    const customersData = await response2.json();
+
+    const customer = customersData.find(
+      (customer) => customer.id === parseInt(parameter)
+    );
+
+    loadHeader(pageName, customer);
+    adjustBodyMargin();
+    loadPurchasedItems(parameter, itemsData, customersData);
+    showPurchasedOverlay(itemsData);
+  } catch (error) {
+    console.error("failed to load items page:", error);
+  }
+}
+
+export function loadPurchasedItems(customerId, itemsData, customersData) {
   const itemList = document.querySelector(".js-purchased-items-list");
   itemList.innerHTML = "";
+  const customer = customersData.find((customer) => customer.id === customerId);
 
-  Promise.all([
-    fetch("/api/items").then((response) => response.json()),
-    fetch("/api/customers").then((response) => response.json()),
-  ]).then(([itemsData, customersData]) => {
-    const customer = customersData.find(
-      (customer) => customer.id === customerId
-    );
-    loadTitle(customer);
-    loadCardData(customer);
+  const items = itemsData.filter((items) => items.customerId === customerId);
+  if (items.length === 0) {
+    itemList.innerHTML = "";
+    const p = document.createElement("p");
+    p.classList.add("customers__warning", "warning");
+    p.textContent = "Tidak ada barang";
 
-    const items = itemsData.filter((items) => items.customerId === customerId);
-    if (items.length === 0) {
-      itemList.innerHTML = "";
-      const p = document.createElement("p");
-      p.classList.add("customers__warning", "warning");
-      p.textContent = "Tidak ada barang";
+    itemList.appendChild(p);
+    return;
+  }
 
-      itemList.appendChild(p);
-      return;
-    }
+  items.forEach((item) => {
+    const li = document.createElement("li");
+    li.classList.add("purchased-items__item");
 
-    items.forEach((item) => {
-      const li = document.createElement("li");
-      li.classList.add("purchased-items__item");
-
-      li.innerHTML = `
+    li.innerHTML = `
           <button
             class="purchased-items__link js-purchased-items"
             data-item-id="${item.id}"
@@ -49,8 +59,6 @@ export function loadPurchasedItems(customerId) {
           </button>
         `;
 
-      itemList.appendChild(li);
-    });
-    showPurchasedOverlay();
+    itemList.appendChild(li);
   });
 }

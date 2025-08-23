@@ -1,13 +1,11 @@
 import { showAddItemOverlay } from "./components/overlay/add-item.js";
-import { loadCustomers } from "./pages/customers.js";
-import { loadPurchasedItems } from "./pages/purchased-items.js";
-import { loadSales, loadSelectedSales } from "./pages/sales-person.js";
-import { showCard } from "./components/card.js";
+import { loadCustomerPage, loadCustomers } from "./pages/customers.js";
+import { loadItemPage, loadPurchasedItems } from "./pages/purchased-items.js";
 import {
-  adjustBodyMargin,
-  renderHeader,
-  setupHeaderObserver,
-} from "./ui/header.js";
+  loadHomePage,
+  loadSales,
+  loadSelectedSales,
+} from "./pages/sales-person.js";
 
 const pageMain = document.querySelector(".js-page-main");
 
@@ -22,22 +20,18 @@ function loadPage(page) {
       pageMain.innerHTML = data;
       updateNavItem();
       updateCustomersNavigation();
-      renderHeader(pageName);
-      showCard();
-      setupHeaderObserver();
       showAddItemOverlay();
-      goBack();
 
       if (pageName === "home") {
-        loadSales();
+        loadHomePage();
       }
 
       if (pageName === "customers") {
-        loadCustomers(parseInt(parameter));
+        loadCustomerPage(pageName, parseInt(parameter));
       }
 
       if (pageName === "purchased-items") {
-        loadPurchasedItems(parseInt(parameter));
+        loadItemPage(pageName, parseInt(parameter));
       }
     });
 }
@@ -77,7 +71,7 @@ function updateNavItem() {
   });
 }
 
-function goBack() {
+export function goBack() {
   const backButton = document.querySelector(".js-back-button");
   if (backButton) {
     const newBackButton = backButton.cloneNode(true);

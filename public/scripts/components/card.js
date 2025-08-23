@@ -1,8 +1,10 @@
+import { loadSelectedSales } from "../pages/sales-person.js";
 import { formatSalesId } from "../utils/format-id.js";
 
 export function showCard() {
   const header = document.querySelector(".js-header");
   const button = header.querySelector(".js-header-name");
+
   const card = document.createElement("div");
   card.classList.add("card", "js-card");
   card.innerHTML = `
@@ -18,26 +20,31 @@ export function showCard() {
     const buttonIcon = newButton.querySelector(".js-header-name-icon");
 
     newButton.addEventListener("click", () => {
+      console.log("clicked");
       const cardInHeader = header.contains(card);
 
       if (!cardInHeader) {
         header.appendChild(card);
+        loadCardData();
         buttonIcon.style.transform = "rotate(90deg)";
         header.style.gap = "15px";
-        card.classList.toggle("show");
+        requestAnimationFrame(() => {
+          card.classList.toggle("show");
+        });
       } else {
         buttonIcon.style.transform = "rotate(270deg)";
         card.classList.remove("show");
-        header.removeChild(card);
         setTimeout(() => {
           header.style.gap = "0";
+          header.removeChild(card);
         }, 300);
       }
     });
   }
 }
 
-export function loadCardData(data) {
+export async function loadCardData() {
+  const salesId = loadSelectedSales();
   const card = document.querySelector(".js-card");
   const hash = window.location.hash.slice(1);
   const [pageName, parameter] = hash.split("/");
@@ -45,14 +52,26 @@ export function loadCardData(data) {
   if (pageName === "home" || pageName === "customers") {
     card.classList.remove("card--customer");
     card.classList.add("card--employee");
-    renderSalesCard(data);
+
+    const response = await fetch("archives/data/sales.json");
+    const data = await response.json();
+    const sales = data.find((sales) => sales.id === salesId);
+
+    renderSalesCard(sales);
     return;
   }
 
   if (pageName === "purchased-items") {
     card.classList.remove("card--employee");
     card.classList.add("card--customer");
-    renderCustomerCard(data);
+
+    const response = await fetch("archives/data/customers.json");
+    const data = await response.json();
+    const customer = data.find(
+      (customer) => customer.id === parseInt(parameter)
+    );
+
+    renderCustomerCard(customer);
     return;
   }
 }
@@ -61,7 +80,7 @@ async function renderSalesCard(sales) {
   const cardDetail = document.querySelector(".js-card-detail");
   cardDetail.innerHTML = "";
   try {
-    const response = await fetch("/api/customers");
+    const response = await fetch("archives/data/customers.json");
     const customersData = await response.json();
     const customers = customersData.filter(
       (customer) => customer.salesId === sales.id
