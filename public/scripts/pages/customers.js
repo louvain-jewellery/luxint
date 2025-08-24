@@ -1,84 +1,88 @@
-import { showAddCustomerOverlay } from "../components/overlay/add-customer.js";
-import { showMoreOverlay } from "../components/overlay/more.js";
+import { showPurchasedOverlay } from "../components/overlay/items.js";
 import { adjustBodyMargin, loadHeader } from "../ui/header.js";
-import { generateInitials } from "../utils/initials-generator.js";
 
-export async function loadCustomerPage(pageName, parameter) {
+export async function loadItemPage(pageName, parameter) {
   try {
-    const response1 = await fetch("/api/customers");
-    const response2 = await fetch("/api/sales");
-    const response3 = await fetch("/api/items");
+    const response1 = await fetch("/api/items");
+    const response2 = await fetch("/api/customers");
+    const itemsData = await response1.json();
+    const customersData = await response2.json();
 
-    const customersData = await response1.json();
-    const salesData = await response2.json();
-    const itemsData = await response3.json();
+    const customer = customersData.find(
+      (customer) => customer.id === parseInt(parameter)
+    );
 
-    const sales = salesData.find((sales) => sales.id === parseInt(parameter));
-
-    loadHeader(pageName, sales);
+    loadHeader(pageName, customer);
     adjustBodyMargin();
-    loadCustomers(parameter, customersData, itemsData);
-    showAddCustomerOverlay();
+    loadPurchasedItems(parameter, itemsData, customersData);
+    showPurchasedOverlay(itemsData);
   } catch (error) {
-    console.error("failed to load customer page", error);
+    console.error("failed to load items page:", error);
   }
 }
 
-export function loadCustomers(salesId, customersData, itemsData) {
-  const customerList = document.querySelector(".js-customers-list");
-  customerList.innerHTML = "";
+export function loadPurchasedItems(customerId, itemsData, customersData) {
+  const itemList = document.querySelector(".js-purchased-items-list");
 
-  if (!salesId) {
-    customerList.innerHTML = "";
-    const p = document.createElement("p");
-    p.classList.add("customers__warning", "warning");
-    p.textContent = "Pilih sales terlebih dahulu";
+  // Clone the item list to remove any existing event listeners
+  const newItemList = itemList.cloneNode(false);
+  itemList.parentNode.replaceChild(newItemList, itemList);
 
-    customerList.appendChild(p);
-    return;
-  }
-
-  const customers = customersData.filter(
-    (customer) => customer.salesId === salesId
+  newItemList.innerHTML = "";
+  const customer = customersData.find(
+    (customer) => customer.id === parseInt(customerId)
   );
-  if (customers.length === 0) {
-    customerList.innerHTML = "";
+
+  const items = itemsData.filter(
+    (items) => items.customerId === parseInt(customerId)
+  );
+  if (items.length === 0) {
+    newItemList.innerHTML = "";
     const p = document.createElement("p");
     p.classList.add("customers__warning", "warning");
-    p.textContent = "Tidak ada pelanggan";
+    p.textContent = "Tidak ada barang";
 
-    customerList.appendChild(p);
+    newItemList.appendChild(p);
     return;
   }
 
-  customers.forEach((customer) => {
-    const items = itemsData.filter((items) => items.customerId === customer.id);
+  items.forEach((item) => {
     const li = document.createElement("li");
-    li.classList.add("customers__item");
+    li.classList.add("purchased-items__item");
 
     li.innerHTML = `
-        <button
-          class="customers__link js-customer-link"
-          data-customer-id="${customer.id}"
-        >
-          <div class="customers__icon-wrapper">
-            <p class="customers__icon">${generateInitials(customer.name)}</p>
-          </div>
-          <div class="customers__text">
-            <p class="customers__name">${customer.name}</p>
-            <p class="customers__count">${items.length} Barang</p>
-          </div>
-        </button>
-      `;
+          <button
+            class="purchased-items__link js-purchased-items"
+            data-item-id="${item.id}"
+          >
+            <div class="purchased-items__icon-wrapper">
+              <img
+                class="purchased-items__icon"
+                src="${item.productImage}"
+                alt="${item.itemName}"
+              />
+            </div>
+            <div class="purchased-items__text">
+              <p class="purchased-items__name">${item.itemName}</p>
+              <p class="purchased-items__date">${item.date}</p>
+            </div>
+          </button>
+        `;
 
-    customerList.appendChild(li);
+    newItemList.appendChild(li);
   });
-  showMoreOverlay();
 
-  document.querySelectorAll(".js-customer-link").forEach((button) => {
-    button.addEventListener("click", () => {
-      const customerId = parseInt(button.dataset.customerId);
-      window.location.hash = `purchased-items/${customerId}`;
+  const urlParams = new URLSearchParams(window.location.hash.split("?")[1]);
+  const targetItemId = urlParams.get("item");
+
+  if (targetItemId) {
+    requestAnimationFrame(() => {
+      const targetEl = document.querySelector(
+        `[data-item-id="${targetItemId}"]`
+      );
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     });
-  });
+  }
 }
