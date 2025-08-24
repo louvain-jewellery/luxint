@@ -1,12 +1,8 @@
 import { showAddItemOverlay } from "./components/overlay/add-item.js";
 import { showSearchBar } from "./components/search.js";
-import { loadCustomerPage, loadCustomers } from "./pages/customers.js";
-import { loadItemPage, loadPurchasedItems } from "./pages/purchased-items.js";
-import {
-  loadHomePage,
-  loadSales,
-  loadSelectedSales,
-} from "./pages/sales-person.js";
+import { loadCustomerPage } from "./pages/customers.js";
+import { loadItemPage } from "./pages/purchased-items.js";
+import { loadHomePage, loadSelectedSales } from "./pages/sales-person.js";
 
 const pageMain = document.querySelector(".js-page-main");
 
