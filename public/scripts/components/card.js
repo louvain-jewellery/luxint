@@ -116,10 +116,24 @@ async function renderSalesCard(sales) {
         <button class="btn card__button card__button--hidden js-nav-customers">Lihat Pelanggan</button>
       </div>
     </div>
-    <div class="card__image-wrapper">
-      <img class="card__image" src=${sales.image} alt="card pfp" />
-    </div>
+    <div class="card__image-wrapper"></div>
   `;
+
+    const pictureWrapper = cardDetail.querySelector(".js-picture-wrapper");
+    pictureWrapper.innerHTML = "";
+
+    if (sales.image) {
+      const img = document.createElement("img");
+      img.classList.add("card__image");
+      img.src = sales.image;
+      img.alt = "card pfp";
+      pictureWrapper.appendChild(img);
+    } else {
+      const p = document.createElement("p");
+      p.classList.add("card__image");
+      p.textContent = generateInitials(sales.name);
+      pictureWrapper.appendChild(p);
+    }
   } catch (error) {
     console.error("failed to load card-data:", error);
   }

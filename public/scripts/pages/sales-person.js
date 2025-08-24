@@ -31,11 +31,23 @@ function loadSales(data) {
     selectorItem.classList.add("employee-selector__item", "js-selector-item");
     selectorItem.dataset.salesId = sales.id;
 
-    const itemImage = document.createElement("img");
-    itemImage.classList.add("employee-selector__image");
-    itemImage.src = sales.image;
-    itemImage.alt = sales.name;
-    selectorItem.appendChild(itemImage);
+    const pictureWrapper = document.createElement("div");
+    pictureWrapper.classList.add("employee-selector__image-wrapper");
+
+    if (sales.image) {
+      const itemImage = document.createElement("img");
+      itemImage.classList.add("employee-selector__image");
+      itemImage.src = sales.image;
+      itemImage.alt = sales.name;
+      pictureWrapper.appendChild(itemImage);
+    } else {
+      pictureWrapper.innerHTML = "";
+      const p = document.createElement("p");
+      p.classList.add("employee-selector__image");
+      p.textContent = generateInitials(sales.name);
+      pictureWrapper.appendChild(p);
+    }
+    selectorItem.appendChild(pictureWrapper);
 
     const itemName = document.createElement("p");
     itemName.classList.add("employee-selector__name");
