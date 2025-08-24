@@ -1,4 +1,5 @@
 import { showAddItemOverlay } from "./components/overlay/add-item.js";
+import { showSearchBar } from "./components/search.js";
 import { loadCustomerPage, loadCustomers } from "./pages/customers.js";
 import { loadItemPage, loadPurchasedItems } from "./pages/purchased-items.js";
 import {
@@ -18,9 +19,6 @@ function loadPage(page) {
     .then((data) => {
       window.scrollTo(0, 0);
       pageMain.innerHTML = data;
-      updateNavItem();
-      updateCustomersNavigation();
-      showAddItemOverlay();
 
       if (pageName === "home") {
         loadHomePage(pageName);
@@ -33,6 +31,11 @@ function loadPage(page) {
       if (pageName === "purchased-items") {
         loadItemPage(pageName, parseInt(parameter));
       }
+
+      updateNavItem();
+      updateCustomersNavigation();
+      showSearchBar();
+      showAddItemOverlay();
     });
 }
 
@@ -83,17 +86,17 @@ export function goBack() {
   }
 }
 
-function updateCustomersNavigation() {
-  const customersNavLink = document.querySelector('a[href="#customers"]');
+export function updateCustomersNavigation() {
+  document.querySelectorAll(".js-nav-customers").forEach((customersNavLink) => {
+    if (customersNavLink) {
+      customersNavLink.addEventListener("click", (e) => {
+        e.preventDefault();
 
-  if (customersNavLink) {
-    customersNavLink.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      const selectedSales = loadSelectedSales();
-      window.location.hash = `customers/${selectedSales}`;
-    });
-  }
+        const selectedSales = loadSelectedSales();
+        window.location.hash = `customers/${selectedSales}`;
+      });
+    }
+  });
 }
 
 export function reloadPage() {

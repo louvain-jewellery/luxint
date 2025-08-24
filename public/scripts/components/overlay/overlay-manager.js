@@ -5,8 +5,11 @@ export async function showOverlay(overlayName) {
     document.body.insertAdjacentHTML("beforeend", html);
 
     const overlay = document.querySelector(`.js-${overlayName}-overlay`);
+
     requestAnimationFrame(() => {
-      overlay.classList.add("show");
+      requestAnimationFrame(() => {
+        overlay.classList.add("show");
+      });
     });
     document.body.style.overflow = "hidden";
 

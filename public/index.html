@@ -104,16 +104,16 @@
           </a>
         </li>
         <li class="bottom-nav__item js-bottom-nav-item">
-          <a class="bottom-nav__link" href="#customers">
+          <a class="bottom-nav__link js-nav-customers" href="#customers">
             <img
               class="icon nav-icon"
               src="assets/icons/folder_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg"
             />
-            <p class="bottom-nav__name">Data</p>
+            <p class="bottom-nav__name">Pelanggan</p>
           </a>
         </li>
         <li class="bottom-nav__item">
-          <button class="bottom-nav__link js-add-button">
+          <button class="bottom-nav__link js-add-item-button">
             <img
               class="icon nav-icon"
               src="assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
@@ -122,6 +122,29 @@
           </button>
         </li>
       </ul>
+      <div class="bottom-nav__list bottom-nav__list--right js-search-button">
+        <img
+          class="icon nav-icon bottom-nav__search-icon js-search-icon"
+          src="assets/icons/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+        />
+      </div>
+
+      <div class="search-bar js-search-wrapper">
+        <input
+          class="search-bar__input js-search-input"
+          type="text"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          placeholder="Search"
+        />
+        <img
+          class="search-bar__icon icon"
+          src="assets/icons/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          alt=""
+        />
+      </div>
     </nav>
 
     <script src="sw-register.js"></script>

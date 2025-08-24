@@ -5,9 +5,9 @@ import { generateInitials } from "../utils/initials-generator.js";
 
 export async function loadCustomerPage(pageName, parameter) {
   try {
-    const response1 = await fetch("archives/data/customers.json");
-    const response2 = await fetch("archives/data/sales.json");
-    const response3 = await fetch("archives/data/purchased-items.json");
+    const response1 = await fetch("/api/customers");
+    const response2 = await fetch("/api/sales");
+    const response3 = await fetch("/api/items");
 
     const customersData = await response1.json();
     const salesData = await response2.json();

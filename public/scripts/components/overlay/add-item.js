@@ -3,10 +3,11 @@ import {
   loadSelectedSales,
   saveSelectedSales,
 } from "../../pages/sales-person.js";
+import { formatWithDots } from "../../utils/number.js";
 import { closeOverlay, showOverlay } from "./overlay-manager.js";
 
 export function showAddItemOverlay() {
-  const button = document.querySelector(".js-add-button");
+  const button = document.querySelector(".js-add-item-button");
 
   const newButton = button.cloneNode(true);
   button.parentNode.replaceChild(newButton, button);
@@ -27,34 +28,106 @@ export function showAddItemOverlay() {
   });
 }
 
-async function renderOverlay(overlay) {
+export function showEditItemOverlay(item) {
+  const button = document.querySelector(".js-edit-item-button");
+
+  const newButton = button.cloneNode(true);
+  button.parentNode.replaceChild(newButton, button);
+
+  newButton.addEventListener("click", async () => {
+    closeOverlay("purchased-item");
+    const overlay = await showOverlay("add-item");
+    renderOverlay(overlay, item);
+
+    overlay
+      .querySelector(".js-close-button")
+      .addEventListener("click", () => closeOverlay("add-item"));
+
+    overlay.addEventListener("click", (e) => {
+      if (!e.target.closest(".js-overlay-wrapper")) {
+        closeOverlay("add-item");
+      }
+    });
+  });
+}
+
+async function renderOverlay(overlay, item = null) {
   await loadSalesOption(overlay);
   await loadCustomerOption(overlay);
   setupImageInput(overlay);
+  const title = overlay.querySelector(".js-overlay-title");
   const form = overlay.querySelector("#addItemForm");
+  const submitButton = form.querySelector('button[type="submit"]');
+  const priceInput = form.querySelector("#itemPriceInput");
+
+  priceInput.addEventListener("input", function (e) {
+    const rawValue = e.target.value.replace(/\D/g, "");
+    if (rawValue) {
+      const numericValue = parseInt(rawValue);
+      e.target.value = formatWithDots(numericValue);
+    } else {
+      e.target.value = "";
+    }
+  });
+
+  if (item) {
+    title.textContent = "Edit Item";
+    submitButton.textContent = "Perbarui";
+    form.dataset.mode = "edit";
+    form.dataset.itemId = item.id;
+
+    document.querySelector('[name="customerId"]').value = item.customerId;
+    document.querySelector('[name="type"]').value = item.type;
+    document.querySelector('[name="itemName"]').value = item.itemName;
+    document.querySelector('[name="weight"]').value = item.weight;
+    document.querySelector('[name="date"]').value = item.date;
+    document.querySelector('[name="goldPurity"]').value = item.goldPurity;
+    document.querySelector('[name="sellingPrice"]').value = item.sellingPrice;
+    document.querySelector('[name="productImage"]').value = item.productImage;
+  } else {
+    title.textContent = "Item Baru";
+    submitButton.textContent = "Tambah";
+    form.dataset.mode = "add";
+    delete form.dataset.itemId;
+    form.reset();
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const formData = new FormData(this);
-    const submitButton = this.querySelector('button[type="submit"]');
+    const rawPrice = priceInput.value.replace(/\D/g, "");
+    priceInput.value = rawPrice || "0";
 
+    const formData = new FormData(this);
+    const isEditMode = form.dataset.mode === "edit";
+
+    if (isEditMode && form.dataset.itemId) {
+      formData.append("id", form.dataset.itemId);
+    }
+
+    const submitButton = this.querySelector('button[type="submit"]');
     submitButton.disabled = true;
-    submitButton.textContent = "Menambah...";
+    submitButton.textContent = isEditMode ? "Memperbarui..." : "Menambah...";
 
     fetch("/api/items", {
-      method: "POST",
+      method: isEditMode ? "PUT" : "POST",
       body: formData,
     })
       .then((response) => response.json())
       .then((result) => {
         if (result.success) {
-          alert("Barang berhasil ditambah!");
+          alert(
+            isEditMode
+              ? "Barang berhasil diperbarui!"
+              : "Barang berhasil ditambah!"
+          );
           this.reset();
           closeOverlay("add-item");
           reloadPage();
         } else {
-          alert("Gagal menambah barang");
+          alert(
+            isEditMode ? "Gagal memperbarui barang" : "Gagal menambah barang"
+          );
         }
       })
       .catch((error) => {
@@ -63,7 +136,9 @@ async function renderOverlay(overlay) {
       })
       .finally(() => {
         submitButton.disabled = false;
-        submitButton.textContent = "Tambah";
+        submitButton.textContent = isEditMode ? "Perbarui" : "Tambah";
+
+        priceInput.value = "";
       });
   });
 }

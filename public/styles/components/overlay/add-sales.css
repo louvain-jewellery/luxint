@@ -49,6 +49,11 @@
   display: none;
 }
 
+.overlay__label {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
 .overlay__input {
   padding: 10px 15px;
   font-size: 16px;

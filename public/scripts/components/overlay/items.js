@@ -1,4 +1,5 @@
 import { formatWithDots } from "../../utils/number.js";
+import { showEditItemOverlay } from "./add-item.js";
 import { closeOverlay, showOverlay } from "./overlay-manager.js";
 
 export function showPurchasedOverlay(itemsData) {
@@ -8,7 +9,7 @@ export function showPurchasedOverlay(itemsData) {
 
     newItem.addEventListener("click", async () => {
       const overlay = await showOverlay("purchased-item");
-      const itemId = parseInt(item.dataset.itemId);
+      const itemId = parseInt(newItem.dataset.itemId);
       renderOverlay(itemId, itemsData, overlay);
 
       overlay
@@ -22,6 +23,7 @@ export function showPurchasedOverlay(itemsData) {
 
 function renderOverlay(itemId, itemsData, overlay) {
   const item = itemsData.find((item) => item.id === parseInt(itemId));
+  showEditItemOverlay(item);
   overlay.querySelector(".js-item-name").textContent = item.itemName;
   overlay.querySelector(".js-item-image").src = item.productImage;
   overlay.querySelector(".js-item-image").alt = item.itemName;

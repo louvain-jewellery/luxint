@@ -1,5 +1,8 @@
+import { updateCustomersNavigation } from "../main.js";
 import { loadSelectedSales } from "../pages/sales-person.js";
 import { formatSalesId } from "../utils/format-id.js";
+import { showEditCustomerOverlay } from "./overlay/add-customer.js";
+import { showEditSalesOverlay } from "./overlay/add-sales.js";
 
 export function showCard() {
   const header = document.querySelector(".js-header");
@@ -57,7 +60,9 @@ export async function loadCardData() {
     const data = await response.json();
     const sales = data.find((sales) => sales.id === salesId);
 
-    renderSalesCard(sales);
+    await renderSalesCard(sales);
+    showEditSalesOverlay(sales);
+    updateCustomersNavigation();
     return;
   }
 
@@ -72,6 +77,7 @@ export async function loadCardData() {
     );
 
     renderCustomerCard(customer);
+    showEditCustomerOverlay(customer);
     return;
   }
 }
@@ -88,18 +94,26 @@ async function renderSalesCard(sales) {
 
     cardDetail.innerHTML = `
     <div class="card__detail">
-      <div class="card__row">
-        <p class="card__title">ID</p>
-        <p class="card__content">${formatSalesId(sales.id)}</p>
+      <div class="card__detail-wrapper">
+        <div class="card__row">
+          <p class="card__title">ID</p>
+          <p class="card__content">${formatSalesId(sales.id)}</p>
+        </div>
+        <div class="card__row">
+          <p class="card__title">Nama</p>
+          <p class="card__content">${sales.name}</p>
+        </div>
+        <div class="card__row">
+          <p class="card__title">Pelanggan</p>
+          <p class="card__content">${customers.length}
+          orang</p>
+        </div>
       </div>
-      <div class="card__row">
-        <p class="card__title">Nama</p>
-        <p class="card__content">${sales.name}</p>
-      </div>
-      <div class="card__row">
-        <p class="card__title">Pelanggan</p>
-        <p class="card__content">${customers.length}
-        orang</p>
+      <div class="card__row card__row--button">
+        <button class="btn card__button card__button--round js-edit-sales-button">
+          <img class="card__icon" src="assets/icons/input/edit_square_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+        </button>
+        <button class="btn card__button card__button--hidden js-nav-customers">Lihat Pelanggan</button>
       </div>
     </div>
     <div class="card__image-wrapper">
@@ -116,34 +130,39 @@ function renderCustomerCard(customer) {
   cardDetail.innerHTML = "";
   cardDetail.innerHTML = `
     <div class="card__detail">
-      <div class="card__row">
-        <p class="card__title">Nama</p>
-        <p class="card__content js-card-name">${customer.name}</p>
+      <div class="card__detail-wrapper">
+        <div class="card__row">
+          <p class="card__title">Nama</p>
+          <p class="card__content js-card-name">${customer.name}</p>
+        </div>
+        <div class="card__row">
+          <p class="card__title">Nomor Hp</p>
+          <p class="card__content">${customer.phone}</p>
+        </div>
+        <div class="card__row">
+          <p class="card__title">Ukuran Cincin</p>
+          <p class="card__content">${customer.ringSize}</p>
+        </div>
+        <div class="card__row">
+          <p class="card__title">Ukuran Gelang</p>
+          <p class="card__content">${customer.braceletSize}</p>
+        </div>
+        <div class="card__row">
+          <p class="card__title">Alamat</p>
+          <p class="card__content">${customer.address}</p>
+        </div>
+        <div class="card__row">
+          <p class="card__title">Pekerjaan</p>
+          <p class="card__content">${customer.job}</p>
+        </div>
+        <div class="card__row">
+          <p class="card__title">Selera Perhiasan</p>
+          <p class="card__content">${customer.favorite}</p>
+        </div>
       </div>
-      <div class="card__row">
-        <p class="card__title">Nomor Hp</p>
-        <p class="card__content">${customer.phone}</p>
-      </div>
-      <div class="card__row">
-        <p class="card__title">Ukuran Cincin</p>
-        <p class="card__content">${customer.ringSize}</p>
-      </div>
-      <div class="card__row">
-        <p class="card__title">Ukuran Gelang</p>
-        <p class="card__content">${customer.braceletSize}</p>
-      </div>
-      <div class="card__row">
-        <p class="card__title">Alamat</p>
-        <p class="card__content">${customer.address}</p>
-      </div>
-      <div class="card__row">
-        <p class="card__title">Pekerjaan</p>
-        <p class="card__content">${customer.job}</p>
-      </div>
-      <div class="card__row">
-        <p class="card__title">Selera Perhiasan</p>
-        <p class="card__content">${customer.favorite}</p>
-      </div>
+      <button class="btn card__button card__button--round js-edit-customer-button">
+          <img class="card__icon" src="assets/icons/input/edit_square_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg"
+      </button>
     </div>
   `;
 }

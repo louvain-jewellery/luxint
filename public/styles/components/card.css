@@ -126,20 +126,30 @@
 .card__detail {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   flex: 1;
 }
 
-.card--employee .card__detail {
-  gap: 15px;
+.card__detail-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
-.card--customer .card__detail {
+.card--employee .card__detail-wrapper {
+  gap: 10px;
+}
+
+.card--customer .card__detail-wrapper {
+  justify-content: space-between;
+  height: 100%;
   gap: 5px;
 }
 
 .card__row {
   display: flex;
   flex-direction: row;
+  gap: 10px;
 }
 
 .card__title,
@@ -164,12 +174,49 @@
 }
 
 .card__title {
-  width: 90px;
-  min-width: 90px;
+  width: 80px;
+  min-width: 80px;
 }
 
 .card--customer .card__title {
   width: 110px;
+}
+
+.card__button {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: rgb(50, 50, 50);
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  height: 30px;
+  padding: 0 15px;
+  backdrop-filter: blur(20px) saturate(150%);
+  z-index: 2;
+}
+
+.page-customers .card__button--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card__button--round {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  aspect-ratio: 1/1;
+  width: 30px;
+}
+
+.card--customer .card__button--round {
+  position: absolute;
+  right: 5%;
+  bottom: 7%;
+}
+
+.card__icon {
+  height: 16px;
+  opacity: 0.8;
 }
 
 .card__image-wrapper {

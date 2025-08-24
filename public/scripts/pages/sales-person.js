@@ -4,7 +4,7 @@ import { adjustBodyMargin, loadHeader } from "../ui/header.js";
 
 export async function loadHomePage(pageName) {
   try {
-    const response = await fetch("archives/data/sales.json");
+    const response = await fetch("/api/sales");
     const data = await response.json();
 
     loadHeader(pageName);
@@ -84,7 +84,7 @@ function loadAddSelector() {
   const selectorList = document.querySelector(".js-selector-list");
 
   const addItem = document.createElement("li");
-  addItem.classList.add("employee-selector__item--add", "js-selector-add");
+  addItem.classList.add("employee-selector__item--add", "js-add-sales-button");
 
   const itemImage = document.createElement("img");
   itemImage.classList.add("employee-selector__image--add", "icon");

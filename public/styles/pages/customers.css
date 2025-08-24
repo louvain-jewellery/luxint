@@ -1,15 +1,14 @@
 .customers {
   display: flex;
   flex-direction: column;
-  gap: 18px;
 }
 
 .customers__title {
-  min-height: 28px;
-  font-size: 28px;
+  font-size: 21px;
   line-height: 1;
-  padding: 0 15px;
-  width: fit-content;
+  padding: 5px 15px;
+  text-align: center;
+  width: 100%;
 }
 
 .customers__nav {

@@ -3,8 +3,8 @@ import { adjustBodyMargin, loadHeader } from "../ui/header.js";
 
 export async function loadItemPage(pageName, parameter) {
   try {
-    const response1 = await fetch("archives/data/purchased-items.json");
-    const response2 = await fetch("archives/data/customers.json");
+    const response1 = await fetch("/api/items");
+    const response2 = await fetch("/api/customers");
     const itemsData = await response1.json();
     const customersData = await response2.json();
 
@@ -61,4 +61,18 @@ export function loadPurchasedItems(customerId, itemsData, customersData) {
 
     itemList.appendChild(li);
   });
+
+  const urlParams = new URLSearchParams(window.location.hash.split("?")[1]);
+  const targetItemId = urlParams.get("item");
+
+  if (targetItemId) {
+    requestAnimationFrame(() => {
+      const targetEl = document.querySelector(
+        `[data-item-id="${targetItemId}"]`
+      );
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+  }
 }
