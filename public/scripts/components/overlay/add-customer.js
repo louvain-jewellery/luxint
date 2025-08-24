@@ -1,5 +1,4 @@
 import { reloadPage } from "../../main.js";
-import { loadCustomerPage, loadCustomers } from "../../pages/customers.js";
 import { loadSelectedSales } from "../../pages/sales-person.js";
 import { loadSalesOption } from "./add-item.js";
 import { closeOverlay, showOverlay } from "./overlay-manager.js";

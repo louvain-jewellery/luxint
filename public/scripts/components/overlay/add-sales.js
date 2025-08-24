@@ -1,5 +1,4 @@
 import { closeOverlay, showOverlay } from "./overlay-manager.js";
-import { loadHomePage, loadSales } from "../../pages/sales-person.js";
 import { reloadPage } from "../../main.js";
 
 export function showAddSalesOverlay() {

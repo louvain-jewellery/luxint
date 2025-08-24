@@ -21,7 +21,7 @@ export async function loadItemPage(pageName, parameter) {
   }
 }
 
-export function loadPurchasedItems(customerId, itemsData, customersData) {
+function loadPurchasedItems(customerId, itemsData, customersData) {
   const itemList = document.querySelector(".js-purchased-items-list");
 
   const newItemList = itemList.cloneNode(false);

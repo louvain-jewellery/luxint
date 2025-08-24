@@ -15,7 +15,7 @@ export async function loadHomePage(pageName) {
   }
 }
 
-export function loadSales(data) {
+function loadSales(data) {
   const savedSalesId = loadSelectedSales();
   const selectorList = document.querySelector(".js-selector-list");
   selectorList.innerHTML = "";

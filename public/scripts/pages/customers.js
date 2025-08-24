@@ -23,8 +23,7 @@ export async function loadCustomerPage(pageName, parameter) {
     console.error("failed to load customer page", error);
   }
 }
-
-export function loadCustomers(salesId, customersData, itemsData) {
+function loadCustomers(salesId, customersData, itemsData) {
   const customerList = document.querySelector(".js-customers-list");
   customerList.innerHTML = "";
 
