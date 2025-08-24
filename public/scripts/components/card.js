@@ -56,7 +56,7 @@ export async function loadCardData() {
     card.classList.remove("card--customer");
     card.classList.add("card--employee");
 
-    const response = await fetch("archives/data/sales.json");
+    const response = await fetch("/api/sales");
     const data = await response.json();
     const sales = data.find((sales) => sales.id === salesId);
 
@@ -70,7 +70,7 @@ export async function loadCardData() {
     card.classList.remove("card--employee");
     card.classList.add("card--customer");
 
-    const response = await fetch("archives/data/customers.json");
+    const response = await fetch("/api/customers");
     const data = await response.json();
     const customer = data.find(
       (customer) => customer.id === parseInt(parameter)
@@ -86,7 +86,7 @@ async function renderSalesCard(sales) {
   const cardDetail = document.querySelector(".js-card-detail");
   cardDetail.innerHTML = "";
   try {
-    const response = await fetch("archives/data/customers.json");
+    const response = await fetch("/api/customers");
     const customersData = await response.json();
     const customers = customersData.filter(
       (customer) => customer.salesId === sales.id
