@@ -99,10 +99,14 @@ function loadAddSelector() {
   addItem.classList.add("employee-selector__item--add", "js-add-sales-button");
 
   const itemImage = document.createElement("img");
-  itemImage.classList.add("employee-selector__image--add", "icon");
+  itemImage.classList.add("employee-selector__image", "icon");
   itemImage.src =
     "assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
-  addItem.appendChild(itemImage);
+
+  const imageWrapper = document.createElement("div");
+  imageWrapper.classList.add("employee-selector__image-wrapper");
+  imageWrapper.appendChild(itemImage);
+  addItem.appendChild(imageWrapper);
 
   const itemName = document.createElement("p");
   itemName.classList.add("employee-selector__name");
