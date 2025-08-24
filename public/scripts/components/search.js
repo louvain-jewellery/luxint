@@ -78,7 +78,7 @@ export function showSearchBar() {
         "assets/icons/arrow_back_ios_new_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg";
       buttonIcon.style.transform = "rotate(270deg)";
       setTimeout(() => {
-        searchInput.focus();
+        searchInput.focus({ preventScroll: true });
       }, 400);
 
       // Load data when search opens
