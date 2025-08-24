@@ -116,7 +116,7 @@ async function renderSalesCard(sales) {
         <button class="btn card__button card__button--hidden js-nav-customers">Lihat Pelanggan</button>
       </div>
     </div>
-    <div class="card__image-wrapper .js-image-wrapper"></div>
+    <div class="card__image-wrapper js-image-wrapper"></div>
   `;
 
     const pictureWrapper = cardDetail.querySelector(".js-image-wrapper");
