@@ -99,7 +99,11 @@ function loadAddSelector() {
   addItem.classList.add("employee-selector__item--add", "js-add-sales-button");
 
   const itemImage = document.createElement("img");
-  itemImage.classList.add("employee-selector__image", "icon");
+  itemImage.classList.add(
+    "employee-selector__image",
+    "employee-selector__image--add",
+    "icon"
+  );
   itemImage.src =
     "assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
 
