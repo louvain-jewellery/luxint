@@ -100,19 +100,18 @@ export function updateCustomersNavigation() {
 }
 
 export function reloadPage() {
-  const salesId = loadSelectedSales();
   const hash = window.location.hash.slice(1);
   const [pageName, parameter] = hash.split("/");
   if (pageName === "home") {
-    loadSales();
+    loadHomePage(pageName);
   }
 
   if (pageName === "customers") {
-    loadCustomers(salesId);
+    loadCustomerPage(pageName, parseInt(parameter));
   }
 
   if (pageName === "purchased-items") {
-    loadPurchasedItems(parameter);
+    loadItemPage(pageName, parseInt(parameter));
   }
 }
 

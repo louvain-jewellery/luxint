@@ -1,5 +1,6 @@
 import { closeOverlay, showOverlay } from "./overlay-manager.js";
-import { loadSales } from "../../pages/sales-person.js";
+import { loadHomePage, loadSales } from "../../pages/sales-person.js";
+import { reloadPage } from "../../main.js";
 
 export function showAddSalesOverlay() {
   const button = document.querySelector(".js-add-sales-button");
@@ -123,7 +124,7 @@ function renderOverlay(overlay, sales = null) {
           );
           this.reset();
           closeOverlay("add-sales");
-          loadSales();
+          reloadPage();
         } else {
           alert(
             isEditMode ? "Gagal memperbarui sales" : "Gagal menambah sales"
