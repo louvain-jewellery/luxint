@@ -6,11 +6,8 @@ export async function showOverlay(overlayName) {
 
     const overlay = document.querySelector(`.js-${overlayName}-overlay`);
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        overlay.classList.add("show");
-      });
-    });
+    setTimeout(() => overlay.classList.add("show"), 300);
+
     document.body.style.overflow = "hidden";
 
     overlay.dataset.originalState = JSON.stringify(history.state);
