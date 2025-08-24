@@ -3,12 +3,12 @@ import { loadCardData } from "../components/card.js";
 import { adjustBodyMargin, loadHeader } from "../ui/header.js";
 
 export async function loadHomePage(pageName) {
+  loadHeader(pageName);
+  adjustBodyMargin();
   try {
     const response = await fetch("/api/sales");
     const data = await response.json();
 
-    loadHeader(pageName);
-    adjustBodyMargin();
     loadSales(data);
   } catch (error) {
     console.error("failed to load home-page:", error);
