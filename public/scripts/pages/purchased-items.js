@@ -23,17 +23,25 @@ export async function loadItemPage(pageName, parameter) {
 
 export function loadPurchasedItems(customerId, itemsData, customersData) {
   const itemList = document.querySelector(".js-purchased-items-list");
-  itemList.innerHTML = "";
-  const customer = customersData.find((customer) => customer.id === customerId);
 
-  const items = itemsData.filter((items) => items.customerId === customerId);
+  const newItemList = itemList.cloneNode(false);
+  itemList.parentNode.replaceChild(newItemList, itemList);
+
+  newItemList.innerHTML = "";
+  const customer = customersData.find(
+    (customer) => customer.id === parseInt(customerId)
+  );
+
+  const items = itemsData.filter(
+    (items) => items.customerId === parseInt(customerId)
+  );
   if (items.length === 0) {
-    itemList.innerHTML = "";
+    newItemList.innerHTML = "";
     const p = document.createElement("p");
     p.classList.add("customers__warning", "warning");
     p.textContent = "Tidak ada barang";
 
-    itemList.appendChild(p);
+    newItemList.appendChild(p);
     return;
   }
 
@@ -50,6 +58,7 @@ export function loadPurchasedItems(customerId, itemsData, customersData) {
               <img
                 class="purchased-items__icon"
                 src="${item.productImage}"
+                alt="${item.itemName}"
               />
             </div>
             <div class="purchased-items__text">
@@ -59,7 +68,7 @@ export function loadPurchasedItems(customerId, itemsData, customersData) {
           </button>
         `;
 
-    itemList.appendChild(li);
+    newItemList.appendChild(li);
   });
 
   const urlParams = new URLSearchParams(window.location.hash.split("?")[1]);

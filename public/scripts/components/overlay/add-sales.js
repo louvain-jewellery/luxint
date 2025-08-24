@@ -48,60 +48,69 @@ function renderOverlay(overlay, sales = null) {
   const title = overlay.querySelector(".js-overlay-title");
   const submitButton = form.querySelector('button[type="submit"]');
 
-  profile.addEventListener("click", () => profileInput.click());
+  const newForm = form.cloneNode(true);
+  form.parentNode.replaceChild(newForm, form);
 
-  profileInput.addEventListener("change", (event) => {
+  const newProfileInput = newForm.querySelector("#salesProfileInput");
+  const newProfile = newForm.querySelector(".js-overlay-profile");
+  const newTitle = overlay.querySelector(".js-overlay-title");
+  const newSubmitButton = newForm.querySelector('button[type="submit"]');
+
+  newProfile.addEventListener("click", () => newProfileInput.click());
+
+  newProfileInput.addEventListener("change", (event) => {
     const image = event.target.files[0];
     if (image) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        profile.src = e.target.result;
-        profile.style.padding = "0";
-        profile.style.filter = "invert(0)";
+        newProfile.src = e.target.result;
+        newProfile.style.padding = "0";
+        newProfile.style.filter = "invert(0)";
       };
       reader.readAsDataURL(image);
     }
   });
 
   if (sales) {
-    title.textContent = "Edit Sales";
-    submitButton.textContent = "Perbarui";
-    form.dataset.mode = "edit";
-    form.dataset.salesId = sales.id;
+    newTitle.textContent = "Edit Sales";
+    newSubmitButton.textContent = "Perbarui";
+    newForm.dataset.mode = "edit";
+    newForm.dataset.salesId = sales.id;
 
-    form.querySelector('[name="name"]').value = sales.name || "";
+    newForm.querySelector('[name="name"]').value = sales.name || "";
 
     if (sales.image) {
-      profile.src = sales.image;
-      profile.style.padding = "0";
-      profile.style.filter = "invert(0)";
+      newProfile.src = sales.image;
+      newProfile.style.padding = "0";
+      newProfile.style.filter = "invert(0)";
     } else {
-      profile.src =
+      newProfile.src =
         "assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
-      profile.style.padding = "15px";
-      profile.style.filter = "invert(1)";
+      newProfile.style.padding = "15px";
+      newProfile.style.filter = "invert(1)";
     }
   } else {
-    title.textContent = "Tambah Sales";
-    submitButton.textContent = "Tambah";
-    form.dataset.mode = "add";
-    delete form.dataset.salesId;
-    form.reset();
+    newTitle.textContent = "Tambah Sales";
+    newSubmitButton.textContent = "Tambah";
+    newForm.dataset.mode = "add";
+    delete newForm.dataset.salesId;
+    newForm.reset();
 
-    profile.src =
+    newProfile.src =
       "assets/icons/add_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
-    profile.style.padding = "15px";
-    profile.style.filter = "invert(1)";
+    newProfile.style.padding = "15px";
+    newProfile.style.filter = "invert(1)";
   }
 
-  form.addEventListener("submit", function (e) {
+  // Add submit listener ONCE to the new form
+  newForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const formData = new FormData(this);
-    const isEditMode = form.dataset.mode === "edit";
+    const isEditMode = newForm.dataset.mode === "edit";
 
-    if (isEditMode && form.dataset.salesId) {
-      formData.append("id", form.dataset.salesId);
+    if (isEditMode && newForm.dataset.salesId) {
+      formData.append("id", newForm.dataset.salesId);
     }
 
     const submitButton = this.querySelector('button[type="submit"]');

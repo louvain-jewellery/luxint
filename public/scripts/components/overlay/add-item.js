@@ -55,12 +55,20 @@ async function renderOverlay(overlay, item = null) {
   await loadSalesOption(overlay);
   await loadCustomerOption(overlay);
   setupImageInput(overlay);
+
   const title = overlay.querySelector(".js-overlay-title");
   const form = overlay.querySelector("#addItemForm");
   const submitButton = form.querySelector('button[type="submit"]');
   const priceInput = form.querySelector("#itemPriceInput");
 
-  priceInput.addEventListener("input", function (e) {
+  const newForm = form.cloneNode(true);
+  form.parentNode.replaceChild(newForm, form);
+
+  const newTitle = overlay.querySelector(".js-overlay-title");
+  const newSubmitButton = newForm.querySelector('button[type="submit"]');
+  const newPriceInput = newForm.querySelector("#itemPriceInput");
+
+  newPriceInput.addEventListener("input", function (e) {
     const rawValue = e.target.value.replace(/\D/g, "");
     if (rawValue) {
       const numericValue = parseInt(rawValue);
@@ -71,38 +79,39 @@ async function renderOverlay(overlay, item = null) {
   });
 
   if (item) {
-    title.textContent = "Edit Item";
-    submitButton.textContent = "Perbarui";
-    form.dataset.mode = "edit";
-    form.dataset.itemId = item.id;
+    newTitle.textContent = "Edit Item";
+    newSubmitButton.textContent = "Perbarui";
+    newForm.dataset.mode = "edit";
+    newForm.dataset.itemId = item.id;
 
-    document.querySelector('[name="customerId"]').value = item.customerId;
-    document.querySelector('[name="type"]').value = item.type;
-    document.querySelector('[name="itemName"]').value = item.itemName;
-    document.querySelector('[name="weight"]').value = item.weight;
-    document.querySelector('[name="date"]').value = item.date;
-    document.querySelector('[name="goldPurity"]').value = item.goldPurity;
-    document.querySelector('[name="sellingPrice"]').value = item.sellingPrice;
-    document.querySelector('[name="productImage"]').value = item.productImage;
+    newForm.querySelector('[name="customerId"]').value = item.customerId;
+    newForm.querySelector('[name="type"]').value = item.type;
+    newForm.querySelector('[name="itemName"]').value = item.itemName;
+    newForm.querySelector('[name="weight"]').value = item.weight;
+    newForm.querySelector('[name="date"]').value = item.date;
+    newForm.querySelector('[name="goldPurity"]').value = item.goldPurity;
+    newForm.querySelector('[name="sellingPrice"]').value = item.sellingPrice;
+    newForm.querySelector('[name="productImage"]').value = item.productImage;
   } else {
-    title.textContent = "Item Baru";
-    submitButton.textContent = "Tambah";
-    form.dataset.mode = "add";
-    delete form.dataset.itemId;
-    form.reset();
+    newTitle.textContent = "Item Baru";
+    newSubmitButton.textContent = "Tambah";
+    newForm.dataset.mode = "add";
+    delete newForm.dataset.itemId;
+    newForm.reset();
   }
 
-  form.addEventListener("submit", function (e) {
+  newForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const rawPrice = priceInput.value.replace(/\D/g, "");
-    priceInput.value = rawPrice || "0";
+    const currentPriceInput = this.querySelector("#itemPriceInput");
+    const rawPrice = currentPriceInput.value.replace(/\D/g, "");
+    currentPriceInput.value = rawPrice || "0";
 
     const formData = new FormData(this);
-    const isEditMode = form.dataset.mode === "edit";
+    const isEditMode = newForm.dataset.mode === "edit";
 
-    if (isEditMode && form.dataset.itemId) {
-      formData.append("id", form.dataset.itemId);
+    if (isEditMode && newForm.dataset.itemId) {
+      formData.append("id", newForm.dataset.itemId);
     }
 
     const submitButton = this.querySelector('button[type="submit"]');
@@ -138,7 +147,7 @@ async function renderOverlay(overlay, item = null) {
         submitButton.disabled = false;
         submitButton.textContent = isEditMode ? "Perbarui" : "Tambah";
 
-        priceInput.value = "";
+        currentPriceInput.value = "";
       });
   });
 }
@@ -180,12 +189,16 @@ async function loadCustomerOption(overlay) {
 export async function loadSalesOption(overlay) {
   const salesId = loadSelectedSales();
   const salesSelect = overlay.querySelector(".js-overlay-sales-select");
-  salesSelect.innerHTML = "";
+
+  const newSalesSelect = salesSelect.cloneNode(true);
+  salesSelect.parentNode.replaceChild(newSalesSelect, salesSelect);
+
+  newSalesSelect.innerHTML = "";
   const option = document.createElement("option");
   option.selected = true;
   option.disabled = true;
   option.textContent = "Sales";
-  salesSelect.appendChild(option);
+  newSalesSelect.appendChild(option);
 
   try {
     const response = await fetch("/api/sales");
@@ -196,17 +209,17 @@ export async function loadSalesOption(overlay) {
       option.value = sales.id;
       option.textContent = sales.name;
 
-      salesSelect.appendChild(option);
+      newSalesSelect.appendChild(option);
     });
   } catch (error) {
     console.error("failed to load sales options:", error);
   }
 
   if (salesId) {
-    salesSelect.value = salesId.toString();
+    newSalesSelect.value = salesId.toString();
   }
 
-  salesSelect.addEventListener("change", function () {
+  newSalesSelect.addEventListener("change", function () {
     const salesId = parseInt(this.value);
     saveSelectedSales(salesId);
     loadCustomerOption(overlay);
@@ -217,15 +230,25 @@ export async function loadSalesOption(overlay) {
 function setupImageInput(overlay) {
   const imageInput = overlay.querySelector(".js-item-image-input");
   const imageInputButton = overlay.querySelector(".js-image-input-button");
-  imageInputButton.addEventListener("click", () => imageInput.click());
-  imageInput.addEventListener("change", (event) => {
+
+  const newImageInputButton = imageInputButton.cloneNode(true);
+  imageInputButton.parentNode.replaceChild(
+    newImageInputButton,
+    imageInputButton
+  );
+
+  const newImageInput = imageInput.cloneNode(true);
+  imageInput.parentNode.replaceChild(newImageInput, imageInput);
+
+  newImageInputButton.addEventListener("click", () => newImageInput.click());
+  newImageInput.addEventListener("change", (event) => {
     const image = event.target.files[0];
     if (image) {
       const imageName = image.name;
       if (imageName.length > 15) {
-        imageInputButton.textContent = imageName.slice(0, 15) + "...";
+        newImageInputButton.textContent = imageName.slice(0, 15) + "...";
       } else {
-        imageInputButton.textContent = imageName;
+        newImageInputButton.textContent = imageName;
       }
     }
   });
